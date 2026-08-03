@@ -1,0 +1,137 @@
+{
+  "Codx.Temple.slnx": {
+    "mtime": 1785624506.553436,
+    "ast_hash": "8fc7da9844ea7e42796d74601469fad1",
+    "semantic_hash": "8fc7da9844ea7e42796d74601469fad1"
+  },
+  "src/Codx.Temple.API/Codx.Temple.API.csproj": {
+    "mtime": 1785624572.7800343,
+    "ast_hash": "72e8ce057c61cb39c87aef314b10853c",
+    "semantic_hash": "72e8ce057c61cb39c87aef314b10853c"
+  },
+  "src/Codx.Temple.API/Program.cs": {
+    "mtime": 1785670784.6755302,
+    "ast_hash": "416ef51b81287e64e4841d5f6bfed0cd",
+    "semantic_hash": "416ef51b81287e64e4841d5f6bfed0cd"
+  },
+  "src/Codx.Temple.API/Properties/launchSettings.json": {
+    "mtime": 1785624464.3439941,
+    "ast_hash": "c77b4e85a986427b1caa990e484c04df",
+    "semantic_hash": "c77b4e85a986427b1caa990e484c04df"
+  },
+  "src/Codx.Temple.API/appsettings.Development.json": {
+    "mtime": 1785624464.3629947,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": "804b473502a4c415cf75db61c56c32aa"
+  },
+  "src/Codx.Temple.API/appsettings.json": {
+    "mtime": 1785624464.3811772,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": "f7e65dde4e5533740a0d57ac9355c0e8"
+  },
+  "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs": {
+    "mtime": 1785671262.7585025,
+    "ast_hash": "690c22c9dd358a67ed169cefe06d2d75",
+    "semantic_hash": "690c22c9dd358a67ed169cefe06d2d75"
+  },
+  "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs": {
+    "mtime": 1785671263.744663,
+    "ast_hash": "9ce7fbb95bb44c53bee7cc18b75342fc",
+    "semantic_hash": "9ce7fbb95bb44c53bee7cc18b75342fc"
+  },
+  "src/Codx.Temple.Application/ApplicationExtensions.cs": {
+    "mtime": 1785671261.4532087,
+    "ast_hash": "a63d8334769c8cb8cff2254a2ba21d6e",
+    "semantic_hash": "a63d8334769c8cb8cff2254a2ba21d6e"
+  },
+  "src/Codx.Temple.Application/Codx.Temple.Application.csproj": {
+    "mtime": 1785624528.614331,
+    "ast_hash": "f14af73cefccb7e82366c0478cc81863",
+    "semantic_hash": "f14af73cefccb7e82366c0478cc81863"
+  },
+  "src/Codx.Temple.Application/DTOs/Auth/CallerContextDto.cs": {
+    "mtime": 1785671268.282812,
+    "ast_hash": "4c4f9c6e051d58eb092af7eb54934f6b",
+    "semantic_hash": "4c4f9c6e051d58eb092af7eb54934f6b"
+  },
+  "src/Codx.Temple.Application/Exceptions/ConflictException.cs": {
+    "mtime": 1785671265.9143105,
+    "ast_hash": "7875cec99f67aa5f304fe6e60807aab4",
+    "semantic_hash": "7875cec99f67aa5f304fe6e60807aab4"
+  },
+  "src/Codx.Temple.Application/Exceptions/ForbiddenException.cs": {
+    "mtime": 1785671266.907128,
+    "ast_hash": "9a6095dfb3229bdb096dae53eb42167a",
+    "semantic_hash": "9a6095dfb3229bdb096dae53eb42167a"
+  },
+  "src/Codx.Temple.Application/Exceptions/NotFoundException.cs": {
+    "mtime": 1785671264.9771738,
+    "ast_hash": "a94e3f37f7f6ec0e76108d33590a5c01",
+    "semantic_hash": "a94e3f37f7f6ec0e76108d33590a5c01"
+  },
+  "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs": {
+    "mtime": 1785671269.44696,
+    "ast_hash": "4d953e61f949a98cdc34481838e26407",
+    "semantic_hash": "4d953e61f949a98cdc34481838e26407"
+  },
+  "src/Codx.Temple.Domain/Codx.Temple.Domain.csproj": {
+    "mtime": 1785624462.8591323,
+    "ast_hash": "46b0780bd56312ea2d1bab391f179e89",
+    "semantic_hash": "46b0780bd56312ea2d1bab391f179e89"
+  },
+  "src/Codx.Temple.Domain/Entities/RoleAssignment.cs": {
+    "mtime": 1785671247.496796,
+    "ast_hash": "1456f9bcda8e08acc77173121355aade",
+    "semantic_hash": "1456f9bcda8e08acc77173121355aade"
+  },
+  "src/Codx.Temple.Domain/Entities/User.cs": {
+    "mtime": 1785671245.5433347,
+    "ast_hash": "032cc4f3ebcdfe386699985bc07513e0",
+    "semantic_hash": "032cc4f3ebcdfe386699985bc07513e0"
+  },
+  "src/Codx.Temple.Domain/Enums/TeacherAssignmentStatus.cs": {
+    "mtime": 1785671239.4137502,
+    "ast_hash": "fa9e7af0ad44138313c87711da9c7664",
+    "semantic_hash": "fa9e7af0ad44138313c87711da9c7664"
+  },
+  "src/Codx.Temple.Domain/Enums/UserRole.cs": {
+    "mtime": 1785671237.5085578,
+    "ast_hash": "26e3f4cfde889e9b56e62f29afc5e833",
+    "semantic_hash": "26e3f4cfde889e9b56e62f29afc5e833"
+  },
+  "src/Codx.Temple.Domain/Enums/UserStatus.cs": {
+    "mtime": 1785671238.4031112,
+    "ast_hash": "54e71a69ba1c76d3b4e672310053d772",
+    "semantic_hash": "54e71a69ba1c76d3b4e672310053d772"
+  },
+  "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs": {
+    "mtime": 1785671240.419953,
+    "ast_hash": "64aba3d283f0008164cbd677777e7ede",
+    "semantic_hash": "64aba3d283f0008164cbd677777e7ede"
+  },
+  "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj": {
+    "mtime": 1785624545.0070179,
+    "ast_hash": "fd546fc86f084d0b68c01aca8c9998e7",
+    "semantic_hash": "fd546fc86f084d0b68c01aca8c9998e7"
+  },
+  "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj": {
+    "mtime": 1785624589.7990558,
+    "ast_hash": "5d464594bd3b075b256810e0932b0c9e",
+    "semantic_hash": "5d464594bd3b075b256810e0932b0c9e"
+  },
+  "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj": {
+    "mtime": 1785624579.590469,
+    "ast_hash": "2155d9063d2ffd58624e3875aa1eb896",
+    "semantic_hash": "2155d9063d2ffd58624e3875aa1eb896"
+  },
+  "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj": {
+    "mtime": 1785624573.4274297,
+    "ast_hash": "0af5405db73f2783912eccd22823f949",
+    "semantic_hash": "0af5405db73f2783912eccd22823f949"
+  },
+  "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj": {
+    "mtime": 1785624572.8385434,
+    "ast_hash": "e34b59f872bdab4919ecf26960e80f4e",
+    "semantic_hash": "e34b59f872bdab4919ecf26960e80f4e"
+  }
+}

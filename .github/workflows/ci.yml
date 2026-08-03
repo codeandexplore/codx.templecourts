@@ -1,0 +1,115 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    paths:
+      - "projects/codx.temple-api/**"
+      - "projects/codx.temple-ui/**"
+      - "projects/codx.temple-e2e/**"
+      - "Directory.Build.props"
+      - "docker-compose.yml"
+      - ".github/workflows/ci.yml"
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      api: ${{ steps.filter.outputs.api }}
+      ui: ${{ steps.filter.outputs.ui }}
+      e2e: ${{ steps.filter.outputs.e2e }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            api:
+              - "projects/codx.temple-api/**"
+              - "Directory.Build.props"
+              - "docker-compose.yml"
+              - ".github/workflows/ci.yml"
+            ui:
+              - "projects/codx.temple-ui/**"
+              - ".github/workflows/ci.yml"
+            e2e:
+              - "projects/codx.temple-e2e/**"
+              - "projects/codx.temple-api/**"
+              - "projects/codx.temple-ui/**"
+              - ".github/workflows/ci.yml"
+
+  api:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.api == 'true' || github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/codx.temple-api
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: templecourts
+          POSTGRES_PASSWORD: templecourts_ci
+          POSTGRES_DB: templecourts_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - run: dotnet restore
+      - run: dotnet build --no-restore
+      - run: dotnet test --no-build --verbosity normal
+        env:
+          ConnectionStrings__DefaultConnection: "Host=localhost;Port=5432;Database=templecourts_test;Username=templecourts;Password=templecourts_ci"
+          OTEL_EXPORTER_OTLP_ENDPOINT: ""
+
+  ui:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.ui == 'true' || github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/codx.temple-ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: projects/codx.temple-ui/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm type-check
+      - run: pnpm test -- --coverage
+
+  e2e:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.e2e == 'true' || github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/codx.temple-e2e
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: projects/codx.temple-e2e/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: npx playwright install --with-deps chromium
+      - run: pnpm test
+        env:
+          CI: "true"

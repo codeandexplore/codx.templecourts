@@ -1,0 +1,343 @@
+{
+  "communities": {
+    "0": [
+      "ref_dom",
+      "ref_src",
+      "ref_vite_client",
+      "tsconfig_app",
+      "tsconfig_app_compileroptions",
+      "tsconfig_app_compileroptions_allowarbitraryextensions",
+      "tsconfig_app_compileroptions_allowimportingtsextensions",
+      "tsconfig_app_compileroptions_erasablesyntaxonly",
+      "tsconfig_app_compileroptions_jsx",
+      "tsconfig_app_compileroptions_lib",
+      "tsconfig_app_compileroptions_module",
+      "tsconfig_app_compileroptions_moduledetection",
+      "tsconfig_app_compileroptions_moduleresolution",
+      "tsconfig_app_compileroptions_noemit",
+      "tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_app_compileroptions_nounusedlocals",
+      "tsconfig_app_compileroptions_nounusedparameters",
+      "tsconfig_app_compileroptions_skiplibcheck",
+      "tsconfig_app_compileroptions_target",
+      "tsconfig_app_compileroptions_tsbuildinfofile",
+      "tsconfig_app_compileroptions_types",
+      "tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "tsconfig_app_include",
+      "tsconfig_app_json_ref_es2023"
+    ],
+    "1": [
+      "ref_node",
+      "ref_vite_config_ts",
+      "tsconfig_node",
+      "tsconfig_node_compileroptions",
+      "tsconfig_node_compileroptions_allowimportingtsextensions",
+      "tsconfig_node_compileroptions_erasablesyntaxonly",
+      "tsconfig_node_compileroptions_lib",
+      "tsconfig_node_compileroptions_module",
+      "tsconfig_node_compileroptions_moduledetection",
+      "tsconfig_node_compileroptions_noemit",
+      "tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_node_compileroptions_nounusedlocals",
+      "tsconfig_node_compileroptions_nounusedparameters",
+      "tsconfig_node_compileroptions_skiplibcheck",
+      "tsconfig_node_compileroptions_target",
+      "tsconfig_node_compileroptions_tsbuildinfofile",
+      "tsconfig_node_compileroptions_types",
+      "tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "tsconfig_node_include",
+      "tsconfig_node_json_ref_es2023"
+    ],
+    "2": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_name",
+      "package_private",
+      "package_type",
+      "package_version",
+      "react",
+      "react_dom"
+    ],
+    "3": [
+      "oxlintrc",
+      "oxlintrc_plugins",
+      "oxlintrc_rules",
+      "oxlintrc_rules_react_only_export_components",
+      "oxlintrc_rules_react_rules_of_hooks",
+      "oxlintrc_schema",
+      "ref_oxc",
+      "ref_typescript",
+      "ref_warn"
+    ],
+    "4": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_scripts_test",
+      "package_scripts_test_coverage",
+      "package_scripts_test_watch",
+      "package_scripts_type_check"
+    ],
+    "5": [
+      "ref_react",
+      "src_app",
+      "src_app_app",
+      "src_app_router",
+      "src_layouts_applayout",
+      "src_layouts_applayout_applayout",
+      "src_main",
+      "src_pages_homepage",
+      "src_pages_homepage_homepage"
+    ],
+    "6": [
+      "eslint_js",
+      "eslint_plugin_react_hooks",
+      "package_devdependencies",
+      "package_devdependencies_eslint_js",
+      "package_devdependencies_eslint_plugin_react_hooks",
+      "package_devdependencies_testing_library_jest_dom",
+      "testing_library_jest_dom"
+    ],
+    "7": [
+      "tsconfig",
+      "tsconfig_files",
+      "tsconfig_references"
+    ],
+    "8": [
+      "autoprefixer",
+      "package_devdependencies_autoprefixer"
+    ],
+    "9": [
+      "eslint",
+      "package_devdependencies_eslint"
+    ],
+    "10": [
+      "package_devdependencies_types_react",
+      "types_react"
+    ],
+    "11": [
+      "eslint_plugin_react_refresh",
+      "package_devdependencies_eslint_plugin_react_refresh"
+    ],
+    "12": [
+      "globals",
+      "package_devdependencies_globals"
+    ],
+    "13": [
+      "jsdom",
+      "package_devdependencies_jsdom"
+    ],
+    "14": [
+      "msw",
+      "package_devdependencies_msw"
+    ],
+    "15": [
+      "oxlint",
+      "package_devdependencies_oxlint"
+    ],
+    "16": [
+      "package_devdependencies_postcss",
+      "postcss"
+    ],
+    "17": [
+      "package_devdependencies_tailwindcss",
+      "tailwindcss"
+    ],
+    "18": [
+      "package_devdependencies_tailwindcss_postcss",
+      "tailwindcss_postcss"
+    ],
+    "19": [
+      "package_devdependencies_testing_library_react",
+      "testing_library_react"
+    ],
+    "20": [
+      "package_devdependencies_testing_library_user_event",
+      "testing_library_user_event"
+    ],
+    "21": [
+      "package_devdependencies_types_node",
+      "types_node"
+    ],
+    "22": [
+      "package_devdependencies_types_react_dom",
+      "types_react_dom"
+    ],
+    "23": [
+      "package_devdependencies_typescript",
+      "typescript"
+    ],
+    "24": [
+      "package_devdependencies_typescript_eslint",
+      "typescript_eslint"
+    ],
+    "25": [
+      "package_devdependencies_vite",
+      "vite"
+    ],
+    "26": [
+      "package_devdependencies_vitejs_plugin_react",
+      "vitejs_plugin_react"
+    ],
+    "27": [
+      "package_devdependencies_vitest",
+      "vitest"
+    ],
+    "28": [
+      "package_devdependencies_vitest_coverage_v8",
+      "vitest_coverage_v8"
+    ],
+    "29": [
+      "pnpmfile",
+      "pnpmfile_readpackage"
+    ],
+    "30": [
+      "eslint_config"
+    ],
+    "31": [
+      "postcss_config"
+    ],
+    "32": [
+      "tests_setup"
+    ],
+    "33": [
+      "vite_config"
+    ],
+    "34": [
+      "vitest_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08333333333333333,
+    "1": 0.1,
+    "2": 0.2,
+    "3": 0.2222222222222222,
+    "4": 0.2222222222222222,
+    "5": 0.3055555555555556,
+    "6": 0.2857142857142857,
+    "7": 0.6666666666666666,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_app_compileroptions",
+      "label": "compilerOptions",
+      "degree": 18
+    },
+    {
+      "id": "tsconfig_node_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 9
+    },
+    {
+      "id": "oxlintrc_plugins",
+      "label": "plugins",
+      "degree": 4
+    },
+    {
+      "id": "oxlintrc_rules",
+      "label": "rules",
+      "degree": 3
+    },
+    {
+      "id": "tsconfig_app_compileroptions_lib",
+      "label": "lib",
+      "degree": 3
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 2
+    },
+    {
+      "id": "oxlintrc_rules_react_only_export_components",
+      "label": "react/only-export-components",
+      "degree": 2
+    },
+    {
+      "id": "package_dependencies_react",
+      "label": "react",
+      "degree": 2
+    },
+    {
+      "id": "package_dependencies_react_dom",
+      "label": "react-dom",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "plugins",
+      "target": "react",
+      "source_files": [
+        ".oxlintrc.json",
+        ".oxlintrc.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "extends",
+      "note": "Bridges community 3 → community 5"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`, `autoprefixer`, `eslint`, `@types/react`, `eslint-plugin-react-refresh`, `globals`, `jsdom`, `msw`, `oxlint`, `postcss`, `tailwindcss`, `@tailwindcss/postcss`, `@testing-library/react`, `@testing-library/user-event`, `@types/node`, `@types/react-dom`, `typescript`, `typescript-eslint`, `vite`, `@vitejs/plugin-react`, `vitest`, `@vitest/coverage-v8`?",
+      "why": "High betweenness centrality (0.210) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `scripts` connect `scripts` to `package.json`?",
+      "why": "High betweenness centrality (0.052) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `$schema`, `typescript`, `oxc` to the rest of the system?",
+      "why": "80 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

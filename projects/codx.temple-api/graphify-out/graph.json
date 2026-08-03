@@ -1,0 +1,3412 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "Codx.Temple.slnx",
+      "file_type": "code",
+      "source_file": "Codx.Temple.slnx",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "codx.temple.slnx",
+      "id": "codx_temple",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Codx.Temple.API",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "codx.temple.api",
+      "id": "src_codx_temple_api_codx_temple_api",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Codx.Temple.Application",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "codx.temple.application",
+      "id": "src_codx_temple_application_codx_temple_application",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Codx.Temple.Domain",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Codx.Temple.Domain.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "codx.temple.domain",
+      "id": "src_codx_temple_domain_codx_temple_domain",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Codx.Temple.Infrastructure",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "codx.temple.infrastructure",
+      "id": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Codx.Temple.API.IntegrationTests",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "codx.temple.api.integrationtests",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "Codx.Temple.API.Tests",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "codx.temple.api.tests",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "Codx.Temple.Application.Tests",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "codx.temple.application.tests",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Codx.Temple.Domain.Tests",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "codx.temple.domain.tests",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "net10.0",
+      "id": "src_codx_temple_api_codx_temple_api_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Microsoft.AspNetCore.Authentication.JwtBearer (10.0.4)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "microsoft.aspnetcore.authentication.jwtbearer (10.0.4)",
+      "id": "nuget_microsoft_aspnetcore_authentication_jwtbearer",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Microsoft.AspNetCore.OpenApi (10.0.5)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "microsoft.aspnetcore.openapi (10.0.5)",
+      "id": "nuget_microsoft_aspnetcore_openapi",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore (10.0.4)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore (10.0.4)",
+      "id": "nuget_microsoft_extensions_diagnostics_healthchecks_entityframeworkcore",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Microsoft.OpenApi (2.4.1)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "microsoft.openapi (2.4.1)",
+      "id": "nuget_microsoft_openapi",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "OpenTelemetry.Extensions.Hosting (1.12.0)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "opentelemetry.extensions.hosting (1.12.0)",
+      "id": "nuget_opentelemetry_extensions_hosting",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "OpenTelemetry.Instrumentation.AspNetCore (1.12.0)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "opentelemetry.instrumentation.aspnetcore (1.12.0)",
+      "id": "nuget_opentelemetry_instrumentation_aspnetcore",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "OpenTelemetry.Instrumentation.EntityFrameworkCore (1.13.0-beta.1)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "opentelemetry.instrumentation.entityframeworkcore (1.13.0-beta.1)",
+      "id": "nuget_opentelemetry_instrumentation_entityframeworkcore",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "OpenTelemetry.Instrumentation.Http (1.12.0)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "opentelemetry.instrumentation.http (1.12.0)",
+      "id": "nuget_opentelemetry_instrumentation_http",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Serilog.AspNetCore (9.0.0)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "serilog.aspnetcore (9.0.0)",
+      "id": "nuget_serilog_aspnetcore",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Serilog.Sinks.Console (6.0.0)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "serilog.sinks.console (6.0.0)",
+      "id": "nuget_serilog_sinks_console",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Swashbuckle.AspNetCore (10.1.3)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "swashbuckle.aspnetcore (10.1.3)",
+      "id": "nuget_swashbuckle_aspnetcore",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Microsoft.NET.Sdk.Web",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "microsoft.net.sdk.web",
+      "id": "sdk_microsoft_net_sdk_web",
+      "community_name": "Codx.Temple.API"
+    },
+    {
+      "label": "Program.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Program.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 11,
+      "norm_label": "program.cs",
+      "id": "src_codx_temple_api_program",
+      "community_name": "Program.cs"
+    },
+    {
+      "label": "launchSettings.json",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "launchsettings.json",
+      "id": "src_codx_temple_api_properties_launchsettings",
+      "community_name": "http"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "$schema",
+      "id": "src_codx_temple_api_properties_launchsettings_schema",
+      "community_name": "http"
+    },
+    {
+      "label": "profiles",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "profiles",
+      "id": "src_codx_temple_api_properties_launchsettings_profiles",
+      "community_name": "http"
+    },
+    {
+      "label": "http",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "http",
+      "id": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "community_name": "http"
+    },
+    {
+      "label": "commandName",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "commandname",
+      "id": "src_codx_temple_api_properties_launchsettings_http_commandname",
+      "community_name": "http"
+    },
+    {
+      "label": "dotnetRunMessages",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "dotnetrunmessages",
+      "id": "src_codx_temple_api_properties_launchsettings_http_dotnetrunmessages",
+      "community_name": "http"
+    },
+    {
+      "label": "launchBrowser",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "launchbrowser",
+      "id": "src_codx_temple_api_properties_launchsettings_http_launchbrowser",
+      "community_name": "http"
+    },
+    {
+      "label": "applicationUrl",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "applicationurl",
+      "id": "src_codx_temple_api_properties_launchsettings_http_applicationurl",
+      "community_name": "http"
+    },
+    {
+      "label": "environmentVariables",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "environmentvariables",
+      "id": "src_codx_temple_api_properties_launchsettings_http_environmentvariables",
+      "community_name": "http"
+    },
+    {
+      "label": "ASPNETCORE_ENVIRONMENT",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "aspnetcore_environment",
+      "id": "src_codx_temple_api_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "community_name": "http"
+    },
+    {
+      "label": "https",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "https",
+      "id": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "community_name": "http"
+    },
+    {
+      "label": "commandName",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "commandname",
+      "id": "src_codx_temple_api_properties_launchsettings_https_commandname",
+      "community_name": "http"
+    },
+    {
+      "label": "dotnetRunMessages",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "dotnetrunmessages",
+      "id": "src_codx_temple_api_properties_launchsettings_https_dotnetrunmessages",
+      "community_name": "http"
+    },
+    {
+      "label": "launchBrowser",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "launchbrowser",
+      "id": "src_codx_temple_api_properties_launchsettings_https_launchbrowser",
+      "community_name": "http"
+    },
+    {
+      "label": "applicationUrl",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "applicationurl",
+      "id": "src_codx_temple_api_properties_launchsettings_https_applicationurl",
+      "community_name": "http"
+    },
+    {
+      "label": "environmentVariables",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "environmentvariables",
+      "id": "src_codx_temple_api_properties_launchsettings_https_environmentvariables",
+      "community_name": "http"
+    },
+    {
+      "label": "ICurrentUserAccessor.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "icurrentuseraccessor.cs",
+      "id": "src_codx_temple_application_abstractions_icurrentuseraccessor",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "Codx.Temple.Application.Abstractions",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Application.Abstractions"
+      },
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "codx.temple.application.abstractions",
+      "id": "csharp_namespace:d1ce507ff624f29d",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "ICurrentUserAccessor",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Abstractions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "icurrentuseraccessor",
+      "id": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "Guid",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "guid",
+      "id": "src_codx_temple_application_abstractions_icurrentuseraccessor_cs_guid",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "IReadOnlyCollection",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "ireadonlycollection",
+      "id": "src_codx_temple_application_abstractions_icurrentuseraccessor_cs_ireadonlycollection",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": ".IsInRole()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L9",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Abstractions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": ".isinrole()",
+      "id": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor_isinrole",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "IUnitOfWork.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "iunitofwork.cs",
+      "id": "src_codx_temple_application_abstractions_iunitofwork",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "IUnitOfWork",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Abstractions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "iunitofwork",
+      "id": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": ".SaveChangesAsync()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L5",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Abstractions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": ".savechangesasync()",
+      "id": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork_savechangesasync",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "CancellationToken",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "cancellationtoken",
+      "id": "cancellationtoken",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "Task",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "task",
+      "id": "task",
+      "community_name": "ICurrentUserAccessor"
+    },
+    {
+      "label": "ApplicationExtensions.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 10,
+      "norm_label": "applicationextensions.cs",
+      "id": "src_codx_temple_application_applicationextensions",
+      "community_name": "ApplicationExtensions.cs"
+    },
+    {
+      "label": "Codx.Temple.Application",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L4",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Application"
+      },
+      "_origin": "ast",
+      "community": 10,
+      "norm_label": "codx.temple.application",
+      "id": "csharp_namespace:3dddc1d478fd5751",
+      "community_name": "ApplicationExtensions.cs"
+    },
+    {
+      "label": "ApplicationMarker",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L6",
+      "metadata": {
+        "namespace": "Codx.Temple.Application",
+        "scope_chain": [
+          "s73"
+        ]
+      },
+      "_origin": "ast",
+      "community": 10,
+      "norm_label": "applicationmarker",
+      "id": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationmarker",
+      "community_name": "ApplicationExtensions.cs"
+    },
+    {
+      "label": "ApplicationExtensions",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L8",
+      "metadata": {
+        "namespace": "Codx.Temple.Application",
+        "scope_chain": [
+          "s73"
+        ]
+      },
+      "_origin": "ast",
+      "community": 10,
+      "norm_label": "applicationextensions",
+      "id": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions",
+      "community_name": "ApplicationExtensions.cs"
+    },
+    {
+      "label": ".AddApplication()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L10",
+      "metadata": {
+        "namespace": "Codx.Temple.Application",
+        "scope_chain": [
+          "s73"
+        ]
+      },
+      "_origin": "ast",
+      "community": 10,
+      "norm_label": ".addapplication()",
+      "id": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions_addapplication",
+      "community_name": "ApplicationExtensions.cs"
+    },
+    {
+      "label": "IServiceCollection",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 10,
+      "norm_label": "iservicecollection",
+      "id": "iservicecollection",
+      "community_name": "ApplicationExtensions.cs"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "net10.0",
+      "id": "src_codx_temple_application_codx_temple_application_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "FluentValidation (12.1.1)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "fluentvalidation (12.1.1)",
+      "id": "nuget_fluentvalidation",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "FluentValidation.DependencyInjectionExtensions (12.1.1)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "fluentvalidation.dependencyinjectionextensions (12.1.1)",
+      "id": "nuget_fluentvalidation_dependencyinjectionextensions",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Scrutor (7.0.0)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "scrutor (7.0.0)",
+      "id": "nuget_scrutor",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.net.sdk",
+      "id": "src_codx_temple_application_codx_temple_application_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "CallerContextDto.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/DTOs/Auth/CallerContextDto.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": "callercontextdto.cs",
+      "id": "src_codx_temple_application_dtos_auth_callercontextdto",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": "Codx.Temple.Application.DTOs.Auth",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/DTOs/Auth/CallerContextDto.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Application.DTOs.Auth"
+      },
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": "codx.temple.application.dtos.auth",
+      "id": "csharp_namespace:2a97479468717c48",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": "CallerContextDto",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/DTOs/Auth/CallerContextDto.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.DTOs.Auth",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": "callercontextdto",
+      "id": "src_codx_temple_application_dtos_auth_callercontextdto_codx_temple_application_dtos_auth_callercontextdto",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": "ConflictException.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ConflictException.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "conflictexception.cs",
+      "id": "src_codx_temple_application_exceptions_conflictexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "Codx.Temple.Application.Exceptions",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ConflictException.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Application.Exceptions"
+      },
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "codx.temple.application.exceptions",
+      "id": "csharp_namespace:8d51b95bc8bb3784",
+      "community_name": "Exception"
+    },
+    {
+      "label": "ConflictException",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ConflictException.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Exceptions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "conflictexception",
+      "id": "src_codx_temple_application_exceptions_conflictexception_codx_temple_application_exceptions_conflictexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "exception",
+      "id": "exception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "ForbiddenException.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ForbiddenException.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "forbiddenexception.cs",
+      "id": "src_codx_temple_application_exceptions_forbiddenexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "ForbiddenException",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ForbiddenException.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Exceptions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "forbiddenexception",
+      "id": "src_codx_temple_application_exceptions_forbiddenexception_codx_temple_application_exceptions_forbiddenexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "NotFoundException.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/NotFoundException.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "notfoundexception.cs",
+      "id": "src_codx_temple_application_exceptions_notfoundexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "NotFoundException",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Exceptions/NotFoundException.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Exceptions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "notfoundexception",
+      "id": "src_codx_temple_application_exceptions_notfoundexception_codx_temple_application_exceptions_notfoundexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "ICallerContextAccessor.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": "icallercontextaccessor.cs",
+      "id": "src_codx_temple_application_interfaces_icallercontextaccessor",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": "Codx.Temple.Application.Interfaces",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Application.Interfaces"
+      },
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": "codx.temple.application.interfaces",
+      "id": "csharp_namespace:6781cdad054bdc39",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": "ICallerContextAccessor",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L5",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Interfaces",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": "icallercontextaccessor",
+      "id": "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": ".GetCallerContext()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L7",
+      "metadata": {
+        "namespace": "Codx.Temple.Application.Interfaces",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 9,
+      "norm_label": ".getcallercontext()",
+      "id": "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor_getcallercontext",
+      "community_name": "ICallerContextAccessor.cs"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.Domain/Codx.Temple.Domain.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "net10.0",
+      "id": "src_codx_temple_domain_codx_temple_domain_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.Domain/Codx.Temple.Domain.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.net.sdk",
+      "id": "src_codx_temple_domain_codx_temple_domain_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "RoleAssignment.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "roleassignment.cs",
+      "id": "src_codx_temple_domain_entities_roleassignment",
+      "community_name": "User"
+    },
+    {
+      "label": "Codx.Temple.Domain.Entities",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Domain.Entities"
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "codx.temple.domain.entities",
+      "id": "csharp_namespace:06a8dcb3659904fc",
+      "community_name": "User"
+    },
+    {
+      "label": "RoleAssignment",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L5",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Entities",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "roleassignment",
+      "id": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment",
+      "community_name": "User"
+    },
+    {
+      "label": "Guid",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "guid",
+      "id": "src_codx_temple_domain_entities_roleassignment_cs_guid",
+      "community_name": "User"
+    },
+    {
+      "label": "DateTimeOffset",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "datetimeoffset",
+      "id": "src_codx_temple_domain_entities_roleassignment_cs_datetimeoffset",
+      "community_name": "User"
+    },
+    {
+      "label": "User.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "user.cs",
+      "id": "src_codx_temple_domain_entities_user",
+      "community_name": "User"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L6",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Entities",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "user",
+      "id": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "community_name": "User"
+    },
+    {
+      "label": "Guid",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "guid",
+      "id": "src_codx_temple_domain_entities_user_cs_guid",
+      "community_name": "User"
+    },
+    {
+      "label": "DateTimeOffset",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "datetimeoffset",
+      "id": "src_codx_temple_domain_entities_user_cs_datetimeoffset",
+      "community_name": "User"
+    },
+    {
+      "label": "IReadOnlyCollection",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "ireadonlycollection",
+      "id": "src_codx_temple_domain_entities_user_cs_ireadonlycollection",
+      "community_name": "User"
+    },
+    {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "list",
+      "id": "list",
+      "community_name": "User"
+    },
+    {
+      "label": ".SetPassword()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L39",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Entities",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": ".setpassword()",
+      "id": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_setpassword",
+      "community_name": "User"
+    },
+    {
+      "label": ".AssignRole()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L46",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Entities",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": ".assignrole()",
+      "id": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_assignrole",
+      "community_name": "User"
+    },
+    {
+      "label": ".Deactivate()",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L56",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Entities",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": ".deactivate()",
+      "id": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_deactivate",
+      "community_name": "User"
+    },
+    {
+      "label": "TeacherAssignmentStatus.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/TeacherAssignmentStatus.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "teacherassignmentstatus.cs",
+      "id": "src_codx_temple_domain_enums_teacherassignmentstatus",
+      "community_name": "User"
+    },
+    {
+      "label": "Codx.Temple.Domain.Enums",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/TeacherAssignmentStatus.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Domain.Enums"
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "codx.temple.domain.enums",
+      "id": "csharp_namespace:1593b87c408d5a42",
+      "community_name": "User"
+    },
+    {
+      "label": "TeacherAssignmentStatus",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/TeacherAssignmentStatus.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Enums",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "teacherassignmentstatus",
+      "id": "src_codx_temple_domain_enums_teacherassignmentstatus_codx_temple_domain_enums_teacherassignmentstatus",
+      "community_name": "User"
+    },
+    {
+      "label": "UserRole.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserRole.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "userrole.cs",
+      "id": "src_codx_temple_domain_enums_userrole",
+      "community_name": "User"
+    },
+    {
+      "label": "UserRole",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserRole.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Enums",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "userrole",
+      "id": "src_codx_temple_domain_enums_userrole_codx_temple_domain_enums_userrole",
+      "community_name": "User"
+    },
+    {
+      "label": "UserStatus.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserStatus.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "userstatus.cs",
+      "id": "src_codx_temple_domain_enums_userstatus",
+      "community_name": "User"
+    },
+    {
+      "label": "UserStatus",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserStatus.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Enums",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "userstatus",
+      "id": "src_codx_temple_domain_enums_userstatus_codx_temple_domain_enums_userstatus",
+      "community_name": "User"
+    },
+    {
+      "label": "DomainRuleViolationException.cs",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "domainruleviolationexception.cs",
+      "id": "src_codx_temple_domain_exceptions_domainruleviolationexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "Codx.Temple.Domain.Exceptions",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Codx.Temple.Domain.Exceptions"
+      },
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "codx.temple.domain.exceptions",
+      "id": "csharp_namespace:555966360c72765e",
+      "community_name": "User"
+    },
+    {
+      "label": "DomainRuleViolationException",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Codx.Temple.Domain.Exceptions",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "domainruleviolationexception",
+      "id": "src_codx_temple_domain_exceptions_domainruleviolationexception_codx_temple_domain_exceptions_domainruleviolationexception",
+      "community_name": "Exception"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "net10.0",
+      "id": "src_codx_temple_infrastructure_codx_temple_infrastructure_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.EntityFrameworkCore (10.0.4)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.entityframeworkcore (10.0.4)",
+      "id": "nuget_microsoft_entityframeworkcore",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.EntityFrameworkCore.Design (10.0.4)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.entityframeworkcore.design (10.0.4)",
+      "id": "nuget_microsoft_entityframeworkcore_design",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Npgsql.EntityFrameworkCore.PostgreSQL (10.0.3)",
+      "file_type": "code",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "npgsql.entityframeworkcore.postgresql (10.0.3)",
+      "id": "nuget_npgsql_entityframeworkcore_postgresql",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.net.sdk",
+      "id": "src_codx_temple_infrastructure_codx_temple_infrastructure_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "net10.0",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "coverlet.collector (6.0.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "coverlet.collector (6.0.4)",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_coverlet_collector",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "FluentAssertions (8.8.0)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "fluentassertions (8.8.0)",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_fluentassertions",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "Microsoft.AspNetCore.Mvc.Testing (10.0.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "microsoft.aspnetcore.mvc.testing (10.0.4)",
+      "id": "nuget_microsoft_aspnetcore_mvc_testing",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "Microsoft.NET.Test.Sdk (17.14.1)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "microsoft.net.test.sdk (17.14.1)",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_microsoft_net_test_sdk",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "Moq (4.20.72)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "moq (4.20.72)",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_moq",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "Testcontainers.PostgreSql (4.10.0)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "testcontainers.postgresql (4.10.0)",
+      "id": "nuget_testcontainers_postgresql",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "xunit (2.9.3)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "xunit (2.9.3)",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_xunit",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "xunit.runner.visualstudio (3.1.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "xunit.runner.visualstudio (3.1.4)",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_xunit_runner_visualstudio",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "microsoft.net.sdk",
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.API.IntegrationTests"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "net10.0",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "coverlet.collector (6.0.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "coverlet.collector (6.0.4)",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_coverlet_collector",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "FluentAssertions (8.8.0)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "fluentassertions (8.8.0)",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_fluentassertions",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "Microsoft.NET.Test.Sdk (17.14.1)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "microsoft.net.test.sdk (17.14.1)",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_microsoft_net_test_sdk",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "Moq (4.20.72)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "moq (4.20.72)",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_moq",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "xunit (2.9.3)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "xunit (2.9.3)",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_xunit",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "xunit.runner.visualstudio (3.1.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "xunit.runner.visualstudio (3.1.4)",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_xunit_runner_visualstudio",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "microsoft.net.sdk",
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.API.Tests"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "net10.0",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "coverlet.collector (6.0.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "coverlet.collector (6.0.4)",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_coverlet_collector",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.NET.Test.Sdk (17.14.1)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.net.test.sdk (17.14.1)",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_microsoft_net_test_sdk",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Moq (4.20.72)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "moq (4.20.72)",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_moq",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "xunit (2.9.3)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "xunit (2.9.3)",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_xunit",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "xunit.runner.visualstudio (3.1.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "xunit.runner.visualstudio (3.1.4)",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_xunit_runner_visualstudio",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "microsoft.net.sdk",
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.Application"
+    },
+    {
+      "label": "net10.0",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "net10.0",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_framework_net10_0",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "coverlet.collector (6.0.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "coverlet.collector (6.0.4)",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_coverlet_collector",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "Microsoft.NET.Test.Sdk (17.14.1)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "microsoft.net.test.sdk (17.14.1)",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_microsoft_net_test_sdk",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "Moq (4.20.72)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "moq (4.20.72)",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_moq",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "xunit (2.9.3)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "xunit (2.9.3)",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_xunit",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "xunit.runner.visualstudio (3.1.4)",
+      "file_type": "code",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "xunit.runner.visualstudio (3.1.4)",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_xunit_runner_visualstudio",
+      "community_name": "Codx.Temple.Domain.Tests"
+    },
+    {
+      "label": "Microsoft.NET.Sdk",
+      "file_type": "concept",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "source_location": null,
+      "_origin": "ast",
+      "community": 8,
+      "norm_label": "microsoft.net.sdk",
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_sdk_microsoft_net_sdk",
+      "community_name": "Codx.Temple.Domain.Tests"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "src_codx_temple_api_codx_temple_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "src_codx_temple_application_codx_temple_application"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "src_codx_temple_domain_codx_temple_domain"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "src_codx_temple_infrastructure_codx_temple_infrastructure"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Codx.Temple.slnx",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "codx_temple",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_microsoft_aspnetcore_authentication_jwtbearer"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_microsoft_aspnetcore_openapi"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_microsoft_extensions_diagnostics_healthchecks_entityframeworkcore"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_microsoft_openapi"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_opentelemetry_extensions_hosting"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_opentelemetry_instrumentation_aspnetcore"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_opentelemetry_instrumentation_entityframeworkcore"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_opentelemetry_instrumentation_http"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_serilog_aspnetcore"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_serilog_sinks_console"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "nuget_swashbuckle_aspnetcore"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "sdk_microsoft_net_sdk_web"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "src_codx_temple_api_codx_temple_api_csproj_framework_net10_0"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "src_codx_temple_application_codx_temple_application"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Codx.Temple.API.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_codx_temple_api",
+      "target": "src_codx_temple_infrastructure_codx_temple_infrastructure"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "src_codx_temple_api_codx_temple_api"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "src_codx_temple_api_codx_temple_api"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_codx_temple_application",
+      "target": "nuget_fluentvalidation"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_codx_temple_application",
+      "target": "nuget_fluentvalidation_dependencyinjectionextensions"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_codx_temple_application",
+      "target": "nuget_scrutor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_codx_temple_application",
+      "target": "src_codx_temple_application_codx_temple_application_csproj_framework_net10_0"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_codx_temple_application",
+      "target": "src_codx_temple_application_codx_temple_application_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Codx.Temple.Application.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_codx_temple_application",
+      "target": "src_codx_temple_domain_codx_temple_domain"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "target": "src_codx_temple_application_codx_temple_application"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "src_codx_temple_application_codx_temple_application"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Codx.Temple.Domain.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_codx_temple_domain",
+      "target": "src_codx_temple_domain_codx_temple_domain_csproj_framework_net10_0"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Codx.Temple.Domain.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_codx_temple_domain",
+      "target": "src_codx_temple_domain_codx_temple_domain_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "src_codx_temple_domain_codx_temple_domain"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "target": "nuget_microsoft_entityframeworkcore"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "target": "nuget_microsoft_entityframeworkcore_design"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "target": "nuget_npgsql_entityframeworkcore_postgresql"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "target": "src_codx_temple_infrastructure_codx_temple_infrastructure_csproj_framework_net10_0"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "target": "src_codx_temple_infrastructure_codx_temple_infrastructure_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "nuget_microsoft_aspnetcore_mvc_testing"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "nuget_testcontainers_postgresql"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_framework_net10_0"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_coverlet_collector"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_fluentassertions"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_microsoft_net_test_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_moq"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_xunit"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_xunit_runner_visualstudio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "target": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_framework_net10_0"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_coverlet_collector"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_fluentassertions"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_microsoft_net_test_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_moq"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_xunit"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_xunit_runner_visualstudio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "target": "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_framework_net10_0"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_coverlet_collector"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_microsoft_net_test_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_moq"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_xunit"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_xunit_runner_visualstudio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "target": "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_framework_net10_0"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_coverlet_collector"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_microsoft_net_test_sdk"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_moq"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_xunit"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_xunit_runner_visualstudio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "target": "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_sdk_microsoft_net_sdk"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings",
+      "target": "src_codx_temple_api_properties_launchsettings_profiles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings",
+      "target": "src_codx_temple_api_properties_launchsettings_schema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles",
+      "target": "src_codx_temple_api_properties_launchsettings_profiles_http"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles",
+      "target": "src_codx_temple_api_properties_launchsettings_profiles_https"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "target": "src_codx_temple_api_properties_launchsettings_http_applicationurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "target": "src_codx_temple_api_properties_launchsettings_http_commandname"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "target": "src_codx_temple_api_properties_launchsettings_http_dotnetrunmessages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "target": "src_codx_temple_api_properties_launchsettings_http_environmentvariables"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "target": "src_codx_temple_api_properties_launchsettings_http_launchbrowser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_http_environmentvariables",
+      "target": "src_codx_temple_api_properties_launchsettings_environmentvariables_aspnetcore_environment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_https_environmentvariables",
+      "target": "src_codx_temple_api_properties_launchsettings_environmentvariables_aspnetcore_environment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "target": "src_codx_temple_api_properties_launchsettings_https_applicationurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "target": "src_codx_temple_api_properties_launchsettings_https_commandname"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "target": "src_codx_temple_api_properties_launchsettings_https_dotnetrunmessages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "target": "src_codx_temple_api_properties_launchsettings_https_environmentvariables"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.API/Properties/launchSettings.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "target": "src_codx_temple_api_properties_launchsettings_https_launchbrowser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_icurrentuseraccessor",
+      "target": "csharp_namespace:d1ce507ff624f29d"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_icurrentuseraccessor",
+      "target": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_iunitofwork",
+      "target": "csharp_namespace:d1ce507ff624f29d"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor",
+      "target": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor_isinrole"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Guid"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor",
+      "target": "src_codx_temple_application_abstractions_icurrentuseraccessor_cs_guid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/ICurrentUserAccessor.cs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IReadOnlyCollection"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor",
+      "target": "src_codx_temple_application_abstractions_icurrentuseraccessor_cs_ireadonlycollection"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_iunitofwork",
+      "target": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork",
+      "target": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork_savechangesasync"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "CancellationToken"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork_savechangesasync",
+      "target": "cancellationtoken"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Abstractions/IUnitOfWork.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "Task"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork_savechangesasync",
+      "target": "task"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_applicationextensions",
+      "target": "csharp_namespace:3dddc1d478fd5751"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_applicationextensions",
+      "target": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_applicationextensions",
+      "target": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationmarker"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions",
+      "target": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions_addapplication"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/ApplicationExtensions.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IServiceCollection"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions_addapplication",
+      "target": "iservicecollection"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/DTOs/Auth/CallerContextDto.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_dtos_auth_callercontextdto",
+      "target": "csharp_namespace:2a97479468717c48"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/DTOs/Auth/CallerContextDto.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_dtos_auth_callercontextdto",
+      "target": "src_codx_temple_application_dtos_auth_callercontextdto_codx_temple_application_dtos_auth_callercontextdto"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Codx.Temple.Application.DTOs.Auth",
+        "scope_kind": "namespace",
+        "scope_id": "s0"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_interfaces_icallercontextaccessor",
+      "target": "csharp_namespace:2a97479468717c48"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "CallerContextDto"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor_getcallercontext",
+      "target": "src_codx_temple_application_dtos_auth_callercontextdto_codx_temple_application_dtos_auth_callercontextdto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ConflictException.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_conflictexception",
+      "target": "csharp_namespace:8d51b95bc8bb3784"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ConflictException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_conflictexception",
+      "target": "src_codx_temple_application_exceptions_conflictexception_codx_temple_application_exceptions_conflictexception"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ForbiddenException.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_forbiddenexception",
+      "target": "csharp_namespace:8d51b95bc8bb3784"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/NotFoundException.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_notfoundexception",
+      "target": "csharp_namespace:8d51b95bc8bb3784"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ConflictException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "ref_token": "Exception"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_conflictexception_codx_temple_application_exceptions_conflictexception",
+      "target": "exception"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ForbiddenException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "ref_token": "Exception"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_forbiddenexception_codx_temple_application_exceptions_forbiddenexception",
+      "target": "exception"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/NotFoundException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "ref_token": "Exception"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_notfoundexception_codx_temple_application_exceptions_notfoundexception",
+      "target": "exception"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "ref_token": "Exception"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_exceptions_domainruleviolationexception_codx_temple_domain_exceptions_domainruleviolationexception",
+      "target": "exception"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/ForbiddenException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_forbiddenexception",
+      "target": "src_codx_temple_application_exceptions_forbiddenexception_codx_temple_application_exceptions_forbiddenexception"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Exceptions/NotFoundException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_exceptions_notfoundexception",
+      "target": "src_codx_temple_application_exceptions_notfoundexception_codx_temple_application_exceptions_notfoundexception"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_interfaces_icallercontextaccessor",
+      "target": "csharp_namespace:6781cdad054bdc39"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_interfaces_icallercontextaccessor",
+      "target": "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Application/Interfaces/ICallerContextAccessor.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor",
+      "target": "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor_getcallercontext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_roleassignment",
+      "target": "csharp_namespace:06a8dcb3659904fc"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Codx.Temple.Domain.Enums",
+        "scope_kind": "namespace",
+        "scope_id": "s0"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_roleassignment",
+      "target": "csharp_namespace:1593b87c408d5a42"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_roleassignment",
+      "target": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user",
+      "target": "csharp_namespace:06a8dcb3659904fc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "DateTimeOffset"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment",
+      "target": "src_codx_temple_domain_entities_roleassignment_cs_datetimeoffset"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Guid"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment",
+      "target": "src_codx_temple_domain_entities_roleassignment_cs_guid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "UserRole"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment",
+      "target": "src_codx_temple_domain_enums_userrole_codx_temple_domain_enums_userrole"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "RoleAssignment"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "RoleAssignment"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_assignrole",
+      "target": "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Codx.Temple.Domain.Enums",
+        "scope_kind": "namespace",
+        "scope_id": "s0"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user",
+      "target": "csharp_namespace:1593b87c408d5a42"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Codx.Temple.Domain.Exceptions",
+        "scope_kind": "namespace",
+        "scope_id": "s0"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user",
+      "target": "csharp_namespace:555966360c72765e"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "List"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "list"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_assignrole"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_deactivate"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_setpassword"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "DateTimeOffset"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_cs_datetimeoffset"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Guid"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_cs_guid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IReadOnlyCollection"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_entities_user_cs_ireadonlycollection"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "UserStatus"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "target": "src_codx_temple_domain_enums_userstatus_codx_temple_domain_enums_userstatus"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Guid"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_assignrole",
+      "target": "src_codx_temple_domain_entities_user_cs_guid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Entities/User.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "UserRole"
+      },
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_assignrole",
+      "target": "src_codx_temple_domain_enums_userrole_codx_temple_domain_enums_userrole"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Enums/TeacherAssignmentStatus.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_enums_teacherassignmentstatus",
+      "target": "csharp_namespace:1593b87c408d5a42"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Enums/TeacherAssignmentStatus.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_enums_teacherassignmentstatus",
+      "target": "src_codx_temple_domain_enums_teacherassignmentstatus_codx_temple_domain_enums_teacherassignmentstatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserRole.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_enums_userrole",
+      "target": "csharp_namespace:1593b87c408d5a42"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserStatus.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_enums_userstatus",
+      "target": "csharp_namespace:1593b87c408d5a42"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserRole.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_enums_userrole",
+      "target": "src_codx_temple_domain_enums_userrole_codx_temple_domain_enums_userrole"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Enums/UserStatus.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_enums_userstatus",
+      "target": "src_codx_temple_domain_enums_userstatus_codx_temple_domain_enums_userstatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_exceptions_domainruleviolationexception",
+      "target": "csharp_namespace:555966360c72765e"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Codx.Temple.Domain/Exceptions/DomainRuleViolationException.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_codx_temple_domain_exceptions_domainruleviolationexception",
+      "target": "src_codx_temple_domain_exceptions_domainruleviolationexception_codx_temple_domain_exceptions_domainruleviolationexception"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "c08b7896e8b890d092eef44fedc3d95cb0e8c323"
+}

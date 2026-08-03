@@ -1,0 +1,66 @@
+name: Guard
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  cross-import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check no API imports from UI or E2E
+        run: |
+          if grep -rq "codx.temple-ui\|codx.temple-e2e" projects/codx.temple-api/src/ 2>/dev/null; then
+            echo "ERROR: API imports from ui/ or e2e/ — see workspace-guardrails.md §I"
+            grep -rn "codx.temple-ui\|codx.temple-e2e" projects/codx.temple-api/src/
+            exit 1
+          fi
+      - name: Check no UI imports from API src
+        run: |
+          if grep -rq "codx.temple-api/src/" projects/codx.temple-ui/src/ 2>/dev/null; then
+            echo "ERROR: UI imports from api/src/ — see workspace-guardrails.md §I"
+            grep -rn "codx.temple-api/src/" projects/codx.temple-ui/src/
+            exit 1
+          fi
+      - name: Check no E2E imports from app source
+        run: |
+          if grep -rn "from '.*codx.temple-(api\|ui)/" projects/codx.temple-e2e/ 2>/dev/null; then
+            echo "ERROR: E2E imports from api/ or ui/ — see workspace-guardrails.md §V"
+            grep -rn "from '.*codx.temple-(api\|ui)/" projects/codx.temple-e2e/
+            exit 1
+          fi
+
+  single-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check only one project changed
+        run: |
+          if git rev-parse origin/main >/dev/null 2>&1; then
+            BASE="origin/main"
+          else
+            BASE=$(git rev-list --max-parents=0 HEAD)
+          fi
+
+          CHANGED_DIRS=$(git diff --name-only "$BASE"...HEAD | grep "^projects/" | cut -d'/' -f1-2 | sort -u)
+
+          if [ -z "$CHANGED_DIRS" ]; then
+            echo "No project files changed — skipping."
+            exit 0
+          fi
+
+          PROJECT_COUNT=$(echo "$CHANGED_DIRS" | wc -l)
+
+          if [ "$PROJECT_COUNT" -gt 1 ]; then
+            echo "ERROR: Multiple projects changed in one PR — see workspace-guardrails.md §IV"
+            echo "Changed projects:"
+            echo "$CHANGED_DIRS"
+            echo ""
+            echo "Stage cross-project changes as sequential PRs: commit + merge first project, then the next."
+            exit 1
+          fi
+
+          echo "OK: single project changed — $CHANGED_DIRS"
