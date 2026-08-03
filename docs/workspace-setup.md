@@ -285,7 +285,81 @@ volumes:
 
 ---
 
-## 8. Workflow
+## 8. Google OAuth Setup
+
+Google OAuth login is part of Phase 0 (auth). The flow: the SPA shows the Google sign-in popup → obtains an `id_token` → sends it to `POST /auth/google`. The API validates the `id_token` locally against Google's JWKS keys — no network call to Google per login.
+
+### 8.1 Google Cloud Console Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com) and create or select a project (e.g. "Temple Courts").
+
+2. **Configure the OAuth consent screen** (APIs & Services → OAuth consent screen):
+   - User type: **External** (production users; testing mode limits to test accounts)
+   - App name: "The Temple Courts"
+   - User support email: your email
+   - Developer contact email: your email
+   - Scopes: use defaults only (`openid`, `email`, `profile`) — no extra scopes needed
+   - Test users: add your own Google account (and any other early testers)
+
+3. **Create an OAuth 2.0 Client ID** (APIs & Services → Credentials → Create Credentials → OAuth client ID):
+   - Application type: **Web application**
+   - Name: e.g. "Temple Courts Dev"
+   - **Authorized JavaScript origins:**
+     - `http://localhost:5173` (Vite dev server — the SPA origin that shows the Google sign-in popup)
+   - **Authorized redirect URIs:** leave empty (not used in this flow; the SPA handles the popup, not a server redirect)
+
+4. **Copy the Client ID** — it looks like `1234567890-abc123.apps.googleusercontent.com`. This is the only value the API needs. You do **not** need the Client Secret for this flow (the API validates `id_token` signatures, it does not exchange a code).
+
+### 8.2 API Configuration
+
+Store the Client ID via .NET User Secrets (never commit real credentials):
+
+```sh
+cd projects/codx.temple-api/src/Codx.Temple.API
+dotnet user-secrets set "GoogleAuth:ClientId" "1234567890-abc123.apps.googleusercontent.com"
+```
+
+The API reads this value at startup and uses it to validate the `aud` claim in incoming Google `id_token`s. The `appsettings.json` contains a placeholder section for documentation:
+
+```json
+"GoogleAuth": {
+  "ClientId": ""
+}
+```
+
+### 8.3 How Validation Works (Implementation Detail)
+
+The `GoogleAuthService` (in Infrastructure) does:
+
+1. Fetch Google's JWKS from `https://www.googleapis.com/oauth2/v3/certs` (cached with a 24-hour TTL)
+2. Validate the `id_token` JWT signature using the RS256 key from JWKS
+3. Validate claims: `aud` matches configured Client ID, `iss` is `accounts.google.com` or `https://accounts.google.com`, `exp` is in the future
+4. Extract `email`, `name`, `sub` (Google account ID) from the validated token
+
+Google's JWKS endpoint is called once at startup and every 24 hours — not per login. This avoids the latency and external-dependency risk of calling the deprecated `tokeninfo` endpoint on every login.
+
+### 8.4 Testing in Dev (API-Only, No SPA)
+
+During Phase 0 the UI doesn't exist yet. To test `/auth/google` directly:
+
+- **Option A — OAuth 2.0 Playground:** Go to https://developers.google.com/oauthplayground, select your Client ID under settings gear → "Use your own OAuth credentials", authorize with scope `openid email profile`, exchange auth code for tokens, and use the resulting `id_token` in a curl request:
+  ```sh
+  curl -X POST http://localhost:5000/auth/google \
+    -H "Content-Type: application/json" \
+    -d '{"id_token": "<paste-id-token-here>"}'
+  ```
+
+- **Option B — Quick script:** Once the SPA exists (Phase 2+), sign in via the UI and copy the `id_token` from browser dev tools. Redirect here for now: use the Playground described above.
+
+### 8.5 Production Notes
+
+- Add production origins (e.g. `https://templecourts.com`) to Authorized JavaScript origins
+- Publish the OAuth consent screen (remove "Testing" status) before going live
+- Verify the app meets Google's verification requirements for external apps (logo, privacy policy URL, terms of service URL)
+
+---
+
+## 9. Workflow
 
 | Stage | Tool | Notes |
 |-------|------|-------|
@@ -303,7 +377,7 @@ volumes:
 
 ---
 
-## 9. Phase 0 Implementation Order
+## 10. Phase 0 Implementation Order
 
 | Step | Action | Artifact | Status |
 |------|--------|----------|--------|
@@ -323,9 +397,9 @@ volumes:
 | 0.14 | Implement auth (email/password + Google OAuth) in API | Phase 0 deliverable | ⏳ pending |
 | 0.15 | Implement core schema via EF migration | Phase 0 deliverable | ⏳ pending |
 | 0.16 | Admin-guard middleware + role checks | Phase 0 deliverable | ⏳ pending |
-| 0.17 | Add tag-triggered deploy workflows (`deploy-api.yml`, `deploy-ui.yml`) | see §11 | 📅 later |
+| 0.17 | Add tag-triggered deploy workflows (`deploy-api.yml`, `deploy-ui.yml`) | see §12 | 📅 later |
 | 0.18 | Add `graphify-check.yml` + `.github/CODEOWNERS` | CI + review routing | 📅 later |
-| 0.19 | Create `packages/` skeleton (when a second real consumer exists) | see §12 | 📅 later |
+| 0.19 | Create `packages/` skeleton (when a second real consumer exists) | see §13 | 📅 later |
 
 ### pnpm 11 note
 
@@ -333,7 +407,7 @@ pnpm 11 requires build-script approval for packages. `projects/codx.temple-ui/pn
 
 ---
 
-## 10. Versioning Convention
+## 11. Versioning Convention
 
 | Project | Version lives in | Current |
 |---------|-----------------|---------|
@@ -347,7 +421,7 @@ pnpm 11 requires build-script approval for packages. `projects/codx.temple-ui/pn
 
 ---
 
-## 11. CI/CD Architecture
+## 12. CI/CD Architecture
 
 **CI** — path-scoped `ci.yml` using `dorny/paths-filter`. Detects which projects changed, conditionally runs each project's build/test job. The `e2e` job runs whenever `api` or `ui` files change (it needs both to do anything meaningful), not only when `codx.temple-e2e/` itself changed.
 
@@ -359,7 +433,7 @@ See `docs/workspace-guardrails.md` for the rules these enforce.
 
 ---
 
-## 12. Project Boundaries
+## 13. Project Boundaries
 
 Projects communicate via API contracts and `packages/`, never by importing each other's source. This is enforced by CI (`guard.yml` cross-import check).
 
@@ -381,4 +455,4 @@ Full rules: see `docs/workspace-guardrails.md` §I, II, VII.
 
 ---
 
-_Last updated: 2026-08-03_
+_Last updated: 2026-08-03 (added §8 Google OAuth setup)_
