@@ -74,6 +74,13 @@ public class SubmitAnswerUseCase
 
         await _db.SaveChangesAsync(cancellationToken);
 
+        if (existingAnswer is null)
+        {
+            var thread = AnswerThread.Create(answer.Id);
+            _db.AnswerThreads.Add(thread);
+            await _db.SaveChangesAsync(cancellationToken);
+        }
+
         var unresolvedFlag = await _db.AnswerFlags
             .FirstOrDefaultAsync(f => f.QuestionKey == request.QuestionKey
                 && f.StudentId == _currentUser.UserId

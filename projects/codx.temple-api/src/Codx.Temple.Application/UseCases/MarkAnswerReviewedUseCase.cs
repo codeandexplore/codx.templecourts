@@ -55,5 +55,13 @@ public class MarkAnswerReviewedUseCase
 
         answer.MarkReviewed(_currentUser.UserId, session.Id);
         await _db.SaveChangesAsync(cancellationToken);
+
+        var thread = await _db.AnswerThreads
+            .FirstOrDefaultAsync(t => t.StudentAnswerId == answer.Id, cancellationToken);
+        if (thread is not null)
+        {
+            thread.Lock();
+            await _db.SaveChangesAsync(cancellationToken);
+        }
     }
 }
