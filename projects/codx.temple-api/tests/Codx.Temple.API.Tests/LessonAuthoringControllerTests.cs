@@ -13,7 +13,7 @@ public class LessonAuthoringControllerTests
     private readonly Mock<IAppDbContext> _dbMock = new();
     private readonly Mock<GetLessonTreeUseCase> _getTreeUseCase;
     private readonly Mock<CreateLessonUseCase> _createLessonUseCase;
-    private readonly Mock<ListLessonsUseCase> _listLessonsUseCase;
+    private readonly Mock<ListStudentLessonsUseCase> _listLessonsUseCase;
     private readonly Mock<UpdateLessonUseCase> _updateLessonUseCase;
     private readonly Mock<CreateDraftVersionUseCase> _createDraftUseCase;
     private readonly Mock<PublishVersionUseCase> _publishVersionUseCase;
@@ -24,7 +24,7 @@ public class LessonAuthoringControllerTests
     {
         _getTreeUseCase = new Mock<GetLessonTreeUseCase>(_dbMock.Object);
         _createLessonUseCase = new Mock<CreateLessonUseCase>(_dbMock.Object);
-        _listLessonsUseCase = new Mock<ListLessonsUseCase>(_dbMock.Object);
+        _listLessonsUseCase = new Mock<ListStudentLessonsUseCase>(_dbMock.Object);
         _updateLessonUseCase = new Mock<UpdateLessonUseCase>(_dbMock.Object);
         _createDraftUseCase = new Mock<CreateDraftVersionUseCase>(_dbMock.Object);
         _publishVersionUseCase = new Mock<PublishVersionUseCase>(_dbMock.Object);
@@ -61,7 +61,7 @@ public class LessonAuthoringControllerTests
     public async Task GetLessonTree_ShouldReturnOk()
     {
         var versionDto = new LessonVersionDto(Guid.NewGuid(), Guid.NewGuid(), 1, "Published", null, null, DateTimeOffset.UtcNow, []);
-        _getTreeUseCase.Setup(u => u.ExecuteAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>())).ReturnsAsync(versionDto);
+        _getTreeUseCase.Setup(u => u.ExecuteAsync(It.IsAny<Guid>(), It.IsAny<bool>(), It.IsAny<CancellationToken>())).ReturnsAsync(versionDto);
 
         var controller = new LessonsController();
         var result = await controller.Get(Guid.NewGuid(), _getTreeUseCase.Object, CancellationToken.None);

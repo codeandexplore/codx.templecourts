@@ -11,5 +11,8 @@ public interface IAppDbContext
     DbSet<LessonVersion> LessonVersions { get; }
     DbSet<LessonNode> LessonNodes { get; }
     DbSet<Question> Questions { get; }
+    DbSet<LessonAttempt> LessonAttempts { get; }
+    DbSet<StudentAnswer> StudentAnswers { get; }
+    DbSet<StudentQuestionNote> StudentQuestionNotes { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

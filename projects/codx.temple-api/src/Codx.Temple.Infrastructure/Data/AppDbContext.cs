@@ -17,6 +17,9 @@ public class AppDbContext : DbContext, IAppDbContext
     public DbSet<LessonNode> LessonNodes => Set<LessonNode>();
     public DbSet<Question> Questions => Set<Question>();
     public DbSet<Notification> Notifications => Set<Notification>();
+    public DbSet<LessonAttempt> LessonAttempts => Set<LessonAttempt>();
+    public DbSet<StudentAnswer> StudentAnswers => Set<StudentAnswer>();
+    public DbSet<StudentQuestionNote> StudentQuestionNotes => Set<StudentQuestionNote>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
