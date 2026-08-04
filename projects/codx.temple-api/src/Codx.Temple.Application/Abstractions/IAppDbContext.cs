@@ -17,5 +17,9 @@ public interface IAppDbContext
     DbSet<TeacherAssignment> TeacherAssignments { get; }
     DbSet<StudySession> StudySessions { get; }
     DbSet<AnswerFlag> AnswerFlags { get; }
+    DbSet<TeacherCheckQuestion> TeacherCheckQuestions { get; }
+    DbSet<AnswerThread> AnswerThreads { get; }
+    DbSet<ThreadMessage> ThreadMessages { get; }
+    DbSet<Notification> Notifications { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
