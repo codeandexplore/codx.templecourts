@@ -32,8 +32,10 @@ public class StartLessonAttemptUseCaseTests
 
         var lessons = new List<Lesson> { lesson };
         var attempts = new List<LessonAttempt>();
+        var flags = new List<AnswerFlag>();
         _dbMock.Setup(db => db.Lessons).Returns(DbSetMockHelper.CreateMockDbSet(lessons).Object);
         _dbMock.Setup(db => db.LessonAttempts).Returns(DbSetMockHelper.CreateMockDbSet(attempts).Object);
+        _dbMock.Setup(db => db.AnswerFlags).Returns(DbSetMockHelper.CreateMockDbSet(flags).Object);
 
         var result = await _useCase.ExecuteAsync(lessonKey);
 

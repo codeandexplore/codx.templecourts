@@ -77,6 +77,8 @@ try
     builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
     builder.Services.AddProblemDetails();
 
+    builder.Services.AddSignalR();
+
     builder.Services.AddHealthChecks()
         .AddDbContextCheck<AppDbContext>();
 
@@ -105,6 +107,7 @@ try
     app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();
+    app.MapHub<Codx.Temple.API.Hubs.StudySessionHub>("/hubs/study-session");
     app.MapHealthChecks("/healthz");
     app.MapHealthChecks("/readyz");
 
