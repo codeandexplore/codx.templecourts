@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Codx.Temple.API/Codx.Temple.API.csproj" />
+    <Project Path="src/Codx.Temple.Application/Codx.Temple.Application.csproj" />
+    <Project Path="src/Codx.Temple.Domain/Codx.Temple.Domain.csproj" />
+    <Project Path="src/Codx.Temple.Infrastructure/Codx.Temple.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Codx.Temple.API.IntegrationTests/Codx.Temple.API.IntegrationTests.csproj" />
+    <Project Path="tests/Codx.Temple.API.Tests/Codx.Temple.API.Tests.csproj" />
+    <Project Path="tests/Codx.Temple.Application.Tests/Codx.Temple.Application.Tests.csproj" />
+    <Project Path="tests/Codx.Temple.Domain.Tests/Codx.Temple.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

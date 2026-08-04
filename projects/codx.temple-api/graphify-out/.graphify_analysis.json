@@ -1,0 +1,305 @@
+{
+  "communities": {
+    "0": [
+      "codx_temple",
+      "nuget_fluentvalidation",
+      "nuget_fluentvalidation_dependencyinjectionextensions",
+      "nuget_microsoft_entityframeworkcore",
+      "nuget_microsoft_entityframeworkcore_design",
+      "nuget_npgsql_entityframeworkcore_postgresql",
+      "nuget_scrutor",
+      "src_codx_temple_application_codx_temple_application",
+      "src_codx_temple_application_codx_temple_application_csproj_framework_net10_0",
+      "src_codx_temple_application_codx_temple_application_csproj_sdk_microsoft_net_sdk",
+      "src_codx_temple_domain_codx_temple_domain",
+      "src_codx_temple_domain_codx_temple_domain_csproj_framework_net10_0",
+      "src_codx_temple_domain_codx_temple_domain_csproj_sdk_microsoft_net_sdk",
+      "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "src_codx_temple_infrastructure_codx_temple_infrastructure_csproj_framework_net10_0",
+      "src_codx_temple_infrastructure_codx_temple_infrastructure_csproj_sdk_microsoft_net_sdk",
+      "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_framework_net10_0",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_coverlet_collector",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_microsoft_net_test_sdk",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_moq",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_xunit",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_nuget_xunit_runner_visualstudio",
+      "tests_codx_temple_application_tests_codx_temple_application_tests_csproj_sdk_microsoft_net_sdk"
+    ],
+    "1": [
+      "csharp_namespace:06a8dcb3659904fc",
+      "csharp_namespace:1593b87c408d5a42",
+      "csharp_namespace:555966360c72765e",
+      "list",
+      "src_codx_temple_domain_entities_roleassignment",
+      "src_codx_temple_domain_entities_roleassignment_codx_temple_domain_entities_roleassignment",
+      "src_codx_temple_domain_entities_roleassignment_cs_datetimeoffset",
+      "src_codx_temple_domain_entities_roleassignment_cs_guid",
+      "src_codx_temple_domain_entities_user",
+      "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_assignrole",
+      "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_deactivate",
+      "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user_setpassword",
+      "src_codx_temple_domain_entities_user_cs_datetimeoffset",
+      "src_codx_temple_domain_entities_user_cs_guid",
+      "src_codx_temple_domain_entities_user_cs_ireadonlycollection",
+      "src_codx_temple_domain_enums_teacherassignmentstatus",
+      "src_codx_temple_domain_enums_teacherassignmentstatus_codx_temple_domain_enums_teacherassignmentstatus",
+      "src_codx_temple_domain_enums_userrole",
+      "src_codx_temple_domain_enums_userrole_codx_temple_domain_enums_userrole",
+      "src_codx_temple_domain_enums_userstatus",
+      "src_codx_temple_domain_enums_userstatus_codx_temple_domain_enums_userstatus"
+    ],
+    "2": [
+      "src_codx_temple_api_properties_launchsettings",
+      "src_codx_temple_api_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "src_codx_temple_api_properties_launchsettings_http_applicationurl",
+      "src_codx_temple_api_properties_launchsettings_http_commandname",
+      "src_codx_temple_api_properties_launchsettings_http_dotnetrunmessages",
+      "src_codx_temple_api_properties_launchsettings_http_environmentvariables",
+      "src_codx_temple_api_properties_launchsettings_http_launchbrowser",
+      "src_codx_temple_api_properties_launchsettings_https_applicationurl",
+      "src_codx_temple_api_properties_launchsettings_https_commandname",
+      "src_codx_temple_api_properties_launchsettings_https_dotnetrunmessages",
+      "src_codx_temple_api_properties_launchsettings_https_environmentvariables",
+      "src_codx_temple_api_properties_launchsettings_https_launchbrowser",
+      "src_codx_temple_api_properties_launchsettings_profiles",
+      "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "src_codx_temple_api_properties_launchsettings_schema"
+    ],
+    "3": [
+      "nuget_microsoft_aspnetcore_authentication_jwtbearer",
+      "nuget_microsoft_aspnetcore_openapi",
+      "nuget_microsoft_extensions_diagnostics_healthchecks_entityframeworkcore",
+      "nuget_microsoft_openapi",
+      "nuget_opentelemetry_extensions_hosting",
+      "nuget_opentelemetry_instrumentation_aspnetcore",
+      "nuget_opentelemetry_instrumentation_entityframeworkcore",
+      "nuget_opentelemetry_instrumentation_http",
+      "nuget_serilog_aspnetcore",
+      "nuget_serilog_sinks_console",
+      "nuget_swashbuckle_aspnetcore",
+      "sdk_microsoft_net_sdk_web",
+      "src_codx_temple_api_codx_temple_api",
+      "src_codx_temple_api_codx_temple_api_csproj_framework_net10_0"
+    ],
+    "4": [
+      "cancellationtoken",
+      "csharp_namespace:d1ce507ff624f29d",
+      "src_codx_temple_application_abstractions_icurrentuseraccessor",
+      "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor",
+      "src_codx_temple_application_abstractions_icurrentuseraccessor_codx_temple_application_abstractions_icurrentuseraccessor_isinrole",
+      "src_codx_temple_application_abstractions_icurrentuseraccessor_cs_guid",
+      "src_codx_temple_application_abstractions_icurrentuseraccessor_cs_ireadonlycollection",
+      "src_codx_temple_application_abstractions_iunitofwork",
+      "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork",
+      "src_codx_temple_application_abstractions_iunitofwork_codx_temple_application_abstractions_iunitofwork_savechangesasync",
+      "task"
+    ],
+    "5": [
+      "nuget_microsoft_aspnetcore_mvc_testing",
+      "nuget_testcontainers_postgresql",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_framework_net10_0",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_coverlet_collector",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_fluentassertions",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_microsoft_net_test_sdk",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_moq",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_xunit",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_nuget_xunit_runner_visualstudio",
+      "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests_csproj_sdk_microsoft_net_sdk"
+    ],
+    "6": [
+      "csharp_namespace:8d51b95bc8bb3784",
+      "exception",
+      "src_codx_temple_application_exceptions_conflictexception",
+      "src_codx_temple_application_exceptions_conflictexception_codx_temple_application_exceptions_conflictexception",
+      "src_codx_temple_application_exceptions_forbiddenexception",
+      "src_codx_temple_application_exceptions_forbiddenexception_codx_temple_application_exceptions_forbiddenexception",
+      "src_codx_temple_application_exceptions_notfoundexception",
+      "src_codx_temple_application_exceptions_notfoundexception_codx_temple_application_exceptions_notfoundexception",
+      "src_codx_temple_domain_exceptions_domainruleviolationexception",
+      "src_codx_temple_domain_exceptions_domainruleviolationexception_codx_temple_domain_exceptions_domainruleviolationexception"
+    ],
+    "7": [
+      "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_framework_net10_0",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_coverlet_collector",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_fluentassertions",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_microsoft_net_test_sdk",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_moq",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_xunit",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_nuget_xunit_runner_visualstudio",
+      "tests_codx_temple_api_tests_codx_temple_api_tests_csproj_sdk_microsoft_net_sdk"
+    ],
+    "8": [
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_framework_net10_0",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_coverlet_collector",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_microsoft_net_test_sdk",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_moq",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_xunit",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_nuget_xunit_runner_visualstudio",
+      "tests_codx_temple_domain_tests_codx_temple_domain_tests_csproj_sdk_microsoft_net_sdk"
+    ],
+    "9": [
+      "csharp_namespace:2a97479468717c48",
+      "csharp_namespace:6781cdad054bdc39",
+      "src_codx_temple_application_dtos_auth_callercontextdto",
+      "src_codx_temple_application_dtos_auth_callercontextdto_codx_temple_application_dtos_auth_callercontextdto",
+      "src_codx_temple_application_interfaces_icallercontextaccessor",
+      "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor",
+      "src_codx_temple_application_interfaces_icallercontextaccessor_codx_temple_application_interfaces_icallercontextaccessor_getcallercontext"
+    ],
+    "10": [
+      "csharp_namespace:3dddc1d478fd5751",
+      "iservicecollection",
+      "src_codx_temple_application_applicationextensions",
+      "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions",
+      "src_codx_temple_application_applicationextensions_codx_temple_application_applicationextensions_addapplication",
+      "src_codx_temple_application_applicationextensions_codx_temple_application_applicationmarker"
+    ],
+    "11": [
+      "src_codx_temple_api_program"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09420289855072464,
+    "1": 0.12121212121212122,
+    "2": 0.13333333333333333,
+    "3": 0.14285714285714285,
+    "4": 0.18181818181818182,
+    "5": 0.18181818181818182,
+    "6": 0.24444444444444444,
+    "7": 0.2222222222222222,
+    "8": 0.25,
+    "9": 0.3333333333333333,
+    "10": 0.3333333333333333,
+    "11": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_codx_temple_api_codx_temple_api",
+      "label": "Codx.Temple.API",
+      "degree": 18
+    },
+    {
+      "id": "tests_codx_temple_api_integrationtests_codx_temple_api_integrationtests",
+      "label": "Codx.Temple.API.IntegrationTests",
+      "degree": 12
+    },
+    {
+      "id": "src_codx_temple_application_codx_temple_application",
+      "label": "Codx.Temple.Application",
+      "degree": 10
+    },
+    {
+      "id": "tests_codx_temple_api_tests_codx_temple_api_tests",
+      "label": "Codx.Temple.API.Tests",
+      "degree": 10
+    },
+    {
+      "id": "src_codx_temple_domain_entities_user_codx_temple_domain_entities_user",
+      "label": "User",
+      "degree": 10
+    },
+    {
+      "id": "tests_codx_temple_application_tests_codx_temple_application_tests",
+      "label": "Codx.Temple.Application.Tests",
+      "degree": 9
+    },
+    {
+      "id": "tests_codx_temple_domain_tests_codx_temple_domain_tests",
+      "label": "Codx.Temple.Domain.Tests",
+      "degree": 9
+    },
+    {
+      "id": "src_codx_temple_infrastructure_codx_temple_infrastructure",
+      "label": "Codx.Temple.Infrastructure",
+      "degree": 8
+    },
+    {
+      "id": "src_codx_temple_api_properties_launchsettings_profiles_http",
+      "label": "http",
+      "degree": 6
+    },
+    {
+      "id": "src_codx_temple_api_properties_launchsettings_profiles_https",
+      "label": "https",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "User",
+      "target": "UserStatus",
+      "source_files": [
+        "src/Codx.Temple.Domain/Entities/User.cs",
+        "src/Codx.Temple.Domain/Enums/UserStatus.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `UserStatus` unexpectedly reaches hub `User`"
+    },
+    {
+      "source": "RoleAssignment",
+      "target": "UserRole",
+      "source_files": [
+        "src/Codx.Temple.Domain/Entities/RoleAssignment.cs",
+        "src/Codx.Temple.Domain/Enums/UserRole.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "User",
+      "target": "RoleAssignment",
+      "source_files": [
+        "src/Codx.Temple.Domain/Entities/User.cs",
+        "src/Codx.Temple.Domain/Entities/RoleAssignment.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `Codx.Temple.API` connect `Codx.Temple.API` to `Codx.Temple.Application`, `Codx.Temple.API.IntegrationTests`, `Codx.Temple.API.Tests`?",
+      "why": "High betweenness centrality (0.098) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Codx.Temple.API.IntegrationTests` connect `Codx.Temple.API.IntegrationTests` to `Codx.Temple.Application`, `Codx.Temple.API`?",
+      "why": "High betweenness centrality (0.063) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Codx.Temple.API.Tests` connect `Codx.Temple.API.Tests` to `Codx.Temple.Application`, `Codx.Temple.API`?",
+      "why": "High betweenness centrality (0.051) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `net10.0`, `Microsoft.AspNetCore.Authentication.JwtBearer (10.0.4)`, `Microsoft.AspNetCore.OpenApi (10.0.5)` to the rest of the system?",
+      "why": "70 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Codx.Temple.Application` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09420289855072464 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `User` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.12121212121212122 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `http` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
