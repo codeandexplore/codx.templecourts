@@ -89,13 +89,15 @@ This ensures:
 
 ### Sequencing cross-project changes
 
-Cross-project changes are sequenced as additive PRs — ship one project first, then the next:
+Cross-project changes are sequenced as additive PRs — ship one project first, then the next. **You may develop both API and UI changes on the same branch.** Staging and merging are sequential — not writing code.
 
-1. API: additive endpoint/field change (never break existing contract) → merge, deploy independently.
-2. UI/mobile: consume the new contract → merge separately, depends on (1) being deployed.
-3. (Rare) Remove old API surface once nothing depends on it.
+1. **API first:** additive endpoint/field change (never break existing contract) → commit, push, PR, review, merge, tag, deploy.
+2. **UI/mobile second:** consume the new contract → commit, push, PR, review, merge, tag, deploy.
+3. **Cleanup (rare):** remove old API surface once nothing depends on it.
 
-Only use one atomic PR when there's a genuine breaking change with no backward-compatible intermediate state. Note the plan explicitly in the OpenSpec change doc's PR Plan so it's decided at planning time, not discovered by a confused reviewer.
+See the worked example below for the full git command sequence.
+
+**Exception:** only use one atomic PR when there's a genuine breaking change with no backward-compatible intermediate state. Note the plan explicitly in the OpenSpec change doc's PR Plan so it's decided at planning time, not discovered by a confused reviewer.
 
 ---
 
@@ -167,26 +169,78 @@ packages/
 
 ---
 
-## Worked Example: API Contract Change
+## Worked Example: API + UI Cross-Project Change
+
+**Goal:** Add `GET /lessons/:id` endpoint, consume it in UI lesson-detail page.
 
 ```
-Goal: Add GET /lessons/:id endpoint, consume it in UI lesson-detail page.
+# 1) Create feature branch from main
+git checkout main
+git pull
+git checkout -b feat/lesson-detail
 
-Working branch: feat/lesson-detail
+# 2) Develop both API and UI changes freely on the same branch
+#    (write API endpoint, DTOs, tests; write UI page, components, tests)
 
-  Stage 1 — API:
-    git add projects/codx.temple-api/
-    git commit -m "feat(api): add GET /lessons/:id endpoint"
-      → bumps codx.temple-api to 0.2.0 (minor — new endpoint)
-    Push → PR → review → merge → tag codx.temple-api-v0.2.0 → deploy API
+# ═══════════════════════════════════════════════════════════
+# 3) Stage 1 — Ship API first
+# ═══════════════════════════════════════════════════════════
 
-  Stage 2 — UI:
-    git add projects/codx.temple-ui/
-    git commit -m "feat(ui): add lesson detail page consuming GET /lessons/:id"
-      → bumps codx.temple-ui to 0.2.0 (minor — new feature)
-    Push → PR → review → merge → tag codx.temple-ui-v0.2.0 → deploy UI
+# Stage only API files
+git add projects/codx.temple-api/
+
+# Commit API changes (include version bump if adding new surface)
+git commit -m "feat(api): add GET /lessons/:id endpoint"
+#   → bumps codx.temple-api to 0.2.0 (minor — new endpoint)
+
+# Push and open PR
+git push -u origin feat/lesson-detail
+gh pr create --title "feat(api): add GET /lessons/:id" --body "..."
+
+# Review → merge → tag → deploy
+#   After merge to main:
+git checkout main && git pull
+git tag codx.temple-api-v0.2.0
+git push --tags
+#   Deploy API (CI/CD or manual)
+
+# ═══════════════════════════════════════════════════════════
+# 4) Stage 2 — Ship UI second (API is now live)
+# ═══════════════════════════════════════════════════════════
+
+# Back on the feature branch
+git checkout feat/lesson-detail
+
+# Regenerate API types from the live API's openapi.json
+#   pnpm generate-types   (or equivalent script)
+
+# Stage only UI files
+git add projects/codx.temple-ui/
+
+# Commit UI changes (own version bump)
+git commit -m "feat(ui): add lesson detail page consuming GET /lessons/:id"
+#   → bumps codx.temple-ui to 0.2.0 (minor — new feature)
+
+# Push same branch, open second PR
+git push
+gh pr create --title "feat(ui): add lesson detail page" --body "..."
+
+# Review → merge → tag → deploy
+#   After merge to main:
+git checkout main && git pull
+git tag codx.temple-ui-v0.2.0
+git push --tags
+#   Deploy UI
 ```
+
+### Key points
+
+- **Write both changes on one branch.** No need to wait for API approval before starting UI work.
+- **Stage per-project.** `git add projects/codx.temple-api/` then `git add projects/codx.temple-ui/` — CI rejects a PR whose diff touches two `projects/*/` directories.
+- **Ship API before UI.** UI's PR depends on the API contract being deployed and live.
+- **Regenerate types.** After API merges, regenerate UI types from the live `openapi.json` before committing the UI PR.
+- **Two commits, two PRs, two version bumps, two tags.** Each project gets its own independent version lifecycle.
 
 ---
 
-_Last updated: 2026-08-02_
+_Last updated: 2026-08-03_
