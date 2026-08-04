@@ -11,9 +11,9 @@ namespace Codx.Temple.API.Controllers;
 public class LessonsController : ControllerBase
 {
     [HttpGet]
-    [RequireRole("Admin")]
+    [Authorize]
     public async Task<ActionResult<List<LessonDto>>> List(
-        [FromServices] ListLessonsUseCase useCase,
+        [FromServices] ListStudentLessonsUseCase useCase,
         CancellationToken cancellationToken)
     {
         var result = await useCase.ExecuteAsync(cancellationToken);
@@ -27,7 +27,9 @@ public class LessonsController : ControllerBase
         [FromServices] GetLessonTreeUseCase useCase,
         CancellationToken cancellationToken)
     {
-        var result = await useCase.ExecuteAsync(key, cancellationToken);
+        var role = HttpContext?.User?.FindFirst("application_role")?.Value;
+        var includeReferenceContext = role != "Student";
+        var result = await useCase.ExecuteAsync(key, includeReferenceContext, cancellationToken);
         return Ok(result);
     }
 

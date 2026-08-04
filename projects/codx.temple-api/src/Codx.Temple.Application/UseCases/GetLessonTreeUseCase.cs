@@ -14,7 +14,10 @@ public class GetLessonTreeUseCase
         _db = db;
     }
 
-    public virtual async Task<LessonVersionDto> ExecuteAsync(Guid lessonKey, CancellationToken cancellationToken = default)
+    public virtual async Task<LessonVersionDto> ExecuteAsync(
+        Guid lessonKey,
+        bool includeReferenceContext = true,
+        CancellationToken cancellationToken = default)
     {
 #pragma warning disable CS8602
         var lesson = await _db.Lessons
@@ -40,7 +43,7 @@ public class GetLessonTreeUseCase
         var nodes = version.Nodes
             .Where(n => n.ParentNodeId == null)
             .OrderBy(n => n.Order)
-            .Select(MapNode)
+            .Select(n => MapNode(n, includeReferenceContext))
             .ToList();
 
         return new LessonVersionDto(
@@ -54,7 +57,7 @@ public class GetLessonTreeUseCase
             nodes);
     }
 
-    private static LessonNodeDto MapNode(Domain.Entities.LessonNode node)
+    private static LessonNodeDto MapNode(Domain.Entities.LessonNode node, bool includeReferenceContext)
     {
         return new LessonNodeDto(
             node.Id,
@@ -66,10 +69,10 @@ public class GetLessonTreeUseCase
             node.Title,
             node.Description,
             node.RequiresPriorSiblingAnswered,
-            node.ChildNodes.OrderBy(c => c.Order).Select(MapNode).ToList(),
+            node.ChildNodes.OrderBy(c => c.Order).Select(c => MapNode(c, includeReferenceContext)).ToList(),
             node.Questions.OrderBy(q => q.Order).Select(q => new QuestionDto(
                 q.Id, q.Key, q.LessonNodeId, q.Order,
                 q.QuestionType.ToString(), q.PromptText,
-                q.Metadata, q.ReferenceContext)).ToList());
+                q.Metadata, includeReferenceContext ? q.ReferenceContext : null)).ToList());
     }
 }

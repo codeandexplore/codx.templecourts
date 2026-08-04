@@ -32,6 +32,21 @@ public static class DataSeeder
         var adminRole = RoleAssignment.Create(adminUser.Id, Role.Admin, adminUser.Id);
         db.RoleAssignments.Add(adminRole);
 
+        var studentEmail = configuration["Student:Email"];
+        var studentPassword = configuration["Student:Password"];
+
+        if (!string.IsNullOrEmpty(studentEmail) && !string.IsNullOrEmpty(studentPassword))
+        {
+            var studentExists = await db.Users.AnyAsync(u => u.Email == studentEmail.ToLowerInvariant());
+            if (!studentExists)
+            {
+                var studentUser = User.CreateWithPassword(studentEmail, passwordHasher.Hash(studentPassword), "Student");
+                db.Users.Add(studentUser);
+                var studentRole = RoleAssignment.Create(studentUser.Id, Role.Student, adminUser.Id);
+                db.RoleAssignments.Add(studentRole);
+            }
+        }
+
         await db.SaveChangesAsync();
 
         await SeedLessonsAsync(db);
@@ -57,7 +72,7 @@ public static class DataSeeder
         var q2 = Question.Create(section1.Id, 1, QuestionType.Essay, "How does knowing you were chosen before time began affect your daily life?");
         db.Questions.Add(q2);
 
-        var section2 = LessonNode.Create(version1.Id, null, 1, 1, "Manifested in Christ", "Exploring how God's purpose was revealed through Jesus Christ's life, death, and resurrection — covering Ephesians 1:7-10.");
+        var section2 = LessonNode.Create(version1.Id, null, 1, 1, "Manifested in Christ", "Exploring how God's purpose was revealed through Jesus Christ's life, death, and resurrection — covering Ephesians 1:7-10.", requiresPriorSiblingAnswered: true);
         db.LessonNodes.Add(section2);
 
         var sub1 = LessonNode.Create(version1.Id, section2.Id, 2, 0, "Redemption Through His Blood", "The price of our salvation — examining the meaning of redemption and forgiveness.");
