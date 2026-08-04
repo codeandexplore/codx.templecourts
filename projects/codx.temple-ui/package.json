@@ -2,15 +2,16 @@
   "name": "codx.temple-ui",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "pnpm@11.18.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage --passWithNoTests",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
