@@ -1,6 +1,7 @@
 using Codx.Temple.Application.Abstractions;
 using Codx.Temple.Infrastructure.Auth;
 using Codx.Temple.Infrastructure.Data;
+using Codx.Temple.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,7 @@ public static class InfrastructureExtensions
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IGoogleAuthService, GoogleAuthService>();
+        services.AddScoped<IEmailService, LoggingEmailService>();
 
         services.AddHttpClient("GoogleAuth");
 
