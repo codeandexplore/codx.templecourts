@@ -14,5 +14,6 @@ public interface IAppDbContext
     DbSet<LessonAttempt> LessonAttempts { get; }
     DbSet<StudentAnswer> StudentAnswers { get; }
     DbSet<StudentQuestionNote> StudentQuestionNotes { get; }
+    DbSet<TeacherAssignment> TeacherAssignments { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

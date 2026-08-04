@@ -28,4 +28,24 @@ public class AdminController : ControllerBase
         var result = await useCase.ExecuteAsync(request, cancellationToken);
         return CreatedAtAction(nameof(ListRoleAssignments), null, result);
     }
+
+    [HttpGet("assignments")]
+    public async Task<ActionResult<List<TeacherAssignmentDto>>> ListAssignments(
+        [FromQuery] string? status,
+        [FromServices] ListTeacherAssignmentsUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(status, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpPost("assignments/reassign")]
+    public async Task<ActionResult<TeacherAssignmentDto>> Reassign(
+        [FromBody] ReassignStudentRequest request,
+        [FromServices] ReassignStudentUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(request, cancellationToken);
+        return Ok(result);
+    }
 }
