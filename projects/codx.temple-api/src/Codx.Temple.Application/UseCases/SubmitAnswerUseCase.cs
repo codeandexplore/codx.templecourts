@@ -74,6 +74,17 @@ public class SubmitAnswerUseCase
 
         await _db.SaveChangesAsync(cancellationToken);
 
+        var unresolvedFlag = await _db.AnswerFlags
+            .FirstOrDefaultAsync(f => f.QuestionKey == request.QuestionKey
+                && f.StudentId == _currentUser.UserId
+                && f.ResolvedAt == null, cancellationToken);
+
+        if (unresolvedFlag is not null)
+        {
+            unresolvedFlag.Resolve();
+            await _db.SaveChangesAsync(cancellationToken);
+        }
+
         return new StudentAnswerDto(
             answer.Id,
             answer.LessonAttemptId,

@@ -19,6 +19,14 @@ public class StartLessonAttemptUseCase
 
     public virtual async Task<LessonAttemptDto> ExecuteAsync(Guid lessonKey, CancellationToken cancellationToken = default)
     {
+        var unresolvedFlags = await _db.AnswerFlags
+            .AnyAsync(f => f.StudentId == _currentUser.UserId && f.ResolvedAt == null, cancellationToken);
+
+        if (unresolvedFlags)
+            throw new GatingBlockedException(
+                "Cannot start a new lesson attempt while unresolved AnswerFlags exist. Complete the current lesson first.",
+                []);
+
         var existing = await _db.LessonAttempts
             .FirstOrDefaultAsync(a => a.StudentId == _currentUser.UserId
                 && a.LessonKey == lessonKey
