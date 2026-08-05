@@ -32,6 +32,14 @@ public class AssignRoleUseCase
         _db.RoleAssignments.Add(assignment);
         await _db.SaveChangesAsync(cancellationToken);
 
+        if (role == Role.Teacher || role == Role.Admin)
+        {
+            var audit = AuditLog.Create("RoleAssigned", _currentUser.UserId, request.UserId,
+                $"Assigned role: {role}");
+            _db.AuditLogs.Add(audit);
+            await _db.SaveChangesAsync(cancellationToken);
+        }
+
         var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == assignment.UserId, cancellationToken);
 
         return new RoleAssignmentDto(

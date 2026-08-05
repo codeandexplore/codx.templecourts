@@ -22,5 +22,6 @@ public interface IAppDbContext
     DbSet<ThreadMessage> ThreadMessages { get; }
     DbSet<Notification> Notifications { get; }
     DbSet<StudySchedule> StudySchedules { get; }
+    DbSet<AuditLog> AuditLogs { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
