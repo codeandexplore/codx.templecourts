@@ -27,6 +27,7 @@ public class AppDbContext : DbContext, IAppDbContext
     public DbSet<AnswerThread> AnswerThreads => Set<AnswerThread>();
     public DbSet<ThreadMessage> ThreadMessages => Set<ThreadMessage>();
     public DbSet<StudySchedule> StudySchedules => Set<StudySchedule>();
+    public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

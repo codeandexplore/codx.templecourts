@@ -39,6 +39,11 @@ public class ReassignStudentUseCase
         _db.TeacherAssignments.Add(assignment);
         await _db.SaveChangesAsync(cancellationToken);
 
+        var audit = AuditLog.Create("StudentReassigned", _currentUser.UserId, request.StudentId,
+            $"Reassigned from teacher {current.PrimaryTeacherId} to {request.NewTeacherId}");
+        _db.AuditLogs.Add(audit);
+        await _db.SaveChangesAsync(cancellationToken);
+
         var student = await _db.Users.FirstAsync(u => u.Id == request.StudentId, cancellationToken);
 
         return new TeacherAssignmentDto(
