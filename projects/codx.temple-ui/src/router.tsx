@@ -26,6 +26,7 @@ export default createBrowserRouter([
           { index: true, element: <HomePage /> },
           { path: "lessons", lazy: () => import("./pages/LessonsPage") },
           { path: "lessons/:key", lazy: () => import("./pages/LessonDetailPage") },
+          { path: "attempt/:attemptId", lazy: () => import("./pages/AttemptPage") },
           {
             element: <RequireRole role="Teacher" />,
             children: [
