@@ -1,19 +1,15 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AppLayout from "./layouts/AppLayout";
-import HomePage from "./pages/HomePage";
+import { Suspense } from "react";
+import { RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import router from "./router";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <AppLayout />,
-    children: [
-      { index: true, element: <HomePage /> },
-    ],
-  },
-]);
-
-function App() {
-  return <RouterProvider router={router} />;
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Suspense fallback={<div className="flex min-h-screen items-center justify-center text-gray-600">Loading...</div>}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </Provider>
+  );
 }
-
-export default App;
