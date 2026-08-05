@@ -1,12 +1,15 @@
-import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RequireRole from "./components/RequireRole";
 import HomePage from "./pages/HomePage";
-
-const LoginPage = lazy(() => import("./pages/LoginPage"));
-const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import LessonsPage from "./pages/LessonsPage";
+import LessonDetailPage from "./pages/LessonDetailPage";
+import AttemptPage from "./pages/AttemptPage";
+import TeacherPage from "./pages/TeacherPage";
+import AdminPage from "./pages/AdminPage";
 
 export default createBrowserRouter([
   {
@@ -24,19 +27,19 @@ export default createBrowserRouter([
         element: <AppLayout />,
         children: [
           { index: true, element: <HomePage /> },
-          { path: "lessons", lazy: () => import("./pages/LessonsPage") },
-          { path: "lessons/:key", lazy: () => import("./pages/LessonDetailPage") },
-          { path: "attempt/:attemptId", lazy: () => import("./pages/AttemptPage") },
+          { path: "lessons", element: <LessonsPage /> },
+          { path: "lessons/:key", element: <LessonDetailPage /> },
+          { path: "attempt/:attemptId", element: <AttemptPage /> },
           {
             element: <RequireRole role="Teacher" />,
             children: [
-              { path: "teacher", lazy: () => import("./pages/TeacherPage") },
+              { path: "teacher", element: <TeacherPage /> },
             ],
           },
           {
             element: <RequireRole role="Admin" />,
             children: [
-              { path: "admin", lazy: () => import("./pages/AdminPage") },
+              { path: "admin", element: <AdminPage /> },
             ],
           },
         ],
