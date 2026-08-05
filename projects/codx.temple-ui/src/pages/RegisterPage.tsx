@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod/v4";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const schema = z.object({
   email: z.string().email(),
@@ -14,14 +14,20 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function RegisterPage() {
-  const { register: registerUser } = useAuth();
+  const { register: registerUser, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/", { replace: true });
+  }, [isAuthenticated, navigate]);
 
   const onSubmit = async (data: FormData) => {
     setError("");
     try {
       await registerUser(data.email, data.password, data.displayName);
+      navigate("/", { replace: true });
     } catch (e: unknown) {
       const err = e as { data?: { error?: string } };
       setError(err?.data?.error || "Registration failed");
