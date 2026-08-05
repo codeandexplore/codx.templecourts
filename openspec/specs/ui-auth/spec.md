@@ -1,7 +1,8 @@
-# UI Auth
+# ui-auth Specification
 
-## ADDED Requirements
-
+## Purpose
+TBD - created by archiving change ui-foundation. Update Purpose after archive.
+## Requirements
 ### Requirement: User can register with email and password
 The UI SHALL provide a registration form with email, display name, and password fields. Validation errors SHALL be displayed inline.
 
@@ -19,8 +20,21 @@ The UI SHALL provide a login form with email and password. On success, JWT token
 ### Requirement: User can log in with Google
 The UI SHALL provide a Google sign-in button that opens the OAuth popup and sends the id_token to the API.
 
+#### Scenario: Google sign-in
+- **WHEN** a user clicks the Google sign-in button
+- **THEN** a Google OAuth popup opens and on success the user is authenticated
+
 ### Requirement: Authenticated routes redirect to login
 Routes requiring authentication SHALL redirect to /login when the user is not authenticated.
 
+#### Scenario: Unauthenticated access
+- **WHEN** an unauthenticated user visits a protected route
+- **THEN** they are redirected to /login
+
 ### Requirement: Role-based route guarding
-Routes requiring specific roles (Admin, Teacher) SHALL show an unauthorized page when the user lacks the role.
+Routes requiring specific roles (Admin, Teacher) SHALL show an unauthorized message when the user lacks the role.
+
+#### Scenario: Wrong role access
+- **WHEN** a Student visits an Admin-only route
+- **THEN** an unauthorized message is shown
+
