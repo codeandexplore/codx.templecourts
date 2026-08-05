@@ -54,7 +54,11 @@ const lessonsApi = apiSlice.injectEndpoints({
     getLessonTree: builder.query<LessonVersionDto, string>({
       query: (key) => `/api/lessons/${key}`,
     }),
+    createLesson: builder.mutation<LessonDto, { number: number; title: string }>({
+      query: (body) => ({ url: "/api/lessons", method: "POST", body }),
+      invalidatesTags: ["Lessons"],
+    }),
   }),
 });
 
-export const { useListLessonsQuery, useGetLessonTreeQuery } = lessonsApi;
+export const { useListLessonsQuery, useGetLessonTreeQuery, useCreateLessonMutation } = lessonsApi;
