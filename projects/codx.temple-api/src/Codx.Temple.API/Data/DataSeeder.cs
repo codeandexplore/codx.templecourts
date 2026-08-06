@@ -78,37 +78,38 @@ public static class DataSeeder
         db.Questions.Add(Question.Create(n2b.Id, 0, QuestionType.YesNo, "Did God keep His will hidden until Christ came?", System.Text.Json.JsonSerializer.SerializeToDocument(new { correct = false })));
         db.Questions.Add(Question.Create(n2b.Id, 1, QuestionType.Essay, "Why do you think God chose to reveal His will gradually throughout history?"));
         v1.Publish();
+        await db.SaveChangesAsync();
         lesson1.SetCurrentPublishedVersion(v1.Id);
 
-        AddLesson(db, 2, "The Creation Account", (db, v1s) => {
+        await AddLesson(db, 2, "The Creation Account", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "The Creation Account", "Genesis 1–2");
             Q(db, n, 0, QuestionType.Essay, "What do the opening words \"In the beginning, God created\" reveal about God's nature?");
             Q(db, n, 1, QuestionType.TrueFalse, "God saw that creation was \"good.\"", Serialize(new { correct = true }));
             Q(db, n, 2, QuestionType.Essay, "What does it mean that humanity was made in the image of God?");
         });
 
-        AddLesson(db, 3, "The Fall and Promise", (db, v1s) => {
+        await AddLesson(db, 3, "The Fall and Promise", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "The Fall and Promise", "Genesis 3");
             Q(db, n, 0, QuestionType.Essay, "What was the serpent's first tactic in questioning God's command?");
             Q(db, n, 1, QuestionType.FillBlank, "\"I will put enmity between you and the woman, and between your offspring and ___ offspring.\"", Serialize(new { answer = "her" }));
             Q(db, n, 2, QuestionType.Essay, "God asked Adam \"Where are you?\" — why does an all-knowing God ask questions?");
         });
 
-        AddLesson(db, 4, "The Flood and Covenant", (db, v1s) => {
+        await AddLesson(db, 4, "The Flood and Covenant", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "The Flood and Covenant", "Genesis 6–9");
             Q(db, n, 0, QuestionType.YesNo, "Did Noah earn God's favor through his own righteousness?", Serialize(new { correct = false }));
             Q(db, n, 1, QuestionType.Essay, "What does Genesis 6:5-6 tell us about God's response to human wickedness?");
             Q(db, n, 2, QuestionType.Essay, "What is the significance of the rainbow as a covenant sign?");
         });
 
-        AddLesson(db, 5, "The Call of Abram", (db, v1s) => {
+        await AddLesson(db, 5, "The Call of Abram", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "The Call of Abram", "Genesis 12");
             Q(db, n, 0, QuestionType.Essay, "What did God ask Abram to leave behind, and why is this significant?");
             Q(db, n, 1, QuestionType.FillBlank, "\"In you all the ___ of the earth will be blessed.\"", Serialize(new { answer = "families" }));
             Q(db, n, 2, QuestionType.Essay, "What did God promise Abram beyond land?");
         });
 
-        AddLesson(db, 6, "The Covenant with Abraham", (db, v1s) => {
+        await AddLesson(db, 6, "The Covenant with Abraham", (db, v1s) => {
             var n1d = Node(db, v1s, null, 1, 0, "The Promise Confirmed", "Genesis 15–17");
             Q(db, n1d, 0, QuestionType.Essay, "Why did God use a covenant ceremony with animals in Genesis 15?");
             var n2d = Node(db, v1s, null, 1, 1, "The Name Change", "Genesis 15–17");
@@ -116,32 +117,32 @@ public static class DataSeeder
             Q(db, n2d, 1, QuestionType.TrueFalse, "God's covenant with Abraham was conditional on Abraham's obedience.", Serialize(new { correct = false }));
         });
 
-        AddLesson(db, 7, "Isaac and Ishmael", (db, v1s) => {
+        await AddLesson(db, 7, "Isaac and Ishmael", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "Isaac and Ishmael", "Genesis 21");
             Q(db, n, 0, QuestionType.Essay, "Why is Isaac called the \"son of promise\"?");
             Q(db, n, 1, QuestionType.Essay, "How did God show mercy to Hagar and Ishmael even as they were sent away?");
         });
 
-        AddLesson(db, 8, "Jacob Becomes Israel", (db, v1s) => {
+        await AddLesson(db, 8, "Jacob Becomes Israel", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "Jacob Becomes Israel", "Genesis 28, 32");
             Q(db, n, 0, QuestionType.Essay, "What was God's promise to Jacob in the dream at Bethel?");
             Q(db, n, 1, QuestionType.FillBlank, "\"Your name will no longer be Jacob, but ___.\"", Serialize(new { answer = "Israel" }));
         });
 
-        AddLesson(db, 9, "Joseph — God's Sovereignty", (db, v1s) => {
+        await AddLesson(db, 9, "Joseph — God's Sovereignty", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "Joseph — God's Sovereignty", "Genesis 37, 45, 50");
             Q(db, n, 0, QuestionType.Essay, "What enabled Joseph to endure years of suffering without bitterness?");
             Q(db, n, 1, QuestionType.Essay, "What does Joseph mean when he says \"You meant it for evil, but God meant it for good\"?");
         });
 
-        AddLesson(db, 10, "Moses and the Exodus", (db, v1s) => {
+        await AddLesson(db, 10, "Moses and the Exodus", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "Moses and the Exodus", "Exodus 3, 12, 14");
             Q(db, n, 0, QuestionType.Essay, "What did God reveal about Himself when He said \"I AM WHO I AM\"?");
             Q(db, n, 1, QuestionType.TrueFalse, "The Passover lamb could have any blemish.", Serialize(new { correct = false }));
             Q(db, n, 2, QuestionType.Essay, "What does the Red Sea crossing teach about God's power to deliver?");
         });
 
-        AddLesson(db, 11, "The Law and the Tabernacle", (db, v1s) => {
+        await AddLesson(db, 11, "The Law and the Tabernacle", (db, v1s) => {
             var t1 = Node(db, v1s, null, 1, 0, "The Ten Commandments", "Exodus 20");
             var s1a = Node(db, v1s, t1, 2, 0, "Loving God", "Exodus 20:1-11");
             Q(db, s1a, 0, QuestionType.Essay, "Why do the first four commandments focus on our relationship with God?");
@@ -152,33 +153,33 @@ public static class DataSeeder
             Q(db, t2, 0, QuestionType.Essay, "What was the significance of the Most Holy Place?");
         });
 
-        AddLesson(db, 12, "The Wilderness Journey", (db, v1s) => {
+        await AddLesson(db, 12, "The Wilderness Journey", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "The Wilderness Journey", "Numbers 13–14, 21");
             Q(db, n, 0, QuestionType.Essay, "Why did the Israelites refuse to enter the Promised Land after the spies' report?");
             Q(db, n, 1, QuestionType.FillBlank, "\"As Moses lifted up the serpent in the wilderness, so must the ___ be lifted up.\"", Serialize(new { answer = "Son of Man" }));
         });
 
-        AddLesson(db, 13, "Entering the Promised Land", (db, v1s) => {
+        await AddLesson(db, 13, "Entering the Promised Land", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "Entering the Promised Land", "Joshua 1, 3–4, 6");
             Q(db, n, 0, QuestionType.Essay, "What command did God repeat to Joshua multiple times, and why?");
             Q(db, n, 1, QuestionType.Essay, "Why did God instruct Israel to march around Jericho rather than attack directly?");
         });
 
-        AddLesson(db, 14, "The Judges", (db, v1s) => {
+        await AddLesson(db, 14, "The Judges", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "The Judges", "Judges 2, 4, 6–7");
             Q(db, n, 0, QuestionType.Essay, "What pattern of behavior repeats throughout the book of Judges?");
             Q(db, n, 1, QuestionType.Essay, "Why did God reduce Gideon's army from 32,000 to 300?");
             Q(db, n, 2, QuestionType.TrueFalse, "Gideon's victory came through superior military strategy.", Serialize(new { correct = false }));
         });
 
-        AddLesson(db, 15, "David — A Man After God's Heart", (db, v1s) => {
+        await AddLesson(db, 15, "David — A Man After God's Heart", (db, v1s) => {
             var n = Node(db, v1s, null, 1, 0, "David — A Man After God's Heart", "1 Samuel 16–17, 2 Samuel 7, 11–12");
             Q(db, n, 0, QuestionType.Essay, "Why did God choose David — the youngest, a shepherd — over his brothers?");
             Q(db, n, 1, QuestionType.FillBlank, "David told Goliath \"the battle is the ___'s.\"", Serialize(new { answer = "Lord" }));
             Q(db, n, 2, QuestionType.Essay, "How does David's response when confronted by Nathan differ from Saul's pattern?");
         });
 
-        AddLesson(db, 16, "Wisdom from Proverbs", (db, v1s) => {
+        await AddLesson(db, 16, "Wisdom from Proverbs", (db, v1s) => {
             var n1d = Node(db, v1s, null, 1, 0, "The Foundation of Wisdom", "Proverbs 1:7, 3:5-6");
             Q(db, n1d, 0, QuestionType.Essay, "What does it mean that \"the fear of the Lord is the beginning of wisdom\"?");
             Q(db, n1d, 1, QuestionType.TrueFalse, "Wisdom in Proverbs is primarily about intellectual knowledge.", Serialize(new { correct = false }));
@@ -192,7 +193,7 @@ public static class DataSeeder
         await db.SaveChangesAsync();
     }
 
-    private static void AddLesson(AppDbContext db, int number, string title, Action<AppDbContext, LessonVersion> build)
+    private static async Task AddLesson(AppDbContext db, int number, string title, Action<AppDbContext, LessonVersion> build)
     {
         var lesson = Lesson.Create(number, title);
         db.Lessons.Add(lesson);
@@ -200,6 +201,7 @@ public static class DataSeeder
         db.LessonVersions.Add(version);
         build(db, version);
         version.Publish();
+        await db.SaveChangesAsync();
         lesson.SetCurrentPublishedVersion(version.Id);
     }
 
