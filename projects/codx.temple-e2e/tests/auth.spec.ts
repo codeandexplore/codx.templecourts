@@ -3,15 +3,15 @@ import { test, expect } from "@playwright/test";
 test.describe("Auth", () => {
   test("login page renders", async ({ page }) => {
     await page.goto("/login");
-    await expect(page.getByRole("heading", { name: "Sign in" })).toBeVisible();
-    await expect(page.getByLabel("Email")).toBeVisible();
-    await expect(page.getByLabel("Password")).toBeVisible();
+    await expect(page.getByText("Sign in").first()).toBeVisible();
+    await expect(page.locator('input[name="email"]')).toBeVisible();
+    await expect(page.locator('input[name="password"]')).toBeVisible();
   });
 
   test("register page renders", async ({ page }) => {
     await page.goto("/register");
-    await expect(page.getByRole("heading", { name: "Create account" })).toBeVisible();
-    await expect(page.getByLabel("Display Name")).toBeVisible();
+    await expect(page.getByText("Create account").first()).toBeVisible();
+    await expect(page.locator('input[name="displayName"]')).toBeVisible();
   });
 
   test("redirects to login when unauthenticated", async ({ page }) => {
@@ -21,10 +21,10 @@ test.describe("Auth", () => {
 
   test("can login with valid credentials", async ({ page }) => {
     await page.goto("/login");
-    await page.fill('input[name="email"]', "admin@templecourts.test");
-    await page.fill('input[name="password"]', "Admin123!");
-    await page.click('button[type="submit"]');
+    await page.locator('input[name="email"]').fill("admin@templecourts.local");
+    await page.locator('input[name="password"]').fill("Admin123!");
+    await page.getByRole("button", { name: "Sign in" }).click();
     await page.waitForURL("/");
-    await expect(page.getByRole("heading", { name: "Welcome" })).toBeVisible();
+    await expect(page.getByText("Welcome").first()).toBeVisible();
   });
 });

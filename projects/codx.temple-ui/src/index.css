@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+@theme {
+  --color-parchment-50: #FBF7F0;
+  --color-parchment-100: #F5F1EB;
+  --color-parchment-200: #EBE4D6;
+  --color-parchment-300: #D6CCB8;
+  --color-parchment-400: #B8A88A;
+  --color-parchment-500: #9C8B6F;
+  --color-parchment-600: #7A6B54;
+  --color-parchment-700: #5C4F3A;
+  --color-parchment-800: #3D3427;
+  --color-parchment-900: #2D2416;
+
+  --color-cerulean-50: #F0F7FF;
+  --color-cerulean-100: #E0EFFF;
+  --color-cerulean-200: #B8DFFF;
+  --color-cerulean-300: #7CC4FF;
+  --color-cerulean-400: #3BA8FF;
+  --color-cerulean-500: #3B82F6;
+  --color-cerulean-600: #2563EB;
+  --color-cerulean-700: #1D4ED8;
+  --color-cerulean-800: #1E40AF;
+  --color-cerulean-900: #1E3A8A;
+
+  --color-gold-50: #FFF8E7;
+  --color-gold-100: #FDF0CC;
+  --color-gold-200: #FAE19A;
+  --color-gold-300: #F5CC5C;
+  --color-gold-400: #E8B42E;
+  --color-gold-500: #D4A017;
+  --color-gold-600: #B8860B;
+  --color-gold-700: #926B0A;
+  --color-gold-800: #6C4F08;
+  --color-gold-900: #4A3605;
+
+  --font-family-serif: 'Georgia', 'Merriweather', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --spacing-page: 2rem;
+  --radius-card: 0.75rem;
+}
