@@ -2,6 +2,11 @@ import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { useGetAttemptQuery, useSubmitAnswerMutation } from "../services/studentApi";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
+import { CheckBadgeIcon, PencilIcon, ArrowLeftIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+import { Textarea } from "../components/ui/textarea";
 
 export default function AttemptPage() {
   const { attemptId } = useParams<{ attemptId: string }>();
@@ -12,7 +17,7 @@ export default function AttemptPage() {
   const [answer, setAnswer] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  if (isLoading || !attempt) return <div className="text-gray-600">Loading...</div>;
+  if (isLoading || !attempt) return <div className="text-parchment-500 dark:text-slate-400">Loading...</div>;
 
   const allQuestions = flattenQuestions(tree?.nodes ?? []);
 
@@ -31,38 +36,56 @@ export default function AttemptPage() {
 
   return (
     <div>
-      <Link to={`/lessons/${attempt.lessonKey}`} className="text-sm text-blue-600 hover:underline mb-4 inline-block">&larr; Back to lesson</Link>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Lesson Runner</h2>
-        <span className="text-sm text-gray-600 dark:text-gray-400">{completed} / {allQuestions.length} answered</span>
+      <Link to={`/lessons/${attempt.lessonKey}`} className="inline-flex items-center gap-1 text-sm text-cerulean-600 hover:underline mb-6">
+        <ArrowLeftIcon className="size-4" />
+        Back to lesson
+      </Link>
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="font-serif text-2xl font-semibold text-parchment-900 dark:text-white">Lesson Runner</h2>
+        <Badge variant={completed === allQuestions.length ? "success" : "secondary"} className="text-sm px-3 py-1">
+          {completed} / {allQuestions.length} answered
+        </Badge>
       </div>
       <div className="space-y-4">
         {allQuestions.map((q, i) => {
           const answered = attempt.answeredQuestionKeys.includes(q.key);
           const isActive = activeQuestion === q.key;
           return (
-            <div key={q.key} className={`rounded-lg border p-4 ${answered ? "border-green-300 dark:border-green-700 bg-green-50 dark:bg-green-950" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-medium text-gray-500 uppercase">Q{i + 1} &middot; {q.questionType}</span>
-                {answered && <span className="text-xs text-green-600">Answered</span>}
-              </div>
-              <p className="text-sm text-gray-800 dark:text-gray-200 mb-3">{q.promptText}</p>
-              {isActive ? (
-                <div className="space-y-2">
-                  <textarea value={answer} onChange={e => setAnswer(e.target.value)} className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-white" rows={3} placeholder="Type your answer..." />
-                  <div className="flex gap-2">
-                    <button onClick={() => handleSubmit(q)} disabled={submitting || !answer.trim()} className="rounded-lg bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700 disabled:opacity-50">
-                      {submitting ? "Saving..." : "Submit"}
-                    </button>
-                    <button onClick={() => { setActiveQuestion(null); setAnswer(""); }} className="rounded-lg px-3 py-1 text-sm text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800">Cancel</button>
+            <Card key={q.key} className={`p-5 ${answered ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50/30 dark:bg-emerald-950/15" : ""}`}>
+              <CardContent className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <QuestionMarkCircleIcon className="size-4 text-parchment-400" />
+                    <span className="text-xs font-medium text-parchment-500 dark:text-slate-400 uppercase tracking-wider">Q{i + 1} &middot; {q.questionType}</span>
                   </div>
+                  {answered && (
+                    <Badge variant="success" className="flex items-center gap-1">
+                      <CheckBadgeIcon className="size-3" />
+                      Answered
+                    </Badge>
+                  )}
                 </div>
-              ) : (
-                <button onClick={() => setActiveQuestion(q.key)} className="text-sm text-blue-600 hover:underline">
-                  {answered ? "Edit answer" : "Answer"}
-                </button>
-              )}
-            </div>
+                <p className="text-sm text-parchment-800 dark:text-slate-200 leading-relaxed">{q.promptText}</p>
+                {isActive ? (
+                  <div className="space-y-3 pt-2">
+                    <Textarea value={answer} onChange={e => setAnswer(e.target.value)} className="min-h-[100px]" placeholder="Type your answer..." />
+                    <div className="flex gap-2">
+                      <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" disabled={submitting || !answer.trim()} onClick={() => handleSubmit(q)}>
+                        {submitting ? "Saving..." : "Submit"}
+                      </Button>
+                      <Button variant="ghost" onClick={() => { setActiveQuestion(null); setAnswer(""); }}>
+                        Cancel
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <Button variant="ghost" className="justify-start gap-1.5 w-fit h-auto py-1 px-0 text-cerulean-600 hover:text-cerulean-700" onClick={() => setActiveQuestion(q.key)}>
+                    <PencilIcon className="size-4" />
+                    {answered ? "Edit answer" : "Answer"}
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
           );
         })}
       </div>

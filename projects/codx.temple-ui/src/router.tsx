@@ -10,6 +10,7 @@ import LessonDetailPage from "./pages/LessonDetailPage";
 import AttemptPage from "./pages/AttemptPage";
 import TeacherPage from "./pages/TeacherPage";
 import AdminPage from "./pages/AdminPage";
+import EditorPage from "./pages/EditorPage";
 
 export default createBrowserRouter([
   {
@@ -40,6 +41,7 @@ export default createBrowserRouter([
             element: <RequireRole role="Admin" />,
             children: [
               { path: "admin", element: <AdminPage /> },
+              { path: "admin/editor", element: <EditorPage /> },
             ],
           },
         ],
