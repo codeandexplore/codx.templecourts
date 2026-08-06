@@ -17,7 +17,7 @@ public class ListStudentLessonsUseCase
     public virtual async Task<List<LessonDto>> ExecuteAsync(CancellationToken cancellationToken = default)
     {
         return await _db.Lessons
-            .Where(l => l.CurrentPublishedVersionId != null && l.Status == LessonStatus.Active)
+            .Where(l => l.Status == LessonStatus.Active)
             .OrderBy(l => l.Number)
             .Select(l => new LessonDto(l.Id, l.Key, l.Number, l.Title, l.Status.ToString(), l.CurrentPublishedVersionId))
             .ToListAsync(cancellationToken);
