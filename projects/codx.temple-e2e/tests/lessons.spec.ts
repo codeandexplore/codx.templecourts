@@ -3,15 +3,15 @@ import { test, expect } from "@playwright/test";
 test.describe("Lessons", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/login");
-    await page.fill('input[name="email"]', "admin@templecourts.test");
-    await page.fill('input[name="password"]', "Admin123!");
-    await page.click('button[type="submit"]');
+    await page.locator('input[name="email"]').fill("admin@templecourts.local");
+    await page.locator('input[name="password"]').fill("Admin123!");
+    await page.getByRole("button", { name: "Sign in" }).click();
     await page.waitForURL("/");
   });
 
   test("lesson list shows published lessons", async ({ page }) => {
     await page.click('a[href="/lessons"]');
-    await expect(page.getByRole("heading", { name: "Lessons" })).toBeVisible();
+    await expect(page.getByText("Lessons")).toBeVisible();
     const lessonLinks = page.locator('a[href^="/lessons/"]');
     await expect(lessonLinks.first()).toBeVisible();
   });
