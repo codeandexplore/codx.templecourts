@@ -14,12 +14,34 @@ interface AuthState {
   expiresAt: string | null;
 }
 
-const initialState: AuthState = {
-  user: null,
-  accessToken: null,
-  refreshToken: null,
-  expiresAt: null,
-};
+const AUTH_KEY = "templecourts_auth";
+
+function loadAuth(): AuthState {
+  try {
+    const raw = localStorage.getItem(AUTH_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.accessToken && parsed.user) {
+        return parsed;
+      }
+    }
+  } catch { /* ignore corrupt storage */ }
+  return { user: null, accessToken: null, refreshToken: null, expiresAt: null };
+}
+
+function saveAuth(state: AuthState) {
+  try {
+    localStorage.setItem(AUTH_KEY, JSON.stringify(state));
+  } catch { /* ignore quota errors */ }
+}
+
+function clearAuth() {
+  try {
+    localStorage.removeItem(AUTH_KEY);
+  } catch { /* ignore */ }
+}
+
+const initialState: AuthState = loadAuth();
 
 const authSlice = createSlice({
   name: "auth",
@@ -30,17 +52,20 @@ const authSlice = createSlice({
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
       state.expiresAt = action.payload.expiresAt;
+      saveAuth(state);
     },
     setTokens(state, action: PayloadAction<{ accessToken: string; refreshToken: string; expiresAt: string }>) {
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
       state.expiresAt = action.payload.expiresAt;
+      saveAuth(state);
     },
     logout(state) {
       state.user = null;
       state.accessToken = null;
       state.refreshToken = null;
       state.expiresAt = null;
+      clearAuth();
     },
   },
 });

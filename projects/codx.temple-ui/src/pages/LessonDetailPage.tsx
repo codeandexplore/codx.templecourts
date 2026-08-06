@@ -2,6 +2,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
 import { useStartAttemptMutation, useGetAttemptQuery } from "../services/studentApi";
+import { LockClosedIcon, CheckBadgeIcon, QuestionMarkCircleIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
 
 export default function LessonDetailPage() {
   const { key } = useParams<{ key: string }>();
@@ -18,22 +22,25 @@ export default function LessonDetailPage() {
     } catch { /* ignored */ }
   };
 
-  if (isLoading) return <div className="text-gray-600">Loading lesson...</div>;
+  if (isLoading) return <div className="text-parchment-500 dark:text-slate-400">Loading lesson...</div>;
   if (!tree) return null;
 
   return (
     <div>
-      <Link to="/lessons" className="text-sm text-blue-600 hover:underline mb-4 inline-block">&larr; Back to lessons</Link>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Lesson Content</h2>
+      <Link to="/lessons" className="inline-flex items-center gap-1 text-sm text-cerulean-600 hover:underline mb-6">
+        <ArrowLeftIcon className="size-4" />
+        Back to lessons
+      </Link>
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="font-serif text-2xl font-semibold text-parchment-900 dark:text-white">Lesson Content</h2>
         {!attemptId ? (
-          <button onClick={handleStart} className="rounded-lg bg-blue-600 px-4 py-2 text-sm text-white font-medium hover:bg-blue-700">
+          <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" onClick={handleStart}>
             Start Lesson
-          </button>
+          </Button>
         ) : (
-          <button onClick={() => navigate(`/attempt/${attemptId}`)} className="rounded-lg bg-green-600 px-4 py-2 text-sm text-white font-medium hover:bg-green-700">
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => navigate(`/attempt/${attemptId}`)}>
             Continue Lesson
-          </button>
+          </Button>
         )}
       </div>
       <div className="space-y-6">
@@ -46,16 +53,23 @@ export default function LessonDetailPage() {
 }
 
 function NodeRenderer({ node, isRoot = false, attempt }: { node: { depth: number; title: string; description: string; requiresPriorSiblingAnswered: boolean; children: typeof node[]; questions: QuestionDto[]; id: string }; isRoot?: boolean; attempt?: { answeredQuestionKeys: string[] } | null }) {
-  const depthClasses: Record<number, string> = { 1: "ml-0", 2: "ml-6 border-l-2 border-gray-200 dark:border-gray-700 pl-4", 3: "ml-12 border-l-2 border-gray-200 dark:border-gray-700 pl-4" };
+  const depthClasses: Record<number, string> = { 1: "ml-0", 2: "ml-6 border-l-2 border-parchment-200 dark:border-slate-700 pl-6", 3: "ml-12 border-l-2 border-parchment-200 dark:border-slate-700 pl-6" };
 
   return (
     <div className={isRoot ? "" : (depthClasses[node.depth] || "")}>
-      <div className="mb-3">
-        <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-          {node.title}
-          {node.requiresPriorSiblingAnswered && <span className="ml-2 text-xs bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-2 py-0.5 rounded">Gated</span>}
-        </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{node.description}</p>
+      <div className="mb-4">
+        <div className="flex items-center gap-2">
+          <h3 className="font-serif text-lg font-medium text-parchment-900 dark:text-white">{node.title}</h3>
+          {node.requiresPriorSiblingAnswered && (
+            <Badge variant="secondary" className="flex items-center gap-1">
+              <LockClosedIcon className="size-3" />
+              Gated
+            </Badge>
+          )}
+        </div>
+        {node.description && (
+          <p className="text-sm text-parchment-600 dark:text-slate-400 mt-1 leading-relaxed">{node.description}</p>
+        )}
       </div>
       {node.questions.length > 0 && (
         <div className="space-y-3 mb-4">
@@ -76,12 +90,20 @@ function QuestionCard({ question, attempt }: { question: QuestionDto; attempt?: 
   const typeLabel: Record<string, string> = { Essay: "Essay", YesNo: "Yes / No", TrueFalse: "True / False", FillBlank: "Fill in the Blank", SelectEmbedded: "Multiple Choice" };
 
   return (
-    <div className={`rounded-lg border p-3 ${isAnswered ? "border-green-300 dark:border-green-700 bg-green-50 dark:bg-green-950" : "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800"}`}>
-      <div className="flex items-center gap-2 mb-1">
-        <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">{typeLabel[question.questionType] || question.questionType}</span>
-        {isAnswered && <span className="text-xs text-green-600 dark:text-green-400">Answered</span>}
-      </div>
-      <p className="text-sm text-gray-800 dark:text-gray-200">{question.promptText}</p>
-    </div>
+    <Card className={`p-4 ${isAnswered ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50/50 dark:bg-emerald-950/20" : ""}`}>
+      <CardContent className="flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <QuestionMarkCircleIcon className="size-4 text-parchment-400" />
+          <span className="text-xs font-medium text-parchment-500 dark:text-slate-400 uppercase tracking-wider">{typeLabel[question.questionType] || question.questionType}</span>
+          {isAnswered && (
+            <Badge variant="success" className="flex items-center gap-1 ml-auto">
+              <CheckBadgeIcon className="size-3" />
+              Answered
+            </Badge>
+          )}
+        </div>
+        <p className="text-sm text-parchment-800 dark:text-slate-200 leading-relaxed">{question.promptText}</p>
+      </CardContent>
+    </Card>
   );
 }
