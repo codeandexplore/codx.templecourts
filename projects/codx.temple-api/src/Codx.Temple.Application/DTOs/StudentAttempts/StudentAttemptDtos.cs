@@ -7,7 +7,8 @@ public record LessonAttemptDto(
     string Status,
     DateTimeOffset StartedAt,
     DateTimeOffset? CompletedAt,
-    List<Guid> AnsweredQuestionKeys
+    List<Guid> AnsweredQuestionKeys,
+    Guid? ActiveSessionId = null
 );
 
 public record StudentAnswerDto(

@@ -30,6 +30,9 @@ public class RegisterUseCaseTests
         var users = new List<User>().AsQueryable();
         var userDbSet = DbSetMockHelper.CreateMockDbSet(users);
         _dbMock.Setup(db => db.Users).Returns(userDbSet.Object);
+        var roleAssignments = new List<RoleAssignment>().AsQueryable();
+        var roleDbSet = DbSetMockHelper.CreateMockDbSet(roleAssignments);
+        _dbMock.Setup(db => db.RoleAssignments).Returns(roleDbSet.Object);
 
         _hasherMock.Setup(h => h.Hash(request.Password)).Returns("hashed-password");
         _tokenMock.Setup(t => t.GenerateRefreshToken()).Returns(("refresh-token", "refresh-hash", DateTimeOffset.UtcNow.AddDays(7)));
@@ -42,6 +45,7 @@ public class RegisterUseCaseTests
         Assert.Equal("access-token", result.AccessToken);
         Assert.Equal("refresh-token", result.RefreshToken);
         Assert.Equal("Test User", result.User.DisplayName);
+        Assert.Contains("Student", result.User.Roles);
     }
 
     [Fact]

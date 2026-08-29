@@ -16,4 +16,11 @@ public record TeacherAssignmentDto(
     string PrimaryTeacherDisplayName,
     string Status,
     DateTimeOffset AssignedAt,
-    DateTimeOffset? EndedAt);
+    DateTimeOffset? EndedAt,
+    Guid? LatestAttemptId = null);
+
+public record UserDto(Guid Id, string Email, string DisplayName, string Status, List<string> Roles);
+
+public record ResetUserPasswordRequest(string NewPassword);
+
+public record UpdateUserStatusRequest(string Status);
