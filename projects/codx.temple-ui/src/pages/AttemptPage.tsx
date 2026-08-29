@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useGetAttemptQuery, useSubmitAnswerMutation } from "../services/studentApi";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
 import { useGetSessionQuestionsQuery } from "../services/sessionApi";
@@ -13,17 +13,11 @@ import { useSessionHub } from "../hooks/useSessionHub";
 function ReviewBanner({ sessionId }: { sessionId: string }) {
   const { data } = useGetSessionQuestionsQuery(sessionId);
   const [ended, setEnded] = useState(false);
-  const [currentQuestionId, setCurrentQuestionId] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (data?.currentQuestionId) {
-      setCurrentQuestionId(data.currentQuestionId);
-    }
-  }, [data?.currentQuestionId]);
+  const [liveQuestionId, setLiveQuestionId] = useState<string | null>(null);
 
   useSessionHub(sessionId, {
     onSessionAdvanced: (questionId) => {
-      setCurrentQuestionId(questionId);
+      setLiveQuestionId(questionId);
     },
     onSessionEnded: () => {
       setEnded(true);
@@ -32,6 +26,7 @@ function ReviewBanner({ sessionId }: { sessionId: string }) {
 
   if (ended) return null;
 
+  const currentQuestionId = liveQuestionId ?? data?.currentQuestionId ?? null;
   const total = data?.questions.length ?? 0;
   const currentIndex = currentQuestionId
     ? data?.questions.findIndex((q) => q.key === currentQuestionId) ?? -1
