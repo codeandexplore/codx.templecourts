@@ -81,14 +81,19 @@ public class SubmitAnswerUseCase
             await _db.SaveChangesAsync(cancellationToken);
         }
 
-        var unresolvedFlag = await _db.AnswerFlags
-            .FirstOrDefaultAsync(f => f.QuestionKey == request.QuestionKey
+        var unresolvedFlags = await _db.AnswerFlags
+            .Where(f => f.QuestionKey == request.QuestionKey
                 && f.StudentId == _currentUser.UserId
-                && f.ResolvedAt == null, cancellationToken);
+                && f.ResolvedAt == null)
+            .ToListAsync(cancellationToken);
 
-        if (unresolvedFlag is not null)
+        foreach (var flag in unresolvedFlags)
         {
-            unresolvedFlag.Resolve();
+            flag.Resolve();
+        }
+
+        if (unresolvedFlags.Count > 0)
+        {
             await _db.SaveChangesAsync(cancellationToken);
         }
 

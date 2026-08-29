@@ -2,6 +2,7 @@ namespace Codx.Temple.Application.DTOs.StudySessions;
 
 public record SessionQuestionsDto(
     Guid SessionId,
+    Guid LessonAttemptId,
     string Status,
     Guid? CurrentQuestionId,
     string StudentDisplayName,

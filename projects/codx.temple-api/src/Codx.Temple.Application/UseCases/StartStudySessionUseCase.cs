@@ -28,6 +28,13 @@ public class StartStudySessionUseCase
         if (attempt.Status != LessonAttemptStatus.InProgress)
             throw new InvalidOperationException("Lesson attempt is not in progress");
 
+        var activeSession = await _db.StudySessions
+            .FirstOrDefaultAsync(s => s.LessonAttemptId == request.LessonAttemptId
+                && s.Status == StudySessionStatus.InProgress, cancellationToken);
+
+        if (activeSession is not null)
+            return MapToDto(activeSession);
+
         var existingSessions = await _db.StudySessions
             .Where(s => s.LessonAttemptId == request.LessonAttemptId)
             .OrderBy(s => s.SequenceNumber)
@@ -40,10 +47,17 @@ public class StartStudySessionUseCase
         if (existingSessions.Count > 0)
         {
             var lastSession = existingSessions.Last();
-            startQuestionId = lastSession.EndQuestionId;
+            startQuestionId = lastSession.EndQuestionId ?? lastSession.CurrentQuestionId;
             currentQuestionId = startQuestionId;
         }
         else
+        {
+            var questions = await GetTreeTraversalQuestionKeys(attempt.LessonVersionId, cancellationToken);
+            startQuestionId = questions.FirstOrDefault();
+            currentQuestionId = startQuestionId;
+        }
+
+        if (currentQuestionId is null)
         {
             var questions = await GetTreeTraversalQuestionKeys(attempt.LessonVersionId, cancellationToken);
             startQuestionId = questions.FirstOrDefault();
