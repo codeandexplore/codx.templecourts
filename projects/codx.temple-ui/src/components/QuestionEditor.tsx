@@ -36,6 +36,12 @@ export default function QuestionEditor({
 
   const [questionType, setQuestionType] = useState(existingQuestion?.questionType || "Essay");
   const [promptText, setPromptText] = useState(existingQuestion?.promptText || "");
+  const [options, setOptions] = useState<string[]>(
+    existingQuestion?.questionType === "SelectEmbedded"
+      ? ((existingQuestion.metadata as { options?: string[] } | undefined)?.options ?? [])
+      : []
+  );
+  const [newOption, setNewOption] = useState("");
   const [referenceContext, setReferenceContext] = useState(
     existingQuestion?.referenceContext
       ? JSON.stringify(existingQuestion.referenceContext, null, 2)
@@ -46,6 +52,12 @@ export default function QuestionEditor({
   const [error, setError] = useState("");
 
   const isNew = !existingQuestion;
+
+  const addOption = () => {
+    if (!newOption.trim()) return;
+    setOptions([...options, newOption.trim()]);
+    setNewOption("");
+  };
 
   const handleSave = async () => {
     if (!promptText.trim()) {
@@ -66,12 +78,24 @@ export default function QuestionEditor({
       }
     }
 
+    let metadata: Record<string, unknown> | undefined;
+    if (questionType === "SelectEmbedded") {
+      const cleanOptions = options.map((o) => o.trim()).filter((o) => o.length > 0);
+      if (cleanOptions.length === 0) {
+        setError("Multiple choice questions need at least one option");
+        setSaving(false);
+        return;
+      }
+      metadata = { options: cleanOptions };
+    }
+
     try {
       if (isNew) {
         await createQuestion({
           nodeKey,
           questionType,
           promptText: promptText.trim(),
+          metadata,
           referenceContext: refCtx,
         }).unwrap();
       } else {
@@ -79,6 +103,7 @@ export default function QuestionEditor({
           nodeKey,
           questionKey: existingQuestion.questionKey,
           promptText: promptText.trim(),
+          metadata,
           referenceContext: refCtx,
         }).unwrap();
       }
@@ -140,6 +165,60 @@ export default function QuestionEditor({
               className="w-full rounded-lg border border-parchment-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cerulean-500 dark:text-white"
             />
           </div>
+
+          {/* Options (multiple choice) */}
+          {questionType === "SelectEmbedded" && (
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-medium text-parchment-700 dark:text-slate-300">Options</label>
+              <div className="space-y-2">
+                {options.map((opt, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={opt}
+                      onChange={(e) => {
+                        const next = [...options];
+                        next[idx] = e.target.value;
+                        setOptions(next);
+                      }}
+                      className="flex-1 rounded-lg border border-parchment-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cerulean-500 dark:text-white"
+                      placeholder="Option text"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setOptions(options.filter((_, i) => i !== idx))}
+                      className="p-2 text-parchment-400 dark:text-slate-500 hover:text-red-600 dark:hover:text-red-400"
+                      title="Remove option"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={newOption}
+                  onChange={(e) => setNewOption(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      addOption();
+                    }
+                  }}
+                  placeholder="Add an option..."
+                  className="flex-1 rounded-lg border border-parchment-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cerulean-500 dark:text-white"
+                />
+                <button
+                  type="button"
+                  onClick={addOption}
+                  className="px-3 py-2 text-sm font-medium rounded-lg bg-parchment-100 dark:bg-slate-800 text-parchment-700 dark:text-slate-300 hover:bg-parchment-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Reference context (teacher guidance) */}
           <div className="flex flex-col gap-1.5">

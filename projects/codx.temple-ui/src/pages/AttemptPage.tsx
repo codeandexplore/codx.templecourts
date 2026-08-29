@@ -7,7 +7,7 @@ import { CheckBadgeIcon, PencilIcon, ArrowLeftIcon, QuestionMarkCircleIcon, EyeI
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { Textarea } from "../components/ui/textarea";
+import QuestionAnswerInput from "../components/QuestionAnswerInput";
 import { useSessionHub } from "../hooks/useSessionHub";
 
 function ReviewBanner({ sessionId }: { sessionId: string }) {
@@ -111,7 +111,7 @@ export default function AttemptPage() {
                 <p className="text-sm text-parchment-800 dark:text-slate-200 leading-relaxed">{q.promptText}</p>
                 {isActive ? (
                   <div className="space-y-3 pt-2">
-                    <Textarea value={answer} onChange={e => setAnswer(e.target.value)} className="min-h-[100px]" placeholder="Type your answer..." />
+                    <QuestionAnswerInput question={q} value={answer} onChange={setAnswer} />
                     <div className="flex gap-2">
                       <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" disabled={submitting || !answer.trim()} onClick={() => handleSubmit(q)}>
                         {submitting ? "Saving..." : "Submit"}
