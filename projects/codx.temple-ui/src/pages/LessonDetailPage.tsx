@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
-import { useStartAttemptMutation, useGetAttemptQuery } from "../services/studentApi";
+import { useStartAttemptMutation, useGetAttemptByLessonQuery } from "../services/studentApi";
 import { LockClosedIcon, CheckBadgeIcon, QuestionMarkCircleIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
@@ -11,15 +11,19 @@ export default function LessonDetailPage() {
   const { key } = useParams<{ key: string }>();
   const navigate = useNavigate();
   const { data: tree, isLoading } = useGetLessonTreeQuery(key!);
-  const [startAttempt] = useStartAttemptMutation();
-  const [attemptId, setAttemptId] = useState<string | null>(null);
-  const { data: attempt } = useGetAttemptQuery(attemptId!, { skip: !attemptId });
+  const { data: attempt, refetch: refetchAttempt } = useGetAttemptByLessonQuery(key!);
+  const [startAttempt, { isLoading: starting }] = useStartAttemptMutation();
+  const [error, setError] = useState("");
 
   const handleStart = async () => {
+    setError("");
     try {
-      const result = await startAttempt(key!).unwrap();
-      setAttemptId(result.id);
-    } catch { /* ignored */ }
+      await startAttempt(key!).unwrap();
+      refetchAttempt();
+    } catch (e: unknown) {
+      const err = e as { data?: { message?: string; error?: string } };
+      setError(err?.data?.message || err?.data?.error || "Failed to start lesson.");
+    }
   };
 
   if (isLoading) return <div className="text-parchment-500 dark:text-slate-400">Loading lesson...</div>;
@@ -33,16 +37,21 @@ export default function LessonDetailPage() {
       </Link>
       <div className="flex items-center justify-between mb-8">
         <h2 className="font-serif text-2xl font-semibold text-parchment-900 dark:text-white">Lesson Content</h2>
-        {!attemptId ? (
-          <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" onClick={handleStart}>
-            Start Lesson
+        {attempt ? (
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => navigate(`/attempt/${attempt.id}`)}>
+            Continue Lesson
           </Button>
         ) : (
-          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => navigate(`/attempt/${attemptId}`)}>
-            Continue Lesson
+          <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" onClick={handleStart} disabled={starting}>
+            {starting ? "Starting..." : "Start Lesson"}
           </Button>
         )}
       </div>
+      {error && (
+        <p className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 rounded-lg px-4 py-3 mb-6">
+          {error}
+        </p>
+      )}
       <div className="space-y-6">
         {tree.nodes.map((node) => (
           <NodeRenderer key={node.id} node={node} isRoot attempt={attempt} />

@@ -38,6 +38,10 @@ const studentApi = apiSlice.injectEndpoints({
       query: (id) => `/api/attempts/${id}`,
       providesTags: ["Attempts"],
     }),
+    getAttemptByLesson: builder.query<LessonAttemptDto | null, string>({
+      query: (lessonKey) => `/api/lessons/${lessonKey}/attempt`,
+      providesTags: ["Attempts"],
+    }),
     submitAnswer: builder.mutation<StudentAnswerDto, { attemptId: string; questionKey: string; answerValue: unknown }>({
       query: ({ attemptId, questionKey, answerValue }) => ({
         url: `/api/attempts/${attemptId}/answers`,
@@ -76,6 +80,7 @@ const studentApi = apiSlice.injectEndpoints({
 export const {
   useStartAttemptMutation,
   useGetAttemptQuery,
+  useGetAttemptByLessonQuery,
   useSubmitAnswerMutation,
   useGetNotesQuery,
   useCreateNoteMutation,

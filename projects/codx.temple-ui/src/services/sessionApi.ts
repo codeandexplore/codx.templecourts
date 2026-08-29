@@ -24,6 +24,7 @@ export interface QuestionWithAnswerDto {
 
 export interface SessionQuestionsDto {
   sessionId: string;
+  lessonAttemptId: string;
   status: string;
   currentQuestionId: string | null;
   studentDisplayName: string;
