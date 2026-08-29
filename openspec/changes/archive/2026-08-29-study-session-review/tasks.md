@@ -49,5 +49,5 @@
 
 - [x] 7.1 Run `dotnet build` and `dotnet test` in API project — verify no regressions
 - [x] 7.2 Run `pnpm type-check`, `pnpm lint`, `pnpm build` in UI project
-- [ ] 7.3 Manually verify: teacher starts session → walks through questions → marks reviewed → ends session
-- [ ] 7.4 Manually verify: student page shows review banner during active session, updates on teacher advance
+- [x] 7.3 Manually verify: teacher starts session → walks through questions → marks reviewed → ends session
+- [x] 7.4 Manually verify: student page shows review banner during active session, updates on teacher advance
