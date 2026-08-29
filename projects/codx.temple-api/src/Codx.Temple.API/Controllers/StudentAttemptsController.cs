@@ -28,4 +28,14 @@ public class StudentAttemptsController : ControllerBase
         var result = await useCase.ExecuteAsync(attemptId, cancellationToken);
         return Ok(result);
     }
+
+    [HttpGet("api/lessons/{lessonKey:guid}/attempt")]
+    public async Task<ActionResult<LessonAttemptDto?>> GetByLesson(
+        Guid lessonKey,
+        [FromServices] GetAttemptByLessonUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(lessonKey, cancellationToken);
+        return Ok(result);
+    }
 }
