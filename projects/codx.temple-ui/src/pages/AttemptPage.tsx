@@ -2,11 +2,39 @@ import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { useGetAttemptQuery, useSubmitAnswerMutation } from "../services/studentApi";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
-import { CheckBadgeIcon, PencilIcon, ArrowLeftIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import { CheckBadgeIcon, PencilIcon, ArrowLeftIcon, QuestionMarkCircleIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Textarea } from "../components/ui/textarea";
+import { useSessionHub } from "../hooks/useSessionHub";
+
+function ReviewBanner({ sessionId }: { sessionId: string }) {
+  const [ended, setEnded] = useState(false);
+
+  useSessionHub(sessionId, {
+    onSessionAdvanced: () => {},
+    onSessionEnded: () => {
+      setEnded(true);
+    },
+  });
+
+  if (ended) return null;
+
+  return (
+    <div className="mb-6 p-4 rounded-xl bg-cerulean-50 dark:bg-cerulean-900/20 border border-cerulean-200 dark:border-cerulean-700 flex items-center gap-3">
+      <EyeIcon className="size-5 text-cerulean-600 dark:text-cerulean-400 shrink-0" />
+      <div className="flex-1">
+        <p className="text-sm font-medium text-cerulean-700 dark:text-cerulean-300">
+          Teacher is reviewing your answers
+        </p>
+        <p className="text-xs text-cerulean-500 dark:text-cerulean-400">
+          Your answers are being reviewed in a live session.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function AttemptPage() {
   const { attemptId } = useParams<{ attemptId: string }>();
@@ -36,6 +64,7 @@ export default function AttemptPage() {
 
   return (
     <div>
+      {attempt.activeSessionId && <ReviewBanner sessionId={attempt.activeSessionId} />}
       <Link to={`/lessons/${attempt.lessonKey}`} className="inline-flex items-center gap-1 text-sm text-cerulean-600 hover:underline mb-6">
         <ArrowLeftIcon className="size-4" />
         Back to lesson

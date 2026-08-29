@@ -1,7 +1,7 @@
 ﻿import { useState, useRef, useEffect } from "react";
 import { useListLessonsQuery, useCreateLessonMutation } from "../services/lessonsApi";
-import { useListRoleAssignmentsQuery, useAssignRoleMutation, useGetAssignmentsQuery } from "../services/adminApi";
-import { BookOpenIcon, PlusIcon, ShieldCheckIcon, ClipboardDocumentListIcon } from "@heroicons/react/24/outline";
+import { useListRoleAssignmentsQuery, useAssignRoleMutation, useGetAssignmentsQuery, useListUsersQuery, useRevokeRoleMutation } from "../services/adminApi";
+import { BookOpenIcon, PlusIcon, ShieldCheckIcon, ClipboardDocumentListIcon, UserIcon } from "@heroicons/react/24/outline";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card, CardContent } from "../components/ui/card";
@@ -9,6 +9,7 @@ import { Badge } from "../components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../components/ui/dialog";
 import AssignmentsTab from "../components/admin/AssignmentsTab";
+import UsersTab from "../components/admin/UsersTab";
 
 export default function AdminPage() {
   return (
@@ -25,8 +26,8 @@ export default function AdminPage() {
 
       <QuickStats />
 
-      <Tabs defaultValue="lessons">
-        <Card>
+      <Tabs defaultValue="lessons" className="w-full">
+        <Card className="w-full">
           <div className="p-5 pb-3 border-b border-parchment-100 dark:border-slate-800">
             <TabsList className="mb-0">
               <TabsTrigger value="lessons">
@@ -41,6 +42,10 @@ export default function AdminPage() {
                 <ClipboardDocumentListIcon className="size-4 mr-1.5" />
                 Assignments
               </TabsTrigger>
+              <TabsTrigger value="users">
+                <UserIcon className="size-4 mr-1.5" />
+                Users
+              </TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value="lessons">
@@ -51,6 +56,9 @@ export default function AdminPage() {
           </TabsContent>
           <TabsContent value="assignments">
             <AssignmentsTab />
+          </TabsContent>
+          <TabsContent value="users">
+            <UsersTab />
           </TabsContent>
         </Card>
       </Tabs>
@@ -240,11 +248,23 @@ function CreateLessonForm({ onDone, onCancel }: { onDone: (title: string) => voi
 
 function RolesContent() {
   const { data: assignments, isLoading } = useListRoleAssignmentsQuery();
+  const { data: users } = useListUsersQuery();
   const [assignRole] = useAssignRoleMutation();
+  const [revokeRole] = useRevokeRoleMutation();
   const [userId, setUserId] = useState("");
+  const [userSearch, setUserSearch] = useState("");
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [role, setRole] = useState("Teacher");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const selectedUser = users?.find((u) => u.id === userId);
+
+  const filteredUsers = (users || []).filter((u) =>
+    !userSearch ||
+    u.email.toLowerCase().includes(userSearch.toLowerCase()) ||
+    u.displayName.toLowerCase().includes(userSearch.toLowerCase())
+  );
 
   const handleAssign = async () => {
     setError("");
@@ -252,6 +272,7 @@ function RolesContent() {
     try {
       await assignRole({ userId, role }).unwrap();
       setUserId("");
+      setUserSearch("");
       setSuccess("Role assigned successfully.");
       setTimeout(() => setSuccess(""), 3500);
     } catch (e: unknown) {
@@ -278,11 +299,47 @@ function RolesContent() {
         )}
       </h3>
       <div className="rounded-xl border border-parchment-100 dark:border-slate-800 bg-parchment-50/50 dark:bg-slate-900/30 p-4 mb-4">
-        <p className="text-xs text-parchment-400 dark:text-slate-500 mb-3">Assign a role to a user by their ID.</p>
+        <p className="text-xs text-parchment-400 dark:text-slate-500 mb-3">Select a user and assign a role.</p>
         <div className="flex gap-3">
           <div className="flex-1 flex flex-col gap-1.5">
-            <label htmlFor="role-user-id" className="text-xs font-medium text-parchment-700 dark:text-slate-300">User ID</label>
-            <Input id="role-user-id" value={userId} onChange={e => setUserId(e.target.value)} placeholder="00000000-0000-0000-0000-000000000000" />
+            <label htmlFor="role-user-id" className="text-xs font-medium text-parchment-700 dark:text-slate-300">User</label>
+            <div className="relative">
+              <input
+                type="text"
+                value={selectedUser ? `${selectedUser.displayName} (${selectedUser.email})` : userSearch}
+                onChange={(e) => {
+                  setUserSearch(e.target.value);
+                  setUserId("");
+                  setUserDropdownOpen(true);
+                }}
+                onFocus={() => setUserDropdownOpen(true)}
+                onBlur={() => setTimeout(() => setUserDropdownOpen(false), 150)}
+                placeholder="Search by name or email..."
+                className="w-full rounded-lg border border-parchment-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cerulean-500 dark:text-white"
+              />
+              {userDropdownOpen && filteredUsers.length > 0 && (
+                <div className="absolute z-50 mt-1 w-full rounded-lg border border-parchment-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg max-h-48 overflow-y-auto">
+                  {filteredUsers.map((u) => (
+                    <button
+                      key={u.id}
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => {
+                        setUserId(u.id);
+                        setUserSearch("");
+                        setUserDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 text-sm hover:bg-parchment-50 dark:hover:bg-slate-800 ${
+                        userId === u.id ? "bg-cerulean-50 dark:bg-cerulean-900/20" : ""
+                      }`}
+                    >
+                      <span className="font-medium text-parchment-900 dark:text-white">{u.displayName}</span>
+                      <span className="ml-2 text-xs text-parchment-400 dark:text-slate-500">{u.email}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           <div className="w-32 flex flex-col gap-1.5">
             <label htmlFor="role-select" className="text-xs font-medium text-parchment-700 dark:text-slate-300">Role</label>
@@ -294,7 +351,7 @@ function RolesContent() {
             </select>
           </div>
           <div className="flex items-end pb-px">
-            <Button onClick={handleAssign} className="bg-cerulean-600 hover:bg-cerulean-700 text-white">Assign</Button>
+            <Button onClick={handleAssign} disabled={!userId} className="bg-cerulean-600 hover:bg-cerulean-700 text-white">Assign</Button>
           </div>
         </div>
         {error && <p className="text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded-lg p-2 mt-3">{error}</p>}
@@ -315,9 +372,20 @@ function RolesContent() {
                   <span className="text-sm font-medium text-parchment-900 dark:text-white">{a.userDisplayName || a.userEmail}</span>
                   <span className="ml-3 text-xs text-parchment-500 dark:text-slate-400 hidden sm:inline">{a.userEmail}</span>
                 </div>
-                <Badge variant={a.role === "Admin" ? "default" : a.role === "Teacher" ? "warning" : "secondary"} className="shrink-0 text-[10px]">
-                  {a.role}
-                </Badge>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Badge variant={a.role === "Admin" ? "default" : a.role === "Teacher" ? "warning" : "secondary"} className="text-[10px]">
+                    {a.role}
+                  </Badge>
+                  <button
+                    onClick={() => revokeRole(a.id)}
+                    className="p-1 rounded text-parchment-400 dark:text-slate-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                    title="Revoke role"
+                  >
+                    <svg className="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
               </CardContent>
             </Card>
           ))}

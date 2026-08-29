@@ -8,6 +8,7 @@ export interface LessonAttemptDto {
   startedAt: string;
   completedAt: string | null;
   answeredQuestionKeys: string[];
+  activeSessionId?: string;
 }
 
 export interface StudentAnswerDto {
