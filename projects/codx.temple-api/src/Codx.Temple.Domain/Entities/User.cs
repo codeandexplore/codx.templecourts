@@ -60,4 +60,20 @@ public class User
         RefreshTokenHash = null;
         RefreshTokenExpiresAt = null;
     }
+
+    public void ResetPassword(string newPasswordHash)
+    {
+        PasswordHash = newPasswordHash;
+        ClearRefreshToken();
+    }
+
+    public void Deactivate()
+    {
+        Status = UserStatus.Inactive;
+    }
+
+    public void Activate()
+    {
+        Status = UserStatus.Active;
+    }
 }

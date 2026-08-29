@@ -2,6 +2,7 @@ using Codx.Temple.Application.Abstractions;
 using Codx.Temple.Application.DTOs.Auth;
 using Codx.Temple.Application.Exceptions;
 using Codx.Temple.Domain.Entities;
+using Codx.Temple.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Codx.Temple.Application.UseCases;
@@ -29,7 +30,10 @@ public class RegisterUseCase
         var passwordHash = _passwordHasher.Hash(request.Password);
         var user = User.CreateWithPassword(request.Email, passwordHash, request.DisplayName);
 
-        var roles = new List<string>();
+        var roleAssignment = RoleAssignment.Create(user.Id, Role.Student, user.Id);
+        _db.RoleAssignments.Add(roleAssignment);
+
+        var roles = new List<string> { Role.Student.ToString() };
         var (refreshToken, refreshTokenHash, refreshExpires) = _tokenService.GenerateRefreshToken();
         user.SetRefreshToken(refreshTokenHash, refreshExpires);
 

@@ -62,36 +62,13 @@ public class StartStudySessionUseCase
     {
         var nodes = await _db.LessonNodes
             .Where(n => n.LessonVersionId == versionId)
-            .OrderBy(n => n.ParentNodeId)
-            .ThenBy(n => n.Order)
             .ToListAsync(ct);
 
         var questions = await _db.Questions
             .Where(q => nodes.Select(n => n.Id).Contains(q.LessonNodeId))
             .ToListAsync(ct);
 
-        var rootNodes = nodes.Where(n => n.ParentNodeId == null).OrderBy(n => n.Order).ToList();
-        var orderedKeys = new List<Guid>();
-        foreach (var root in rootNodes)
-            TraverseTree(root.Id, nodes, questions, orderedKeys);
-
-        return orderedKeys;
-    }
-
-    private static void TraverseTree(
-        Guid nodeId, List<Domain.Entities.LessonNode> allNodes, List<Domain.Entities.Question> allQuestions, List<Guid> result)
-    {
-        var children = allNodes.Where(n => n.ParentNodeId == nodeId).OrderBy(n => n.Order).ToList();
-        if (children.Count > 0)
-        {
-            foreach (var child in children)
-                TraverseTree(child.Id, allNodes, allQuestions, result);
-        }
-        else
-        {
-            var nodeQuestions = allQuestions.Where(q => q.LessonNodeId == nodeId).OrderBy(q => q.Order).Select(q => q.Key);
-            result.AddRange(nodeQuestions);
-        }
+        return GetSessionQuestionsUseCase.GetTreeTraversalQuestionKeys(nodes, questions);
     }
 
     private static StudySessionDto MapToDto(StudySession session)
