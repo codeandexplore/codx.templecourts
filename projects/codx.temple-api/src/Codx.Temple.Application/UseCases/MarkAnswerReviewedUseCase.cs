@@ -23,10 +23,9 @@ public class MarkAnswerReviewedUseCase
     {
         var answer = await _db.StudentAnswers
             .FirstOrDefaultAsync(a => a.LessonAttemptId == request.LessonAttemptId
-                && a.QuestionKey == request.QuestionKey, cancellationToken)
-            ?? throw new NotFoundException(nameof(StudentAnswer), request.QuestionKey);
+                && a.QuestionKey == request.QuestionKey, cancellationToken);
 
-        if (answer.Reviewed)
+        if (answer is not null && answer.Reviewed)
             return;
 
         var session = await _db.StudySessions
@@ -34,19 +33,31 @@ public class MarkAnswerReviewedUseCase
                 && s.Status == StudySessionStatus.InProgress, cancellationToken)
             ?? throw new InvalidOperationException("No active StudySession found. Answers can only be reviewed during a live session.");
 
-        if (!answer.HasAnswerValue)
+        if (answer is null || !answer.HasAnswerValue)
         {
-            var question = await _db.Questions
-                .FirstOrDefaultAsync(q => q.Key == request.QuestionKey, cancellationToken);
+            var attempt = await _db.LessonAttempts
+                .FirstOrDefaultAsync(a => a.Id == request.LessonAttemptId, cancellationToken)
+                ?? throw new NotFoundException(nameof(LessonAttempt), request.LessonAttemptId);
 
-            var flag = AnswerFlag.Create(
-                answer.StudentId,
-                question?.Id ?? Guid.Empty,
-                request.QuestionKey,
-                request.LessonAttemptId,
-                session.Id);
-            _db.AnswerFlags.Add(flag);
-            await _db.SaveChangesAsync(cancellationToken);
+            var existingFlag = await _db.AnswerFlags
+                .FirstOrDefaultAsync(f => f.QuestionKey == request.QuestionKey
+                    && f.StudentId == attempt.StudentId
+                    && f.ResolvedAt == null, cancellationToken);
+
+            if (existingFlag is null)
+            {
+                var question = await _db.Questions
+                    .FirstOrDefaultAsync(q => q.Key == request.QuestionKey, cancellationToken);
+
+                var flag = AnswerFlag.Create(
+                    attempt.StudentId,
+                    question?.Id ?? Guid.Empty,
+                    request.QuestionKey,
+                    request.LessonAttemptId,
+                    session.Id);
+                _db.AnswerFlags.Add(flag);
+                await _db.SaveChangesAsync(cancellationToken);
+            }
 
             throw new GatingBlockedException(
                 "Cannot mark unanswered question as reviewed. An AnswerFlag has been raised.",

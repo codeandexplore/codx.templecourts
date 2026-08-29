@@ -20,7 +20,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
             ForbiddenException ex => (HttpStatusCode.Forbidden, ex.Message),
             ConflictException ex => (HttpStatusCode.Conflict, ex.Message),
             ValidationException ex => (HttpStatusCode.UnprocessableEntity, JsonSerializer.Serialize(ex.Errors)),
-            GatingBlockedException ex => (HttpStatusCode.UnprocessableEntity, JsonSerializer.Serialize(new { message = ex.Message, requiredQuestionKeys = ex.RequiredQuestionKeys })),
+            GatingBlockedException ex => (HttpStatusCode.UnprocessableEntity, ex.Message),
             InvalidOperationException => (HttpStatusCode.BadRequest, exception.Message),
             _ => (HttpStatusCode.InternalServerError, "An unexpected error occurred.")
         };

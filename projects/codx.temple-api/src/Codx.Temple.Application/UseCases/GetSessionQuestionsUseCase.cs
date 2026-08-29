@@ -45,6 +45,7 @@ public class GetSessionQuestionsUseCase
 
         var flags = await _db.AnswerFlags
             .Where(f => f.LessonAttemptId == attempt.Id && questionKeys.Contains(f.QuestionKey) && !f.ResolvedAt.HasValue)
+            .Include(f => f.RaisedInSession)
             .ToListAsync(cancellationToken);
 
         var orderedQuestionKeys = GetTreeTraversalQuestionKeys(nodes, questions);
@@ -70,11 +71,12 @@ public class GetSessionQuestionsUseCase
                 answer?.Reviewed ?? false,
                 flag is not null ? new AnswerFlagInfoDto(
                     flag.FlagType.ToString(),
-                    flag.RaisedInSession!.StartedAt!.Value) : null);
+                    flag.RaisedInSession?.StartedAt ?? DateTimeOffset.UtcNow) : null);
         }).ToList();
 
         return new SessionQuestionsDto(
             session.Id,
+            attempt.Id,
             session.Status.ToString(),
             session.CurrentQuestionId,
             attempt.Student.DisplayName,

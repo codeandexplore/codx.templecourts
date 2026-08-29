@@ -30,4 +30,14 @@ public class TeacherAssignmentsController : ControllerBase
         var result = await useCase.ExecuteAsync(cancellationToken);
         return Ok(result);
     }
+
+    [HttpGet("api/students/unassigned")]
+    [RequireRole("Teacher")]
+    public async Task<ActionResult<List<UserDto>>> ListUnassignedStudents(
+        [FromServices] ListUnassignedStudentsUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(cancellationToken);
+        return Ok(result);
+    }
 }

@@ -50,7 +50,8 @@ public class StudySessionHub : Hub
             .FirstOrDefaultAsync(s => s.Id == sessionId)
             ?? throw new HubException("Session not found");
 
-        var userIdClaim = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        var userIdClaim = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value
+            ?? Context.User?.FindFirst("sub")?.Value;
         if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
             throw new HubException("Unauthorized");
 
