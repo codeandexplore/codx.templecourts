@@ -8,6 +8,7 @@ export interface TeacherAssignmentDto {
   primaryTeacherId: string;
   status: string;
   assignedAt: string;
+  latestAttemptId?: string;
 }
 
 export interface StudySessionDto {
@@ -56,6 +57,9 @@ const teacherApi = apiSlice.injectEndpoints({
     markReviewed: builder.mutation<void, MarkReviewedRequest>({
       query: (body) => ({ url: "/api/study-sessions/mark-reviewed", method: "POST", body }),
     }),
+    claimStudent: builder.mutation<TeacherAssignmentDto, string>({
+      query: (studentId) => ({ url: `/api/students/${studentId}/claim`, method: "POST" }),
+    }),
   }),
 });
 
@@ -65,4 +69,5 @@ export const {
   useAdvanceSessionMutation,
   useEndSessionMutation,
   useMarkReviewedMutation,
+  useClaimStudentMutation,
 } = teacherApi;
