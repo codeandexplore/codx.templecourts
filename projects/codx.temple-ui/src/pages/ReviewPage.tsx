@@ -12,8 +12,10 @@ export default function ReviewPage() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [endDialog, setEndDialog] = useState(false);
+  const [actionError, setActionError] = useState("");
+  const [actionSuccess, setActionSuccess] = useState("");
 
-  const { data, isLoading, isError } = useGetSessionQuestionsQuery(sessionId!);
+  const { data, isLoading, isError, refetch } = useGetSessionQuestionsQuery(sessionId!);
   const [markReviewed, { isLoading: marking }] = useMarkReviewedMutation();
   const [advanceSession] = useAdvanceSessionMutation();
   const [endSession] = useEndSessionMutation();
@@ -44,15 +46,25 @@ export default function ReviewPage() {
 
   const handleMarkReviewed = async () => {
     if (!currentQuestion?.key || !data) return;
+    setActionError("");
+    setActionSuccess("");
     try {
-      await markReviewed({ lessonAttemptId: data.sessionId, questionKey: currentQuestion.key }).unwrap();
-    } catch { /* flag creation handles error */ }
+      await markReviewed({ lessonAttemptId: data.lessonAttemptId, questionKey: currentQuestion.key }).unwrap();
+      setActionSuccess("Answer marked as reviewed.");
+    } catch (e: unknown) {
+      const err = e as { data?: { message?: string; error?: string } };
+      setActionError(err?.data?.message || err?.data?.error || "Failed to mark as reviewed.");
+    } finally {
+      await refetch();
+    }
   };
 
   const handleAdvance = async () => {
     if (!currentQuestion || !sessionId || !data) return;
     const nextIndex = currentIndex + 1;
     if (nextIndex >= data.questions.length) return;
+    setActionError("");
+    setActionSuccess("");
     try {
       await advanceSession({ sessionId, currentQuestionId: data.questions[nextIndex].key }).unwrap();
       setCurrentIndex(nextIndex);
@@ -71,6 +83,8 @@ export default function ReviewPage() {
     if (index === currentIndex) return;
     const q = data.questions[index];
     if (!q || !sessionId) return;
+    setActionError("");
+    setActionSuccess("");
     advanceSession({ sessionId, currentQuestionId: q.key })
       .unwrap()
       .then(() => setCurrentIndex(index))
@@ -105,6 +119,17 @@ export default function ReviewPage() {
                 isReviewed={currentQuestion.isReviewed}
                 flag={currentQuestion.flag}
               />
+
+              {actionError && (
+                <p className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 rounded-lg px-4 py-3">
+                  {actionError}
+                </p>
+              )}
+              {actionSuccess && (
+                <p className="text-sm text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg px-4 py-3">
+                  {actionSuccess}
+                </p>
+              )}
 
               <ReviewControls
                 currentIndex={currentIndex}

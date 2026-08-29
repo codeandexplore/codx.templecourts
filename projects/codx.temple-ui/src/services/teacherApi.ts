@@ -1,4 +1,5 @@
 import { apiSlice } from "../store/apiSlice";
+import type { UserDto } from "./adminApi";
 
 export interface TeacherAssignmentDto {
   id: string;
@@ -40,6 +41,7 @@ const teacherApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getTeacherStudents: builder.query<TeacherAssignmentDto[], void>({
       query: () => "/api/teacher/students",
+      providesTags: ["TeacherStudents"],
     }),
     startSession: builder.mutation<StudySessionDto, StartSessionRequest>({
       query: (body) => ({ url: "/api/study-sessions", method: "POST", body }),
@@ -59,6 +61,11 @@ const teacherApi = apiSlice.injectEndpoints({
     }),
     claimStudent: builder.mutation<TeacherAssignmentDto, string>({
       query: (studentId) => ({ url: `/api/students/${studentId}/claim`, method: "POST" }),
+      invalidatesTags: ["TeacherStudents"],
+    }),
+    listUnassignedStudents: builder.query<UserDto[], void>({
+      query: () => "/api/students/unassigned",
+      providesTags: ["TeacherStudents"],
     }),
   }),
 });
@@ -70,4 +77,5 @@ export const {
   useEndSessionMutation,
   useMarkReviewedMutation,
   useClaimStudentMutation,
+  useListUnassignedStudentsQuery,
 } = teacherApi;

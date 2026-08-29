@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { useGetAttemptQuery, useSubmitAnswerMutation } from "../services/studentApi";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
+import { useGetSessionQuestionsQuery } from "../services/sessionApi";
 import { CheckBadgeIcon, PencilIcon, ArrowLeftIcon, QuestionMarkCircleIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
@@ -10,10 +11,14 @@ import { Textarea } from "../components/ui/textarea";
 import { useSessionHub } from "../hooks/useSessionHub";
 
 function ReviewBanner({ sessionId }: { sessionId: string }) {
+  const { data } = useGetSessionQuestionsQuery(sessionId);
   const [ended, setEnded] = useState(false);
+  const [liveQuestionId, setLiveQuestionId] = useState<string | null>(null);
 
   useSessionHub(sessionId, {
-    onSessionAdvanced: () => {},
+    onSessionAdvanced: (questionId) => {
+      setLiveQuestionId(questionId);
+    },
     onSessionEnded: () => {
       setEnded(true);
     },
@@ -21,12 +26,21 @@ function ReviewBanner({ sessionId }: { sessionId: string }) {
 
   if (ended) return null;
 
+  const currentQuestionId = liveQuestionId ?? data?.currentQuestionId ?? null;
+  const total = data?.questions.length ?? 0;
+  const currentIndex = currentQuestionId
+    ? data?.questions.findIndex((q) => q.key === currentQuestionId) ?? -1
+    : -1;
+
   return (
     <div className="mb-6 p-4 rounded-xl bg-cerulean-50 dark:bg-cerulean-900/20 border border-cerulean-200 dark:border-cerulean-700 flex items-center gap-3">
       <EyeIcon className="size-5 text-cerulean-600 dark:text-cerulean-400 shrink-0" />
       <div className="flex-1">
         <p className="text-sm font-medium text-cerulean-700 dark:text-cerulean-300">
           Teacher is reviewing your answers
+          {currentIndex >= 0 && (
+            <span className="ml-2 font-semibold">Question {currentIndex + 1} of {total}</span>
+          )}
         </p>
         <p className="text-xs text-cerulean-500 dark:text-cerulean-400">
           Your answers are being reviewed in a live session.
