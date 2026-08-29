@@ -29,7 +29,7 @@ public class AuthIntegrationTests
         authResult!.AccessToken.Should().NotBeNullOrEmpty();
         authResult.RefreshToken.Should().NotBeNullOrEmpty();
         authResult.User.Email.Should().Be("user@test.com");
-        authResult.User.Roles.Should().BeEmpty();
+        authResult.User.Roles.Should().Contain("Student");
 
         var loginRequest = new { email = "user@test.com", password = "TestPass123!" };
         var loginResponse = await client.PostAsJsonAsync("/auth/login", loginRequest);

@@ -1,6 +1,7 @@
 using Codx.Temple.Application.Abstractions;
 using Codx.Temple.Application.DTOs.StudentAttempts;
 using Codx.Temple.Application.Exceptions;
+using Codx.Temple.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Codx.Temple.Application.UseCases;
@@ -32,6 +33,11 @@ public class GetAttemptUseCase
             .Select(a => a.QuestionKey)
             .ToListAsync(cancellationToken);
 
+        var activeSessionId = await _db.StudySessions
+            .Where(s => s.LessonAttemptId == attemptId && s.Status == StudySessionStatus.InProgress)
+            .Select(s => (Guid?)s.Id)
+            .FirstOrDefaultAsync(cancellationToken);
+
         return new LessonAttemptDto(
             attempt.Id,
             attempt.LessonKey,
@@ -39,6 +45,7 @@ public class GetAttemptUseCase
             attempt.Status.ToString(),
             attempt.StartedAt,
             attempt.CompletedAt,
-            answeredKeys);
+            answeredKeys,
+            activeSessionId);
     }
 }

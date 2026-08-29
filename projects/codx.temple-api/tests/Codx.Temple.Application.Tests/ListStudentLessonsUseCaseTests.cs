@@ -19,7 +19,7 @@ public class ListStudentLessonsUseCaseTests
     }
 
     [Fact]
-    public async Task ExecuteAsync_ShouldReturnPublishedOnly()
+    public async Task ExecuteAsync_ShouldReturnActiveLessons()
     {
         var published = Lesson.Create(1, "Published");
         typeof(Lesson).GetProperty(nameof(Lesson.CurrentPublishedVersionId))!.SetValue(published, Guid.NewGuid());
@@ -32,7 +32,8 @@ public class ListStudentLessonsUseCaseTests
 
         var result = await _useCase.ExecuteAsync();
 
-        Assert.Single(result);
-        Assert.Equal("Published", result[0].Title);
+        Assert.Equal(2, result.Count);
+        Assert.Contains(result, r => r.Title == "Published");
+        Assert.Contains(result, r => r.Title == "Draft");
     }
 }
