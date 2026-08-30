@@ -25,3 +25,14 @@ public record SubmitAnswerRequest(
     Guid QuestionKey,
     object AnswerValue
 );
+
+public record StudentAttemptSummaryDto(
+    Guid Id,
+    Guid LessonKey,
+    int LessonNumber,
+    string LessonTitle,
+    string Status,
+    DateTimeOffset StartedAt,
+    DateTimeOffset? CompletedAt,
+    int AnsweredCount
+);
