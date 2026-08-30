@@ -19,6 +19,15 @@ public class StudentAttemptsController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("api/attempts")]
+    public async Task<ActionResult<List<StudentAttemptSummaryDto>>> ListMine(
+        [FromServices] ListMyAttemptsUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(cancellationToken);
+        return Ok(result);
+    }
+
     [HttpGet("api/attempts/{attemptId:guid}")]
     public async Task<ActionResult<LessonAttemptDto>> Get(
         Guid attemptId,
@@ -36,6 +45,26 @@ public class StudentAttemptsController : ControllerBase
         CancellationToken cancellationToken)
     {
         var result = await useCase.ExecuteAsync(lessonKey, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpPost("api/attempts/{attemptId:guid}/complete")]
+    public async Task<ActionResult<LessonAttemptDto>> Complete(
+        Guid attemptId,
+        [FromServices] CompleteAttemptUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(attemptId, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpGet("api/attempts/{attemptId:guid}/answers")]
+    public async Task<ActionResult<List<StudentAnswerDto>>> ListAnswers(
+        Guid attemptId,
+        [FromServices] ListAttemptAnswersUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(attemptId, cancellationToken);
         return Ok(result);
     }
 }
