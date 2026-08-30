@@ -29,7 +29,7 @@
 
 - [x] 6.1 Run `dotnet build` and `dotnet test` in API project
 - [x] 6.2 Run `pnpm type-check`, `pnpm lint`, `pnpm build` in UI project
-- [ ] 6.3 Manually verify: student leaves a note, finishes a lesson, sees summary, edits an answer with pre-filled text
+- [x] 6.3 Manually verify: student leaves a note, finishes a lesson, sees summary, edits an answer with pre-filled text
 
 ## 7. Completion Status + Attempt History
 
