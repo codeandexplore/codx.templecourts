@@ -1,8 +1,8 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGetLessonTreeQuery, type QuestionDto } from "../services/lessonsApi";
-import { useStartAttemptMutation, useGetAttemptByLessonQuery } from "../services/studentApi";
-import { LockClosedIcon, CheckBadgeIcon, QuestionMarkCircleIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useStartAttemptMutation, useGetAttemptByLessonQuery, useListMyAttemptsQuery } from "../services/studentApi";
+import { LockClosedIcon, CheckBadgeIcon, QuestionMarkCircleIcon, ArrowLeftIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
@@ -12,8 +12,12 @@ export default function LessonDetailPage() {
   const navigate = useNavigate();
   const { data: tree, isLoading } = useGetLessonTreeQuery(key!);
   const { data: attempt, refetch: refetchAttempt } = useGetAttemptByLessonQuery(key!);
+  const { data: myAttempts } = useListMyAttemptsQuery();
   const [startAttempt, { isLoading: starting }] = useStartAttemptMutation();
   const [error, setError] = useState("");
+
+  const lessonAttempts = (myAttempts ?? []).filter((a) => a.lessonKey === key);
+  const hasCompleted = lessonAttempts.some((a) => a.status === "Completed");
 
   const handleStart = async () => {
     setError("");
@@ -42,9 +46,17 @@ export default function LessonDetailPage() {
             Continue Lesson
           </Button>
         ) : (
-          <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" onClick={handleStart} disabled={starting}>
-            {starting ? "Starting..." : "Start Lesson"}
-          </Button>
+          <div className="flex items-center gap-2">
+            {hasCompleted && (
+              <Badge variant="success" className="flex items-center gap-1">
+                <CheckCircleIcon className="size-3" />
+                Completed
+              </Badge>
+            )}
+            <Button className="bg-cerulean-600 hover:bg-cerulean-700 text-white" onClick={handleStart} disabled={starting}>
+              {starting ? "Starting..." : hasCompleted ? "Start Again" : "Start Lesson"}
+            </Button>
+          </div>
         )}
       </div>
       {error && (
@@ -52,6 +64,38 @@ export default function LessonDetailPage() {
           {error}
         </p>
       )}
+
+      {lessonAttempts.length > 0 && (
+        <div className="mb-8">
+          <h3 className="text-sm font-medium text-parchment-700 dark:text-slate-300 mb-3">Attempt History</h3>
+          <div className="space-y-2">
+            {lessonAttempts.map((a) => (
+              <Card
+                key={a.id}
+                className="p-4 hover:border-cerulean-200 dark:hover:border-cerulean-700 hover:shadow-sm transition-all cursor-pointer"
+                onClick={() => navigate(`/attempt/${a.id}`)}
+              >
+                <CardContent className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Badge variant={a.status === "Completed" ? "success" : "secondary"}>{a.status}</Badge>
+                    <span className="text-sm text-parchment-700 dark:text-slate-300">
+                      {a.answeredCount} answered
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-parchment-400 dark:text-slate-500">
+                      {new Date(a.startedAt).toLocaleDateString()}
+                      {a.completedAt && ` — ${new Date(a.completedAt).toLocaleDateString()}`}
+                    </span>
+                    <span className="text-xs text-cerulean-600 dark:text-cerulean-400">View</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="space-y-6">
         {tree.nodes.map((node) => (
           <NodeRenderer key={node.id} node={node} isRoot attempt={attempt} />
