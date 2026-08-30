@@ -28,6 +28,17 @@ export interface StudentQuestionNoteDto {
   createdAt: string;
 }
 
+export interface StudentAttemptSummaryDto {
+  id: string;
+  lessonKey: string;
+  lessonNumber: number;
+  lessonTitle: string;
+  status: string;
+  startedAt: string;
+  completedAt: string | null;
+  answeredCount: number;
+}
+
 const studentApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     startAttempt: builder.mutation<LessonAttemptDto, string>({
@@ -48,7 +59,19 @@ const studentApi = apiSlice.injectEndpoints({
         method: "POST",
         body: { questionKey, answerValue },
       }),
+      invalidatesTags: ["Attempts", "Answers"],
+    }),
+    completeAttempt: builder.mutation<LessonAttemptDto, string>({
+      query: (attemptId) => ({ url: `/api/attempts/${attemptId}/complete`, method: "POST" }),
       invalidatesTags: ["Attempts"],
+    }),
+    getAttemptAnswers: builder.query<StudentAnswerDto[], string>({
+      query: (attemptId) => `/api/attempts/${attemptId}/answers`,
+      providesTags: ["Answers"],
+    }),
+    listMyAttempts: builder.query<StudentAttemptSummaryDto[], void>({
+      query: () => "/api/attempts",
+      providesTags: ["Attempts"],
     }),
     getNotes: builder.query<StudentQuestionNoteDto[], void>({
       query: () => "/api/notes",
@@ -82,6 +105,9 @@ export const {
   useGetAttemptQuery,
   useGetAttemptByLessonQuery,
   useSubmitAnswerMutation,
+  useCompleteAttemptMutation,
+  useGetAttemptAnswersQuery,
+  useListMyAttemptsQuery,
   useGetNotesQuery,
   useCreateNoteMutation,
   useUpdateNoteMutation,
