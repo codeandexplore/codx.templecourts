@@ -31,6 +31,12 @@ public class ListAttemptAnswersUseCase
             .OrderBy(a => a.SubmittedAt)
             .ToListAsync(cancellationToken);
 
+        var answerIds = answers.Select(a => a.Id).ToList();
+        var threadByAnswerId = await _db.AnswerThreads
+            .Where(t => answerIds.Contains(t.StudentAnswerId))
+            .Select(t => new { t.StudentAnswerId, t.Id })
+            .ToDictionaryAsync(t => t.StudentAnswerId, t => (Guid?)t.Id, cancellationToken);
+
         return answers.Select(a => new StudentAnswerDto(
             a.Id,
             a.LessonAttemptId,
@@ -38,7 +44,8 @@ public class ListAttemptAnswersUseCase
             ExtractValue(a.AnswerValue),
             a.PromptSnapshot,
             a.QuestionTypeSnapshot,
-            a.SubmittedAt)).ToList();
+            a.SubmittedAt,
+            threadByAnswerId.GetValueOrDefault(a.Id))).ToList();
     }
 
     private static object ExtractValue(JsonDocument document)

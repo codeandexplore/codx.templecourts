@@ -43,6 +43,46 @@ public class StudySessionHub : Hub
         await Clients.Group(sessionId).SendAsync("SessionStateUpdated", state);
     }
 
+    public async Task JoinThread(string threadId)
+    {
+        if (string.IsNullOrEmpty(threadId) || !Guid.TryParse(threadId, out var tid))
+            throw new HubException("Invalid thread ID format");
+
+        await AuthorizeThreadAccess(tid);
+        await Groups.AddToGroupAsync(Context.ConnectionId, $"thread:{threadId}");
+        await Clients.Caller.SendAsync("ThreadJoined", threadId);
+    }
+
+    public async Task LeaveThread(string threadId)
+    {
+        await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"thread:{threadId}");
+        await Clients.Caller.SendAsync("ThreadLeft", threadId);
+    }
+
+    private async Task AuthorizeThreadAccess(Guid threadId)
+    {
+        var thread = await _db.AnswerThreads
+            .Include(t => t.StudentAnswer)
+            .FirstOrDefaultAsync(t => t.Id == threadId)
+            ?? throw new HubException("Thread not found");
+
+        var userIdClaim = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value
+            ?? Context.User?.FindFirst("sub")?.Value;
+        if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
+            throw new HubException("Unauthorized");
+
+        if (thread.StudentAnswer.StudentId == userId)
+            return;
+
+        var isTeacher = await _db.TeacherAssignments
+            .AnyAsync(a => a.StudentId == thread.StudentAnswer.StudentId
+                && a.PrimaryTeacherId == userId
+                && a.Status == TeacherAssignmentStatus.Active);
+
+        if (!isTeacher)
+            throw new HubException("Not authorized for this thread");
+    }
+
     private async Task AuthorizeSessionAccess(Guid sessionId)
     {
         var session = await _db.StudySessions

@@ -23,7 +23,9 @@ public class PostThreadMessageUseCase
         var thread = await _db.AnswerThreads
             .Include(t => t.StudentAnswer)
             .FirstOrDefaultAsync(t => t.Id == threadId, ct)
-            ?? throw new Codx.Temple.Application.Exceptions.NotFoundException(nameof(AnswerThread), threadId);
+            ?? throw new NotFoundException(nameof(AnswerThread), threadId);
+
+        await EnsureParticipantAsync(thread, ct);
 
         if (thread.Status == AnswerThreadStatus.Locked)
             throw new InvalidOperationException("Thread is locked");
@@ -32,7 +34,7 @@ public class PostThreadMessageUseCase
         _db.ThreadMessages.Add(message);
 
         var recipientId = _currentUser.UserId == thread.StudentAnswer.StudentId
-            ? (Guid?)null // Teacher — need to look up from TeacherAssignment
+            ? (Guid?)null // Teacher — notification triggers deferred to a later pass
             : thread.StudentAnswer.StudentId;
 
         if (recipientId.HasValue)
@@ -48,5 +50,20 @@ public class PostThreadMessageUseCase
         await _db.SaveChangesAsync(ct);
 
         return new ThreadMessageDto(message.Id, message.AuthorId, _currentUser.DisplayName ?? "", message.BodyText, message.SourceCheckQuestionId, message.CreatedAt);
+    }
+
+    private async Task EnsureParticipantAsync(AnswerThread thread, CancellationToken ct)
+    {
+        var userId = _currentUser.UserId;
+        if (thread.StudentAnswer.StudentId == userId)
+            return;
+
+        var isTeacher = await _db.TeacherAssignments
+            .AnyAsync(a => a.StudentId == thread.StudentAnswer.StudentId
+                && a.PrimaryTeacherId == userId
+                && a.Status == TeacherAssignmentStatus.Active, ct);
+
+        if (!isTeacher)
+            throw new ForbiddenException("Not authorized for this thread");
     }
 }
