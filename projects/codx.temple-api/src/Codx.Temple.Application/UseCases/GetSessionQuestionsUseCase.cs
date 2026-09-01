@@ -48,6 +48,12 @@ public class GetSessionQuestionsUseCase
             .Include(f => f.RaisedInSession)
             .ToListAsync(cancellationToken);
 
+        var answerIds = answers.Select(a => a.Id).ToList();
+        var threadByAnswerId = await _db.AnswerThreads
+            .Where(t => answerIds.Contains(t.StudentAnswerId))
+            .Select(t => new { t.StudentAnswerId, t.Id })
+            .ToDictionaryAsync(t => t.StudentAnswerId, t => (Guid?)t.Id, cancellationToken);
+
         var orderedQuestionKeys = GetTreeTraversalQuestionKeys(nodes, questions);
         var questionDtos = orderedQuestionKeys.Select((key, idx) =>
         {
@@ -71,7 +77,8 @@ public class GetSessionQuestionsUseCase
                 answer?.Reviewed ?? false,
                 flag is not null ? new AnswerFlagInfoDto(
                     flag.FlagType.ToString(),
-                    flag.RaisedInSession?.StartedAt ?? DateTimeOffset.UtcNow) : null);
+                    flag.RaisedInSession?.StartedAt ?? DateTimeOffset.UtcNow) : null,
+                answer is not null ? threadByAnswerId.GetValueOrDefault(answer.Id) : null);
         }).ToList();
 
         return new SessionQuestionsDto(
