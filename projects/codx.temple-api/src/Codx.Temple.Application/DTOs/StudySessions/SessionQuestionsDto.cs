@@ -20,7 +20,8 @@ public record QuestionWithAnswerDto(
     string PromptText,
     StudentAnswerInfoDto? Answer,
     bool IsReviewed,
-    AnswerFlagInfoDto? Flag
+    AnswerFlagInfoDto? Flag,
+    Guid? ThreadId = null
 );
 
 public record StudentAnswerInfoDto(

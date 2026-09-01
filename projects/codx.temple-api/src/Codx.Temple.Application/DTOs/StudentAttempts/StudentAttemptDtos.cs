@@ -18,7 +18,8 @@ public record StudentAnswerDto(
     object AnswerValue,
     string PromptSnapshot,
     string QuestionTypeSnapshot,
-    DateTimeOffset SubmittedAt
+    DateTimeOffset SubmittedAt,
+    Guid? ThreadId = null
 );
 
 public record SubmitAnswerRequest(
