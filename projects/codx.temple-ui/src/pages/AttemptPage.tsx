@@ -9,6 +9,7 @@ import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import QuestionAnswerInput from "../components/QuestionAnswerInput";
 import QuestionNote from "../components/QuestionNote";
+import ThreadPanel from "../components/ThreadPanel";
 import ConfirmDialog from "../components/ConfirmDialog";
 import { useSessionHub } from "../hooks/useSessionHub";
 
@@ -70,6 +71,7 @@ export default function AttemptPage() {
   const allQuestions = flattenQuestions(tree?.nodes ?? []);
   const isCompleted = attempt.status === "Completed";
   const answersByKey = new Map((answers ?? []).map((a) => [a.questionKey, String(a.answerValue)]));
+  const threadByKey = new Map((answers ?? []).filter((a) => a.threadId).map((a) => [a.questionKey, a.threadId!]));
   const notesByKey = new Map((notes ?? []).map((n) => [n.questionKey, n.noteText]));
   const completed = allQuestions.filter((q) => attempt.answeredQuestionKeys.includes(q.key)).length;
 
@@ -177,6 +179,7 @@ export default function AttemptPage() {
                 )}
 
                 <QuestionNote questionKey={q.key} existingNote={note} disabled={isCompleted} />
+                {threadByKey.has(q.key) && <ThreadPanel threadId={threadByKey.get(q.key)!} />}
               </CardContent>
             </Card>
           );

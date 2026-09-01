@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { BookOpenIcon, AcademicCapIcon, UserGroupIcon, Cog6ToothIcon, HomeIcon, PencilSquareIcon, ClipboardDocumentListIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, AcademicCapIcon, UserGroupIcon, Cog6ToothIcon, HomeIcon, PencilSquareIcon, ClipboardDocumentListIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
 
 export default function AppLayout() {
   const { user, isAuthenticated, roles, logout } = useAuth();
@@ -24,6 +24,7 @@ export default function AppLayout() {
           <NavLink to="/" icon={<HomeIcon className="size-5" />}>Home</NavLink>
           {isAuthenticated && <NavLink to="/lessons" icon={<BookOpenIcon className="size-5" />}>Lessons</NavLink>}
           {roles.includes("Teacher") && <NavLink to="/teacher" icon={<UserGroupIcon className="size-5" />}>Students</NavLink>}
+          {roles.includes("Teacher") && <NavLink to="/teacher/check-questions" icon={<ChatBubbleLeftRightIcon className="size-5" />}>Check Questions</NavLink>}
           {roles.includes("Admin") && <NavLink to="/admin" icon={<Cog6ToothIcon className="size-5" />}>Admin</NavLink>}
           {roles.includes("Admin") && <NavLink to="/admin/editor" icon={<PencilSquareIcon className="size-5" />}>Lesson Editor</NavLink>}
           {roles.includes("Admin") && <NavLink to="/admin" icon={<ClipboardDocumentListIcon className="size-5" />}>Assignments</NavLink>}

@@ -19,6 +19,7 @@ export interface StudentAnswerDto {
   promptSnapshot: string;
   questionTypeSnapshot: string;
   submittedAt: string;
+  threadId?: string;
 }
 
 export interface StudentQuestionNoteDto {

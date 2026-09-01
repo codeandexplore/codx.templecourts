@@ -20,6 +20,7 @@ export interface QuestionWithAnswerDto {
   answer: StudentAnswerInfoDto | null;
   isReviewed: boolean;
   flag: AnswerFlagInfoDto | null;
+  threadId?: string;
 }
 
 export interface SessionQuestionsDto {

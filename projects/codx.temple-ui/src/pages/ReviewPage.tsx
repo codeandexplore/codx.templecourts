@@ -2,9 +2,11 @@ import { useState, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeftIcon, ArrowRightIcon, CheckCircleIcon, FlagIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import { useGetSessionQuestionsQuery, useMarkReviewedMutation, useAdvanceSessionMutation, useEndSessionMutation } from "../services/sessionApi";
+import { useListCheckQuestionsQuery } from "../services/checkQuestionApi";
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
+import ThreadPanel from "../components/ThreadPanel";
 import ConfirmDialog from "../components/ConfirmDialog";
 
 export default function ReviewPage() {
@@ -19,6 +21,7 @@ export default function ReviewPage() {
   const [markReviewed, { isLoading: marking }] = useMarkReviewedMutation();
   const [advanceSession] = useAdvanceSessionMutation();
   const [endSession] = useEndSessionMutation();
+  const { data: checkQuestions } = useListCheckQuestionsQuery();
 
   const currentQuestion = useMemo(() => {
     if (!data?.questions) return null;
@@ -119,6 +122,10 @@ export default function ReviewPage() {
                 isReviewed={currentQuestion.isReviewed}
                 flag={currentQuestion.flag}
               />
+
+              {currentQuestion.threadId && (
+                <ThreadPanel threadId={currentQuestion.threadId} checkQuestions={checkQuestions ?? []} />
+              )}
 
               {actionError && (
                 <p className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 rounded-lg px-4 py-3">
