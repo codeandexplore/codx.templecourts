@@ -12,6 +12,7 @@ import TeacherPage from "./pages/TeacherPage";
 import AdminPage from "./pages/AdminPage";
 import EditorPage from "./pages/EditorPage";
 import ReviewPage from "./pages/ReviewPage";
+import CheckQuestionsPage from "./pages/CheckQuestionsPage";
 
 export default createBrowserRouter([
   {
@@ -37,6 +38,7 @@ export default createBrowserRouter([
             children: [
               { path: "teacher", element: <TeacherPage /> },
               { path: "teacher/review/:sessionId", element: <ReviewPage /> },
+              { path: "teacher/check-questions", element: <CheckQuestionsPage /> },
             ],
           },
           {
