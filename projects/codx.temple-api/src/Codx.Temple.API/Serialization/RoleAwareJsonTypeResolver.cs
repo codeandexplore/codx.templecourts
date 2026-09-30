@@ -25,7 +25,7 @@ public sealed class RoleAwareJsonTypeResolver : DefaultJsonTypeInfoResolver
         prop.ShouldSerialize = (_, _) =>
         {
             var user = _httpContextAccessor.HttpContext?.User;
-            if (user?.Identity?.IsAuthenticated != true) return true;
+            if (user?.Identity?.IsAuthenticated != true) return false;
             return !user.IsInRole("Student");
         };
     }

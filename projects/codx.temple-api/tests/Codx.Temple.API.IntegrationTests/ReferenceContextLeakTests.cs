@@ -63,18 +63,16 @@ public class ReferenceContextLeakTests
     }
 
     [Fact]
-    public async Task Unauthenticated_ShouldStillSee_ReferenceContext()
+    public async Task Unauthenticated_ShouldNotSee_ReferenceContext()
     {
         var client = CreateTestClient();
 
-        // Unauthenticated requests still get reference_context
-        // because the serialization only strips for Student role
         var response = await client.GetAsync("/test/question");
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
         var json = await response.Content.ReadAsStringAsync();
         var doc = JsonDocument.Parse(json);
 
-        doc.RootElement.TryGetProperty("referenceContext", out _).Should().BeTrue();
+        doc.RootElement.TryGetProperty("referenceContext", out _).Should().BeFalse();
     }
 }
