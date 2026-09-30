@@ -4,8 +4,10 @@ public enum NotificationType
 {
     NewThreadMessage,
     AnswerFlagged,
+    AnswerReviewed,
     TeacherAssigned,
     AppointmentCreated,
     AppointmentReminder,
-    SessionStarted
+    SessionStarted,
+    SessionEnded
 }

@@ -67,6 +67,14 @@ public class StartStudySessionUseCase
         var session = StudySession.Create(attempt.Id, sequenceNumber, startQuestionId, currentQuestionId);
         session.Start();
         _db.StudySessions.Add(session);
+
+        var notification = Notification.Create(
+            attempt.StudentId,
+            NotificationType.SessionStarted,
+            "StudySession", session.Id,
+            DeliveryChannel.InApp);
+        _db.Notifications.Add(notification);
+
         await _db.SaveChangesAsync(cancellationToken);
 
         return MapToDto(session);

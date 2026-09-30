@@ -30,4 +30,36 @@ public class AppointmentsController : ControllerBase
         var result = await useCase.ExecuteAsync(ct);
         return Ok(result);
     }
+
+    [HttpGet("{appointmentId:guid}")]
+    public async Task<ActionResult<AppointmentDto>> Get(
+        Guid appointmentId,
+        [FromServices] GetAppointmentUseCase useCase,
+        CancellationToken ct)
+    {
+        var result = await useCase.ExecuteAsync(appointmentId, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("{appointmentId:guid}/confirm")]
+    [RequireRole("Teacher")]
+    public async Task<ActionResult<AppointmentDto>> Confirm(
+        Guid appointmentId,
+        [FromServices] ConfirmAppointmentUseCase useCase,
+        CancellationToken ct)
+    {
+        var result = await useCase.ExecuteAsync(appointmentId, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("{appointmentId:guid}/cancel")]
+    [RequireRole("Teacher")]
+    public async Task<ActionResult<AppointmentDto>> Cancel(
+        Guid appointmentId,
+        [FromServices] CancelAppointmentUseCase useCase,
+        CancellationToken ct)
+    {
+        var result = await useCase.ExecuteAsync(appointmentId, ct);
+        return Ok(result);
+    }
 }

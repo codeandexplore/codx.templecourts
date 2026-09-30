@@ -33,9 +33,18 @@ public class PostThreadMessageUseCase
         var message = ThreadMessage.Create(threadId, _currentUser.UserId, request.BodyText, request.SourceCheckQuestionId);
         _db.ThreadMessages.Add(message);
 
-        var recipientId = _currentUser.UserId == thread.StudentAnswer.StudentId
-            ? (Guid?)null // Teacher — notification triggers deferred to a later pass
-            : thread.StudentAnswer.StudentId;
+        Guid? recipientId;
+        if (_currentUser.UserId == thread.StudentAnswer.StudentId)
+        {
+            recipientId = await _db.TeacherAssignments
+                .Where(a => a.StudentId == thread.StudentAnswer.StudentId && a.Status == TeacherAssignmentStatus.Active)
+                .Select(a => (Guid?)a.PrimaryTeacherId)
+                .FirstOrDefaultAsync(ct);
+        }
+        else
+        {
+            recipientId = thread.StudentAnswer.StudentId;
+        }
 
         if (recipientId.HasValue)
         {
