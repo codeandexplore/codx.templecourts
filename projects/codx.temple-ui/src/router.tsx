@@ -13,6 +13,8 @@ import AdminPage from "./pages/AdminPage";
 import EditorPage from "./pages/EditorPage";
 import ReviewPage from "./pages/ReviewPage";
 import CheckQuestionsPage from "./pages/CheckQuestionsPage";
+import AppointmentsPage from "./pages/AppointmentsPage";
+import StudentAppointmentsPage from "./pages/StudentAppointmentsPage";
 
 export default createBrowserRouter([
   {
@@ -33,12 +35,14 @@ export default createBrowserRouter([
           { path: "lessons", element: <LessonsPage /> },
           { path: "lessons/:key", element: <LessonDetailPage /> },
           { path: "attempt/:attemptId", element: <AttemptPage /> },
+          { path: "appointments", element: <StudentAppointmentsPage /> },
           {
             element: <RequireRole role="Teacher" />,
             children: [
               { path: "teacher", element: <TeacherPage /> },
               { path: "teacher/review/:sessionId", element: <ReviewPage /> },
               { path: "teacher/check-questions", element: <CheckQuestionsPage /> },
+              { path: "teacher/appointments", element: <AppointmentsPage /> },
             ],
           },
           {
