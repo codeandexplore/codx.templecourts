@@ -58,6 +58,15 @@ public class AdminController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("audit-logs")]
+    public async Task<ActionResult<List<AuditLogDto>>> ListAuditLogs(
+        [FromServices] ListAuditLogsUseCase useCase,
+        CancellationToken cancellationToken)
+    {
+        var result = await useCase.ExecuteAsync(cancellationToken);
+        return Ok(result);
+    }
+
     [HttpPost("users/{userId:guid}/reset-password")]
     public async Task<IActionResult> ResetPassword(
         Guid userId,
