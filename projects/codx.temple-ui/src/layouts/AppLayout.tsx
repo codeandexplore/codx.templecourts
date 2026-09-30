@@ -1,6 +1,7 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { BookOpenIcon, AcademicCapIcon, UserGroupIcon, Cog6ToothIcon, HomeIcon, PencilSquareIcon, ClipboardDocumentListIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, AcademicCapIcon, UserGroupIcon, Cog6ToothIcon, HomeIcon, PencilSquareIcon, ClipboardDocumentListIcon, ChatBubbleLeftRightIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
+import NotificationBell from "../components/NotificationBell";
 
 export default function AppLayout() {
   const { user, isAuthenticated, roles, logout } = useAuth();
@@ -25,17 +26,22 @@ export default function AppLayout() {
           {isAuthenticated && <NavLink to="/lessons" icon={<BookOpenIcon className="size-5" />}>Lessons</NavLink>}
           {roles.includes("Teacher") && <NavLink to="/teacher" icon={<UserGroupIcon className="size-5" />}>Students</NavLink>}
           {roles.includes("Teacher") && <NavLink to="/teacher/check-questions" icon={<ChatBubbleLeftRightIcon className="size-5" />}>Check Questions</NavLink>}
+          {roles.includes("Teacher") && <NavLink to="/teacher/appointments" icon={<CalendarDaysIcon className="size-5" />}>Appointments</NavLink>}
+          {isAuthenticated && !roles.includes("Teacher") && <NavLink to="/appointments" icon={<CalendarDaysIcon className="size-5" />}>Appointments</NavLink>}
           {roles.includes("Admin") && <NavLink to="/admin" icon={<Cog6ToothIcon className="size-5" />}>Admin</NavLink>}
           {roles.includes("Admin") && <NavLink to="/admin/editor" icon={<PencilSquareIcon className="size-5" />}>Lesson Editor</NavLink>}
           {roles.includes("Admin") && <NavLink to="/admin" icon={<ClipboardDocumentListIcon className="size-5" />}>Assignments</NavLink>}
         </nav>
         {isAuthenticated && (
           <div className="border-t border-parchment-200 dark:border-slate-800 pt-4">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="size-8 rounded-full bg-cerulean-100 dark:bg-cerulean-900 flex items-center justify-center">
-                <AcademicCapIcon className="size-4 text-cerulean-600 dark:text-cerulean-400" />
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="size-8 rounded-full bg-cerulean-100 dark:bg-cerulean-900 flex items-center justify-center">
+                  <AcademicCapIcon className="size-4 text-cerulean-600 dark:text-cerulean-400" />
+                </div>
+                <p className="text-sm font-medium text-parchment-800 dark:text-slate-200 truncate">{user?.displayName}</p>
               </div>
-              <p className="text-sm font-medium text-parchment-800 dark:text-slate-200 truncate">{user?.displayName}</p>
+              <NotificationBell />
             </div>
             <button onClick={handleLogout} className="text-sm text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
               Sign out
