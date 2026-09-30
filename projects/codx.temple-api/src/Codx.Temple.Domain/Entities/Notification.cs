@@ -35,4 +35,11 @@ public class Notification
             CreatedAt = DateTimeOffset.UtcNow
         };
     }
+
+    public void MarkRead()
+    {
+        if (ReadAt.HasValue)
+            return;
+        ReadAt = DateTimeOffset.UtcNow;
+    }
 }

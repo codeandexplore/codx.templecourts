@@ -30,9 +30,11 @@ public class ClaimStudentUseCaseTests
         var student = User.CreateWithPassword("student@test.com", "hash", "Student");
         var students = new List<User> { student };
         var assignments = new List<TeacherAssignment>().AsQueryable();
+        var notifications = new List<Notification>().AsQueryable();
 
         _dbMock.Setup(db => db.Users).Returns(DbSetMockHelper.CreateMockDbSet(students).Object);
         _dbMock.Setup(db => db.TeacherAssignments).Returns(DbSetMockHelper.CreateMockDbSet(assignments).Object);
+        _dbMock.Setup(db => db.Notifications).Returns(DbSetMockHelper.CreateMockDbSet(notifications).Object);
 
         var result = await _useCase.ExecuteAsync(student.Id);
 

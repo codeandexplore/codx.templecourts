@@ -37,6 +37,21 @@ public class ReassignStudentUseCase
 
         var assignment = TeacherAssignment.Create(request.StudentId, request.NewTeacherId, _currentUser.UserId);
         _db.TeacherAssignments.Add(assignment);
+
+        var studentNotification = Notification.Create(
+            request.StudentId,
+            NotificationType.TeacherAssigned,
+            "TeacherAssignment", assignment.Id,
+            DeliveryChannel.InApp);
+        _db.Notifications.Add(studentNotification);
+
+        var newTeacherNotification = Notification.Create(
+            request.NewTeacherId,
+            NotificationType.TeacherAssigned,
+            "TeacherAssignment", assignment.Id,
+            DeliveryChannel.InApp);
+        _db.Notifications.Add(newTeacherNotification);
+
         await _db.SaveChangesAsync(cancellationToken);
 
         var audit = AuditLog.Create("StudentReassigned", _currentUser.UserId, request.StudentId,

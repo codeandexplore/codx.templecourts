@@ -31,6 +31,14 @@ public class ClaimStudentUseCase
 
         var assignment = TeacherAssignment.Create(studentId, _currentUser.UserId, _currentUser.UserId);
         _db.TeacherAssignments.Add(assignment);
+
+        var notification = Notification.Create(
+            studentId,
+            NotificationType.TeacherAssigned,
+            "TeacherAssignment", assignment.Id,
+            DeliveryChannel.InApp);
+        _db.Notifications.Add(notification);
+
         await _db.SaveChangesAsync(cancellationToken);
 
         return new TeacherAssignmentDto(
