@@ -1,7 +1,7 @@
 ﻿import { useState, useRef, useEffect } from "react";
 import { useListLessonsQuery, useCreateLessonMutation } from "../services/lessonsApi";
 import { useListRoleAssignmentsQuery, useAssignRoleMutation, useGetAssignmentsQuery, useListUsersQuery, useRevokeRoleMutation } from "../services/adminApi";
-import { BookOpenIcon, PlusIcon, ShieldCheckIcon, ClipboardDocumentListIcon, UserIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, PlusIcon, ShieldCheckIcon, ClipboardDocumentListIcon, UserIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card, CardContent } from "../components/ui/card";
@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../components/ui/dialog";
 import AssignmentsTab from "../components/admin/AssignmentsTab";
 import UsersTab from "../components/admin/UsersTab";
+import AuditLogTab from "../components/admin/AuditLogTab";
 
 export default function AdminPage() {
   return (
@@ -46,6 +47,10 @@ export default function AdminPage() {
                 <UserIcon className="size-4 mr-1.5" />
                 Users
               </TabsTrigger>
+              <TabsTrigger value="audit">
+                <ClockIcon className="size-4 mr-1.5" />
+                Audit Log
+              </TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value="lessons">
@@ -59,6 +64,9 @@ export default function AdminPage() {
           </TabsContent>
           <TabsContent value="users">
             <UsersTab />
+          </TabsContent>
+          <TabsContent value="audit">
+            <AuditLogTab />
           </TabsContent>
         </Card>
       </Tabs>

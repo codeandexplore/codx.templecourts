@@ -31,6 +31,17 @@ export interface UserDto {
   roles: string[];
 }
 
+export interface AuditLogDto {
+  id: string;
+  action: string;
+  performedById: string;
+  performedByDisplayName: string;
+  targetUserId: string | null;
+  targetUserDisplayName: string | null;
+  metadata: string | null;
+  createdAt: string;
+}
+
 const adminApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     listRoleAssignments: builder.query<RoleAssignmentDto[], void>({
@@ -75,6 +86,10 @@ const adminApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Users"],
     }),
+    listAuditLogs: builder.query<AuditLogDto[], void>({
+      query: () => "/admin/audit-logs",
+      providesTags: ["AuditLogs"],
+    }),
   }),
 });
 
@@ -87,4 +102,5 @@ export const {
   useRevokeRoleMutation,
   useResetUserPasswordMutation,
   useUpdateUserStatusMutation,
+  useListAuditLogsQuery,
 } = adminApi;
