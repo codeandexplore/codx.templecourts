@@ -56,6 +56,14 @@ public class MarkAnswerReviewedUseCase
                     request.LessonAttemptId,
                     session.Id);
                 _db.AnswerFlags.Add(flag);
+
+                var notification = Notification.Create(
+                    attempt.StudentId,
+                    NotificationType.AnswerFlagged,
+                    "AnswerFlag", flag.Id,
+                    DeliveryChannel.InApp);
+                _db.Notifications.Add(notification);
+
                 await _db.SaveChangesAsync(cancellationToken);
             }
 
@@ -65,6 +73,14 @@ public class MarkAnswerReviewedUseCase
         }
 
         answer.MarkReviewed(_currentUser.UserId, session.Id);
+        await _db.SaveChangesAsync(cancellationToken);
+
+        var reviewedNotification = Notification.Create(
+            answer.StudentId,
+            NotificationType.AnswerReviewed,
+            "StudentAnswer", answer.Id,
+            DeliveryChannel.InApp);
+        _db.Notifications.Add(reviewedNotification);
         await _db.SaveChangesAsync(cancellationToken);
 
         var thread = await _db.AnswerThreads

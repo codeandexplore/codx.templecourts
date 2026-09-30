@@ -1,6 +1,7 @@
 using Codx.Temple.Application.Abstractions;
 using Codx.Temple.Application.DTOs.StudySessions;
 using Codx.Temple.Application.Exceptions;
+using Codx.Temple.Domain.Entities;
 using Codx.Temple.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ public class EndStudySessionUseCase
     public virtual async Task<StudySessionDto> ExecuteAsync(Guid sessionId, CancellationToken cancellationToken = default)
     {
         var session = await _db.StudySessions
+            .Include(s => s.LessonAttempt)
             .FirstOrDefaultAsync(s => s.Id == sessionId, cancellationToken)
             ?? throw new NotFoundException(nameof(Domain.Entities.StudySession), sessionId);
 
@@ -25,6 +27,14 @@ public class EndStudySessionUseCase
             throw new InvalidOperationException("Session is not in progress");
 
         session.Complete();
+        await _db.SaveChangesAsync(cancellationToken);
+
+        var notification = Notification.Create(
+            session.LessonAttempt.StudentId,
+            NotificationType.SessionEnded,
+            "StudySession", session.Id,
+            DeliveryChannel.InApp);
+        _db.Notifications.Add(notification);
         await _db.SaveChangesAsync(cancellationToken);
 
         return new StudySessionDto(
