@@ -11,16 +11,19 @@ public class ConfirmAppointmentUseCase
 {
     private readonly IAppDbContext _db;
     private readonly ICurrentUserAccessor _currentUser;
+    private readonly IEmailService _email;
 
-    public ConfirmAppointmentUseCase(IAppDbContext db, ICurrentUserAccessor currentUser)
+    public ConfirmAppointmentUseCase(IAppDbContext db, ICurrentUserAccessor currentUser, IEmailService email)
     {
         _db = db;
         _currentUser = currentUser;
+        _email = email;
     }
 
     public virtual async Task<AppointmentDto> ExecuteAsync(Guid appointmentId, CancellationToken ct = default)
     {
         var appt = await _db.StudySchedules
+            .Include(a => a.Student)
             .FirstOrDefaultAsync(a => a.Id == appointmentId, ct)
             ?? throw new NotFoundException(nameof(StudySchedule), appointmentId);
 
@@ -37,6 +40,8 @@ public class ConfirmAppointmentUseCase
             DeliveryChannel.InApp);
         _db.Notifications.Add(notification);
         await _db.SaveChangesAsync(ct);
+
+        _ = _email.SendAsync(appt.Student.Email, "Study Session Confirmed", $"Your study session on {appt.ScheduledAt:g} has been confirmed.", ct);
 
         return MapToDto(appt);
     }

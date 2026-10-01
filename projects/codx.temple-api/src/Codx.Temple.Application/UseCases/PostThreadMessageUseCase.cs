@@ -11,11 +11,13 @@ public class PostThreadMessageUseCase
 {
     private readonly IAppDbContext _db;
     private readonly ICurrentUserAccessor _currentUser;
+    private readonly IEmailService _email;
 
-    public PostThreadMessageUseCase(IAppDbContext db, ICurrentUserAccessor currentUser)
+    public PostThreadMessageUseCase(IAppDbContext db, ICurrentUserAccessor currentUser, IEmailService email)
     {
         _db = db;
         _currentUser = currentUser;
+        _email = email;
     }
 
     public virtual async Task<ThreadMessageDto> ExecuteAsync(Guid threadId, PostMessageRequest request, CancellationToken ct = default)
@@ -57,6 +59,19 @@ public class PostThreadMessageUseCase
         }
 
         await _db.SaveChangesAsync(ct);
+
+        if (recipientId.HasValue)
+        {
+            var recipientEmail = await _db.Users
+                .Where(u => u.Id == recipientId.Value)
+                .Select(u => u.Email)
+                .FirstOrDefaultAsync(ct);
+
+            if (!string.IsNullOrEmpty(recipientEmail))
+            {
+                _ = _email.SendAsync(recipientEmail, "New message in your lesson thread", request.BodyText, ct);
+            }
+        }
 
         return new ThreadMessageDto(message.Id, message.AuthorId, _currentUser.DisplayName ?? "", message.BodyText, message.SourceCheckQuestionId, message.CreatedAt);
     }

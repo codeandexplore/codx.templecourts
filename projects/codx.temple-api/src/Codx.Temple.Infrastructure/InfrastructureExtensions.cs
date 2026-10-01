@@ -23,9 +23,13 @@ public static class InfrastructureExtensions
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IGoogleAuthService, GoogleAuthService>();
-        services.AddScoped<IEmailService, LoggingEmailService>();
+        services.AddScoped<IEmailService, MailgunEmailService>();
 
         services.AddHttpClient("GoogleAuth");
+        services.AddHttpClient("Mailgun", c =>
+        {
+            c.Timeout = TimeSpan.FromSeconds(30);
+        });
 
         return services;
     }
